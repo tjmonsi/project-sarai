@@ -9,9 +9,12 @@
   "scripts": {    
     "lint": "eslint ./lib ./client ./server --ext .js --ext .jsx",
     "lintfix": "npm run lint -- --fix",
-    "testonly": "mocha $npm_package_options_mocha",
+    "client-test": "mocha $npm_package_options_mocha",
+    "testonly": "npm run client-test",
     "test": "npm run lint && npm run testonly",
-    "watch-tests": "mocha $npm_package_options_mocha --watch"
+    "watch-tests": "mocha $npm_package_options_mocha --watch",
+    "start": "npm install && meteor",
+    "postinstall": "cp node_modules/material-design-lite/material.css lib/client/head/"
   },
   "repository": {
     "type": "git",
