@@ -7,6 +7,7 @@
     "mocha": "--require .scripts/mocha_runner lib/client/**/tests/**/*.js"
   },
   "scripts": {
+    "sass-lint": "sass-lint -v",
     "lint": "eslint ./lib ./client ./server --ext .js --ext .jsx",
     "lintfix": "npm run lint -- --fix",
     "client-test": "mocha $npm_package_options_mocha",
@@ -14,7 +15,7 @@
     "test": "npm run lint && npm run testonly",
     "watch-tests": "mocha $npm_package_options_mocha --watch",
     "start": "npm install && meteor",
-    "postinstall": "cp node_modules/material-design-lite/material.css lib/client/general-module/configs/head/"
+    "postinstall": "cp node_modules/material-design-lite/material.css lib/client/lib-module/configs/head/"
   },
   "repository": {
     "type": "git",
@@ -54,6 +55,7 @@
     "eslint-plugin-react": "^3.15.0",
     "mocha": "^2.3.4",
     "react-addons-test-utils": "^0.14.6",
+    "sass-lint": "^1.4.0",
     "sinon": "^1.17.2"
   }
 }
