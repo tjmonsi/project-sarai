@@ -16,7 +16,8 @@ Package.onUse(function(api) {
   var packages = [
     'meteor-base',
     'mongo',
-    'blaze-html-templates',        
+    // 'blaze-html-templates',
+    'static-html',
     'jquery',
     'tracker',
     'standard-minifiers',

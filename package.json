@@ -6,7 +6,7 @@
   "options": {
     "mocha": "--require .scripts/mocha_runner client/**tests/**/*.js"
   },
-  "scripts": {    
+  "scripts": {
     "lint": "eslint ./lib ./client ./server --ext .js --ext .jsx",
     "lintfix": "npm run lint -- --fix",
     "client-test": "mocha $npm_package_options_mocha",
@@ -32,6 +32,7 @@
     "moment": "^2.10.6",
     "react": "^0.14.5",
     "react-dom": "^0.14.6",
+    "react-google-maps": "^4.7.2",
     "react-komposer": "^1.2.1",
     "react-mounter": "^1.0.0",
     "react-redux": "^4.0.6",
