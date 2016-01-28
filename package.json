@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "options": {
-    "mocha": "--require .scripts/mocha_runner lib/client/**/tests/**/*.js"
+    "mocha": "--require .scripts/mocha_runner imports/**/tests/**/*.js"
   },
   "scripts": {
     "sass-lint": "sass-lint -v",
@@ -15,7 +15,7 @@
     "test": "npm run lint && npm run testonly",
     "watch-tests": "mocha $npm_package_options_mocha --watch",
     "start": "npm install && meteor",
-    "postinstall": "cp node_modules/material-design-lite/material.css lib/client/lib-module/configs/head/"
+    "postinstall": "cp node_modules/material-design-lite/material.css client/"
   },
   "repository": {
     "type": "git",
@@ -29,12 +29,14 @@
   "homepage": "https://github.com/tjmonsi/project-sarai",
   "dependencies": {
     "classnames": "^2.2.3",
+    "marked": "^0.3.5",
     "material-design-lite": "^1.0.6",
     "moment": "^2.10.6",
     "react": "^0.14.5",
     "react-dom": "^0.14.6",
     "react-google-maps": "^4.7.2",
     "react-komposer": "^1.2.1",
+    "react-markdown": "^1.2.3",
     "react-mounter": "^1.0.0",
     "react-redux": "^4.0.6",
     "react-simple-di": "^1.0.1",
@@ -54,7 +56,10 @@
     "eslint-plugin-meteor": "^1.7.0",
     "eslint-plugin-react": "^3.15.0",
     "mocha": "^2.3.4",
+    "react": "^0.14.6",
     "react-addons-test-utils": "^0.14.6",
+    "redux": "^3.0.6",
+    "redux-devtools": "^3.0.1",
     "sass-lint": "^1.4.0",
     "sinon": "^1.17.2"
   }
