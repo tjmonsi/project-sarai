@@ -12,8 +12,8 @@ export default (injectDeps, context) => {
       mount(LandingCtx, {
         appBar: React.createElement(CoreAppBar),
         appDrawer: React.createElement(CoreAppDrawer),
-        content: React.createElement(CoreRootContent)
-        // footer: React.createElement(CoreFooter)
+        content: React.createElement(CoreRootContent),
+        footer: React.createElement(CoreFooter)
       });
     }
   });
