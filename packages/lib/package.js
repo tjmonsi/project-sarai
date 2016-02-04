@@ -11,7 +11,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.3-modules-beta.4');
+  api.versionsFrom('1.3-modules-beta.6');
 
   var packages = [
     'meteor-base',
@@ -29,6 +29,7 @@ Package.onUse(function(api) {
     'fourseven:scss@3.4.1',
     'meteorhacks:kadira@2.27.2',
     'meteorhacks:kadira-profiler@1.2.1',
+    'meteorhacks:picker@1.0.3',
     'kadira:debug@3.0.1',
     'kadira:flow-router@2.10.0',    
     'meteorhacks:sikka@1.0.1',
