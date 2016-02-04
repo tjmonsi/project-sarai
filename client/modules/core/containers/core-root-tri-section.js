@@ -1,13 +1,16 @@
 import React from 'react';
 import {TriSection, SectionCard} from '/client/modules/ui-components';
-import {useDeps} from '/client/libs/mantra';
+import {useDeps, compose, composeAll} from 'mantra-core';
 
-
-const depsToSectionList = (context, action) => ({
-  sections: action.core.getSectionCard().map((section) => {
+const composer = ({services}, onData) => {
+  const sections = services.services.map((section) => {
     return React.createElement(SectionCard, section);
-  }),
-  spacing: true
-});
+  });
+  const spacing = true;
+  onData(null, {sections, spacing});
+};
 
-export default useDeps(depsToSectionList)(TriSection);
+export default composeAll(
+  compose(composer),
+  useDeps()
+)(TriSection);

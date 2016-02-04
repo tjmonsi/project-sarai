@@ -1,7 +1,7 @@
 import React from 'react';
 import GovernmentFooter from './../components/government-footer.jsx';
 import {SectionList, FooterSection, FooterLinks, FooterText} from '/client/modules/ui-components';
-import {useDeps} from '/client/libs/mantra';
+import {useDeps} from 'mantra-core';
 
 
 const depsToSectionList = () => ({

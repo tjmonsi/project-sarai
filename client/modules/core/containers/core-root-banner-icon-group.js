@@ -1,6 +1,6 @@
 import React from 'react';
 import {Icon, IconGroup} from '/client/modules/ui-components';
-import {useDeps} from '/client/libs/mantra';
+import {useDeps} from 'mantra-core';
 
 
 const depsToIconGroup = (context, action) => ({

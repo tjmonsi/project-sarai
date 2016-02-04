@@ -1,6 +1,6 @@
 import React from 'react';
 import {AppTitle, AppLogo} from '/client/modules/ui-components';
-import {composeAll, compose, useDeps} from '/client/libs/mantra';
+import {composeAll, compose, useDeps} from 'mantra-core';
 
 const composer = ({position}, onData) => {
   const title = ( position === 'app-bar' ) ?

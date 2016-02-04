@@ -1,24 +1,4 @@
 export default {
-  getCoreMenu() {
-    return [
-      {
-        href: '',
-        label: 'About SARAI'
-      },
-      {
-        href: '',
-        label: 'SARAI Maps'
-      },
-      {
-        href: '',
-        label: 'SARAI Services'
-      },
-      {
-        href: '',
-        label: 'Login'
-      }
-    ];
-  },
   getSectionCard() {
     return [
       {

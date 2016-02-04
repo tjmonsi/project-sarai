@@ -29,6 +29,7 @@
   "homepage": "https://github.com/tjmonsi/project-sarai",
   "dependencies": {
     "classnames": "^2.2.3",
+    "mantra-core": "^1.2.0",
     "marked": "^0.3.5",
     "material-design-lite": "^1.0.6",
     "moment": "^2.10.6",

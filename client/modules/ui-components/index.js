@@ -15,6 +15,7 @@ import FooterText from './components/molecules/footer-text.jsx';
 
 import SectionList from './components/organisms/section-list.jsx';
 import TriSection from './components/organisms/tri-section.jsx';
+import QuadSection from './components/organisms/quad-section.jsx';
 import Banner from './components/organisms/banner.jsx';
 import FooterSection from './components/organisms/footer-section.jsx';
 
@@ -35,7 +36,7 @@ export default {
   NavLink,
   NavList,
   Landing,
-  load: () => null,
+  QuadSection,
   SectionCard,
   SectionList,
   TriSection
