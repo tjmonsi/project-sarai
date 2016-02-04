@@ -51,6 +51,6 @@
   "globals": {
     /* Internal Globals */    
     "componentHandler": true,
-    "__meteor_runtime_config__": true,
+    "__meteor_runtime_config__": true
   }
 }

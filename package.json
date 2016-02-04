@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "options": {
-    "mocha": "--require .scripts/mocha_runner imports/**/tests/**/*.js"
+    "mocha": "--require .scripts/mocha_runner lib/**/tests/*.js client/**/tests/**/*.js server/**/tests/**/*.js"
   },
   "scripts": {
     "sass-lint": "sass-lint -v",

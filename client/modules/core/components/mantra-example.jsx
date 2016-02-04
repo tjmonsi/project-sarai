@@ -4,16 +4,15 @@ class MantraExampleComponent extends React.Component {
   componentDidMount() {
     // all javascript
   }
-  callFunction() {
-    const {list} = this.props;
-    console.log(list);
+  handleFunction() {
+    // const {list} = this.props;
   }
   renderList() {
     const {list} = this.props;
     return list.map((element, key) => {
       return (
         <div key={key}>
-          <div onClick={this.callFunction.bind(this)}>{'href'} {element.href}</div>
+          <div onClick={this.handleFunction} >{'href'} {element.href}</div>
           <div>{'label'} {element.label}</div>
         </div>
       );
@@ -23,11 +22,9 @@ class MantraExampleComponent extends React.Component {
     return (
       <div className = "mantra-example">
         <input
-          ref="x"
           type="text"
         />
         {this.renderList()}
-        {this.refs.x}
       </div>
     );
   }
