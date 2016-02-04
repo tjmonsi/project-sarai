@@ -5,6 +5,8 @@ class SaraiPartners extends React.Component {
     if (componentHandler) {
       componentHandler.upgradeDom();
     }
+
+    // Added comments at Sarai Partners
   }
   componentDidUpdate() {
     if (componentHandler) {
