@@ -6,6 +6,7 @@ class MantraExampleComponent extends React.Component {
   }
   handleFunction() {
     // const {list} = this.props;
+    // added comment
   }
   renderList() {
     const {list} = this.props;
