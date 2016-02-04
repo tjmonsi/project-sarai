@@ -18,6 +18,7 @@ Package.onUse(function(api) {
     'mongo',
     // 'blaze-html-templates',
     'static-html',
+    'session',
     'jquery',
     'tracker',
     'standard-minifiers',
