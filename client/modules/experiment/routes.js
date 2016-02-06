@@ -1,5 +1,5 @@
 import React from 'react';
-import {Landing} from '/client/modules/ui-components';
+import {Landing, MarkdownTextarea} from '/client/modules/ui-components';
 import FileUploader from './components/file-uploader.jsx';
 
 export default (injectDeps, context) => {
@@ -10,6 +10,14 @@ export default (injectDeps, context) => {
     action() {
       mount(LandingCtx, {
         content: React.createElement(FileUploader),
+      });
+    }
+  });
+
+  FlowRouter.route('/markdown-textarea-experiment', {
+    action() {
+      mount(LandingCtx, {
+        content: React.createElement(MarkdownTextarea),
       });
     }
   });

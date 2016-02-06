@@ -6,12 +6,14 @@ import _AppBar from './components/organisms/app-bar.jsx';
 import _AppDrawer from './components/organisms/app-drawer.jsx';
 
 import _Icon from './components/atoms/icon.jsx';
+import _MdlIconButton from './components/atoms/mdl-icon-button.jsx';
 
 import _BannerTitle from './components/molecules/banner-title.jsx';
 import _IconGroup from './components/molecules/icon-group.jsx';
 import _SectionCard from './components/molecules/section-card.jsx';
 import _FooterLinks from './components/molecules/footer-links.jsx';
 import _FooterText from './components/molecules/footer-text.jsx';
+import _MarkdownTextarea from './components/molecules/markdown-textarea.jsx';
 
 import _SectionList from './components/organisms/section-list.jsx';
 import _TriSection from './components/organisms/tri-section.jsx';
@@ -20,6 +22,8 @@ import _Banner from './components/organisms/banner.jsx';
 import _FooterSection from './components/organisms/footer-section.jsx';
 
 import _Landing from './components/templates/landing.jsx';
+
+import * as _textareaLib from './libs/textarea.js';
 
 export const AppBar = _AppBar;
 export const AppDrawer = _AppDrawer;
@@ -39,3 +43,7 @@ export const QuadSection = _QuadSection;
 export const SectionCard = _SectionCard;
 export const SectionList = _SectionList;
 export const TriSection = _TriSection;
+export const MdlIconButton = _MdlIconButton;
+export const MarkdownTextarea = _MarkdownTextarea;
+
+export const textareaLib = _textareaLib;
