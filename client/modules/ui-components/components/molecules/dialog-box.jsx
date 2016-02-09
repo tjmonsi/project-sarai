@@ -53,13 +53,13 @@ class DialogBox extends React.Component {
         className={className}
         ref={dialog}
       >
-        <h4 className="mdl-dialog__title">
+        <div className="mdl-dialog__title dialog-box-title">
           {title}
-        </h4>
-        <div className="mdl-dialog__content">
+        </div>
+        <div className="mdl-dialog__content dialog-box-content">
           {content}
         </div>
-        <div className="mdl-dialog__actions">
+        <div className="mdl-dialog__actions dialog-box-actions">
           {this.renderActions()}
         </div>
       </dialog>

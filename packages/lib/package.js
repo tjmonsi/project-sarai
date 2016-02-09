@@ -50,9 +50,17 @@ Package.onUse(function(api) {
 
   api.use(packages);
   api.imply(packages);
+
+  // hack to use gcloud from atmosphere
+  api.mainModule('index.js', 'server');
+  api.export('gcloud', 'server');
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
   api.use('sarai:lib');
+});
+
+Npm.depends({
+  'gcloud': '0.27.0'
 });

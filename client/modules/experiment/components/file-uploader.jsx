@@ -1,6 +1,6 @@
 const {XMLHttpRequest, FormData} = global;
-import {Accounts} from 'meteor/accounts-base';
-import {Meteor} from 'meteor/meteor';
+// import {Accounts} from 'meteor/accounts-base';
+// import {Meteor} from 'meteor/meteor';
 import React from 'react';
 
 class FileUploaderExperiment extends React.Component {
@@ -16,8 +16,8 @@ class FileUploaderExperiment extends React.Component {
       const xhr = new XMLHttpRequest();
       const fd = new FormData();
       xhr.open('POST', uri, true);
-      xhr.setRequestHeader('x-user-id', Meteor.userId());
-      xhr.setRequestHeader('x-user-token', Accounts._storedLoginToken());
+      // xhr.setRequestHeader('x-user-id', Meteor.userId());
+      // xhr.setRequestHeader('x-user-token', Accounts._storedLoginToken());
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
           console.log(xhr.responseText);

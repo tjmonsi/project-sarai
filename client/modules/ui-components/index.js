@@ -7,6 +7,7 @@ import _AppDrawer from './components/organisms/app-drawer.jsx';
 
 import _Icon from './components/atoms/icon.jsx';
 import _MdlIconButton from './components/atoms/mdl-icon-button.jsx';
+import _MdlInputText from './components/atoms/mdl-input-text.jsx';
 
 import _BannerTitle from './components/molecules/banner-title.jsx';
 import _IconGroup from './components/molecules/icon-group.jsx';
@@ -47,5 +48,6 @@ export const TriSection = _TriSection;
 export const MdlIconButton = _MdlIconButton;
 export const MarkdownTextarea = _MarkdownTextarea;
 export const DialogBox = _DialogBox;
+export const MdlInputText = _MdlInputText;
 
 export const textareaLib = _textareaLib;

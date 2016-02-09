@@ -73,7 +73,9 @@ export const extractSelectedText = (el) => {
 
 export const replaceSelectedText = (el, text) => {
   const sel = getInputSelection(el), val = el.value;
-  el.value = val.slice(0, sel.start) + text + val.slice(sel.end);
+  let newText = sel.start > 0 && val.slice(sel.start - 1)[0] !== ' ' ? ` ${text}` : text;
+  newText = sel.end < val.length - 1 && val.slice(sel.end)[0] !== ' ' ? `${newText} ` : newText;
+  el.value = val.slice(0, sel.start) + newText + val.slice(sel.end);
 };
 
 export const bold = (el) => {
@@ -81,7 +83,7 @@ export const bold = (el) => {
   if (text === '') {
     replaceSelectedText(el, '**strong text**');
   } else {
-    const replacetext = /\*\*(\s|\S)*\*\*/.test(text) ?
+    const replacetext = /\*\*(\s|\S)*\*\*/.test(text.trim()) ?
       text.slice(2, text.length - 2) : `**${text}**`;
     replaceSelectedText(el, replacetext);
   }
@@ -92,7 +94,7 @@ export const italics = (el) => {
   if (text === '') {
     replaceSelectedText(el, '_italicized text_');
   } else {
-    const replacetext = /_(\s|\S)*_/.test(text) ?
+    const replacetext = /_(\s|\S)*_/.test(text.trim()) ?
       text.slice(1, text.length - 1) : `_${text}_`;
     replaceSelectedText(el, replacetext);
   }
@@ -107,7 +109,7 @@ export const insertLink = (el, link = 'enter link here') => {
 export const blockquote = (el) => {
   const text = extractSelectedText(el);
   if (text !== '') {
-    const replacetext = /> (\s|\S)+/.test(text) ?
+    const replacetext = /> (\s|\S)+/.test(text.trim()) ?
       text.slice(1, text.length) : `> ${text}`;
     replaceSelectedText(el, replacetext);
   }
@@ -118,7 +120,7 @@ export const preformated = (el) => {
   if (text === '') {
     replaceSelectedText(el, '`preformated text`');
   } else {
-    const replacetext = /`(\s|\S)*`/.test(text) ?
+    const replacetext = /`(\s|\S)*`/.test(text.trim()) ?
       text.slice(1, text.length - 1) : `\`${text}\``;
     replaceSelectedText(el, replacetext);
   }
@@ -129,7 +131,7 @@ export const bulletItem = (el) => {
   if (text === '') {
     replaceSelectedText(el, '\n* List Item');
   } else {
-    const replacetext = /`\* (\s|\S)+`/.test(text) ?
+    const replacetext = /`\* (\s|\S)+`/.test(text.trim()) ?
       text.slice(2, text.length) : `* ${text}`;
     replaceSelectedText(el, replacetext);
   }
@@ -140,7 +142,7 @@ export const numberItem = (el) => {
   if (text === '') {
     replaceSelectedText(el, '\n1. List Item');
   } else {
-    const replacetext = /`(\d)+\. (\s|\S)+`/.test(text) ?
+    const replacetext = /`(\d)+\. (\s|\S)+`/.test(text.trim()) ?
       text.slice(2, text.length) : `1. ${text}`;
     replaceSelectedText(el, replacetext);
   }
