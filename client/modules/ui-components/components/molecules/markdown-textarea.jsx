@@ -1,10 +1,15 @@
 import React from 'react';
 import MdlIconButton from './../atoms/mdl-icon-button.jsx';
+import DialogBox from './../molecules/dialog-box.jsx';
 import {bold, italics, insertLink,
   preformated, numberItem, blockquote,
   bulletItem} from './../../libs/textarea.js';
 
 class MarkdownTextarea extends React.Component {
+  constructor() {
+    super();
+    this.openDialogLink = this.openDialogLink.bind(this);
+  }
   componentDidMount() {
     if (componentHandler) {
       componentHandler.upgradeDom();
@@ -18,44 +23,67 @@ class MarkdownTextarea extends React.Component {
   getValue() {
     return this.textarea.value;
   }
+  openDialogLink() {
+    this.dialogBox.openDialog();
+  }
+  insertLinkActions() {
+    return [
+      {
+        handleCallback: () => {
+          this.dialogBox.closeDialog();
+        },
+        label: 'Close'
+      }
+    ];
+  }
+  renderInsertLink() {
+    return (
+      <div className="">
+        {'This is a test'}
+      </div>
+    );
+  }
   render() {
     const {id, label} = this.props;
     const textareaRef = (c) => {
       this.textarea = c;
+    };
+    const dialogBox = (c) => {
+      this.dialogBox = c;
     };
     return (
       <div className="markdown-textarea">
         <div className="mdl-grid mdl-grid--no-spacing">
           <div className="mdl-cell mdl-cell--12-col">
             <MdlIconButton
-              callback={bold}
+              handleCallback={bold}
               icon="format_bold"
             />
             <MdlIconButton
-              callback={italics}
+              handleCallback={italics}
               icon="format_italic"
             />
             <MdlIconButton
-              callback={insertLink}
+              handleCallback={insertLink}
               icon="insert_link"
             />
             <MdlIconButton
-              callback={blockquote}
+              handleCallback={blockquote}
               icon="format_quote"
             />
             <MdlIconButton
-              callback={preformated}
+              handleCallback={preformated}
               icon="code"
             />
             <MdlIconButton
               icon="insert_photo"
             />
             <MdlIconButton
-              callback={bulletItem}
+              handleCallback={bulletItem}
               icon="format_list_bulleted"
             />
             <MdlIconButton
-              callback={numberItem}
+              handleCallback={numberItem}
               icon="format_list_numbered"
             />
             <MdlIconButton
@@ -84,6 +112,12 @@ class MarkdownTextarea extends React.Component {
             </div>
           </div>
         </div>
+        <DialogBox
+          actions={this.insertLinkActions()}
+          content={this.renderInsertLink()}
+          title="Insert Link"
+          ref={dialogBox}
+        />
       </div>
     );
   }

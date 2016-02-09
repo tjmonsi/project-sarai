@@ -13,13 +13,13 @@ class MdlIconButton extends React.Component {
     }
   }
   render() {
-    const {callback, icon, classList} = this.props;
+    const {handleCallback, icon, classList} = this.props;
     const className = classNames('mdl-button', 'mdl-js-button',
       'mdl-button--icon', 'icon-button', classList);
     return (
       <button
         className={className}
-        onClick={callback}
+        onClick={handleCallback}
       >
         <i className="material-icons">
           {icon}
@@ -30,14 +30,14 @@ class MdlIconButton extends React.Component {
 }
 
 MdlIconButton.propTypes = {
-  callback: React.PropTypes.func,
   classList: React.PropTypes.arrayOf(React.PropTypes.string),
+  handleCallback: React.PropTypes.func,
   icon: React.PropTypes.string
 };
 
 MdlIconButton.defaultProps = {
-  callback: () => null,
   classList: [],
+  handleCallback: () => null,
   icon: 'format_bold'
 };
 

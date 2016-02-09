@@ -29,9 +29,10 @@
   "homepage": "https://github.com/tjmonsi/project-sarai",
   "dependencies": {
     "classnames": "^2.2.3",
+    "dialog-polyfill": "^0.4.2",
     "mantra-core": "^1.2.0",
     "marked": "^0.3.5",
-    "material-design-lite": "^1.0.6",
+    "material-design-lite": "^1.1.1",
     "moment": "^2.10.6",
     "multiparty": "^4.1.2",
     "react": "^0.14.5",
@@ -45,7 +46,7 @@
     "redux": "^3.0.5"
   },
   "devDependencies": {
-    "babel-core": "^6.4.5",
+    "babel-core": "6.4.5",
     "babel-eslint": "^5.0.0-beta6",
     "babel-plugin-react-require": "^2.1.0",
     "babel-polyfill": "^6.3.14",

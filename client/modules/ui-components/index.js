@@ -14,6 +14,7 @@ import _SectionCard from './components/molecules/section-card.jsx';
 import _FooterLinks from './components/molecules/footer-links.jsx';
 import _FooterText from './components/molecules/footer-text.jsx';
 import _MarkdownTextarea from './components/molecules/markdown-textarea.jsx';
+import _DialogBox from './components/molecules/dialog-box.jsx';
 
 import _SectionList from './components/organisms/section-list.jsx';
 import _TriSection from './components/organisms/tri-section.jsx';
@@ -45,5 +46,6 @@ export const SectionList = _SectionList;
 export const TriSection = _TriSection;
 export const MdlIconButton = _MdlIconButton;
 export const MarkdownTextarea = _MarkdownTextarea;
+export const DialogBox = _DialogBox;
 
 export const textareaLib = _textareaLib;
