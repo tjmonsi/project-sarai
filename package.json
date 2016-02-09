@@ -15,7 +15,7 @@
     "test": "npm run lint && npm run testonly",
     "watch-tests": "mocha $npm_package_options_mocha --watch",
     "start": "npm install && meteor",
-    "postinstall": "cp node_modules/material-design-lite/material.css client/"
+    "postinstall": "cp node_modules/material-design-lite/material.css client/ && rm -Ir node_modules/util"
   },
   "repository": {
     "type": "git",
@@ -63,7 +63,6 @@
     "react-addons-test-utils": "^0.14.6",
     "redux": "^3.0.6",
     "redux-devtools": "^3.0.1",
-    "sass-lint": "^1.4.0",
     "sinon": "^1.17.2"
   }
 }
