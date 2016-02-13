@@ -35,14 +35,3 @@ export default composeAll(
   composeWithTracker(composerLandingPage),
   useDeps()
 )(SectionList);
-
-// const depsToSectionList = () => ({
-//   sections: [
-//     React.createElement(CoreRootBanner),
-//     React.createElement(CoreRootTriSection),
-//     React.createElement(SaraiPartners)
-//   ],
-//   spacing: false
-// });
-
-// export default useDeps(depsToSectionList)(SectionList);

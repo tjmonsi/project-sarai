@@ -13,8 +13,8 @@ export default (injectDeps, context) => {
     name: 'core.root',
     action() {
       mount(LandingCtx, {
-        appBar: React.createElement(CoreAppBar), // (<CoreAppBar>)
-        appDrawer: React.createElement(CoreAppDrawer),
+        appBar: React.createElement(CoreAppBar),
+        appDrawer: React.createElement(CoreAppDrawer, {position: 'app-drawer'}),
         content: React.createElement(CoreRootContent),
         footer: React.createElement(CoreFooter)
       });

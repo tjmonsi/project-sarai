@@ -25,8 +25,10 @@ const errorSend = (err, res) => {
 const streamData = (file, metadata, res) => {
   const {contentType, size, cacheControl, contentEncoding,
         contentDisposition, contentLanguage} = metadata;
+  
   file.createReadStream()
-    .on('response', () => {
+    .on('response', (response) => {
+      // console.log(response.headers)
       const headers = JSON.parse(JSON.stringify({
         'Content-Type': contentType,
         'Content-Length': size,
@@ -71,6 +73,7 @@ const getMetadata = (file, user, res) => {
     if (err) {
       errorSend(err, res);
     } else {
+      // console.log(metadata);
       checkAcl(file, user, metadata, res);
     }
   });
@@ -101,20 +104,22 @@ Picker.route('/file/:folder/:name', (params, req, res) => {
 
   if (bucket) {
     const file = bucket.file(`${folder}/${name}`);
-    file.exists((err, exists) => {
-      if (err) {
-        errorSend(err, res);
-      } else if (exists) {
-        getMetadata(file, user, res);
-      } else {
-        res.writeHead(404, {
-          'Content-Type': 'application/json'
-        });
-        res.end(JSON.stringify({
-          errMessage: 'File not found'
-        }));
-      }
-    });
+    console.log(file);
+    getMetadata(file, user, res);
+    // file.exists((err, exists) => {
+    //   if (err) {
+    //     errorSend(err, res);
+    //   } else if (exists) {
+    //     getMetadata(file, user, res);
+    //   } else {
+    //     res.writeHead(404, {
+    //       'Content-Type': 'application/json'
+    //     });
+    //     res.end(JSON.stringify({
+    //       errMessage: 'File not found'
+    //     }));
+    //   }
+    // });
   } else {
     res.writeHead(500, {
       'Content-Type': 'application/json'

@@ -19,14 +19,3 @@ export default composeAll(
   compose(composer),
   useDeps()
 )(Banner);
-
-// const depsToBanner = () => ({
-//   leftSection: React.createElement(BannerTitle, {
-//     title: 'Project SARAI',
-//     text: 'Smarter Farmers, Smarter Agriculture.'
-//   }),
-//   rightSection: React.createElement(CoreRootBannerIconGroup),
-//   bottomSection: null
-// });
-
-// export default useDeps(depsToBanner)(Banner);

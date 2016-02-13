@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import MdlIconButton from './../atoms/mdl-icon-button.jsx';
 import MdlInputText from './../atoms/mdl-input-text.jsx';
 import DialogBox from './../molecules/dialog-box.jsx';
+import MdlRadioButton from './../atoms/mdl-radio-button.jsx';
+// import InsertLinkDialogBox from './../molecules/insert-link-dialog-box.jsx';
 import {bold, italics, insertLink,
   preformated, numberItem, blockquote,
   bulletItem} from './../../libs/textarea.js';
@@ -11,6 +13,7 @@ class MarkdownTextarea extends React.Component {
   constructor() {
     super();
     this.openDialogLink = this.openDialogLink.bind(this);
+    this.openDialogUploadLink = this.openDialogUploadLink.bind(this);
   }
   componentDidMount() {
     if (componentHandler) {
@@ -38,6 +41,9 @@ class MarkdownTextarea extends React.Component {
   openDialogLink() {
     this.dialogBox.openDialog();
   }
+  openDialogUploadLink() {
+    this.dialogBoxUpload.openDialog();
+  }
   insertLinkActions() {
     return [
       {
@@ -57,6 +63,85 @@ class MarkdownTextarea extends React.Component {
         label: 'Cancel'
       }
     ];
+  }
+  uploadActions() {
+    return [
+      {
+        handleCallback: () => {
+          this.dialogBoxUpload.closeDialog();
+        },
+        label: 'Insert File'
+      },
+      {
+        handleCallback: () => {
+          this.dialogBoxUpload.closeDialog();
+        },
+        label: 'Cancel'
+      }
+    ];
+  }
+  renderUpload() {
+    const upload = (c) => {
+      this.uploadFile = c;
+    };
+    const link = (c) => {
+      this.fileFromNet = c;
+    };
+    const radioFromHardDisc = (c) => {
+      this.radioFromHardDisc = c;
+    };
+    const radioFromNet = (c) => {
+      this.radioFromNet = c;
+    };
+    const radioFromMedia = (c) => {
+      this.radioFromMedia = c;
+    };
+    const {id} = this.props;
+    return (
+      <div className="mdl-grid mdl-grid--no-spacing">
+        <div className="mdl-cell mdl-cell--12-col media-lib-picker">
+          <MdlRadioButton
+            id={`${id}-upload-file-radio-button`}
+            label="Upload File from Hard drive"
+            name={`${id}-file-dialog-box`}
+            ref={radioFromHardDisc}
+            value="upload"
+          />
+        </div>
+        <div className="mdl-cell mdl-cell--12-col media-lib-option">
+          <input
+            className="file-upload-button"
+            ref={upload}
+            type="file"
+          />
+        </div>
+        <div className="mdl-cell mdl-cell--12-col media-lib-picker">
+          <MdlRadioButton
+            id={`${id}-from-net-radio-button`}
+            label="From the Internet"
+            name={`${id}-file-dialog-box`}
+            ref={radioFromNet}
+            value="from-net"
+          />
+        </div>
+        <div className="mdl-cell mdl-cell--12-col media-lib-option">
+          <MdlInputText
+            id={`mdl-input-text-${id}-photo-from-net`}
+            label="Type Image Link here"
+            ref={link}
+          />
+        </div>
+        <div className="mdl-cell mdl-cell--12-col media-lib-picker">
+          <MdlRadioButton
+            id={`${id}-from-media-radio-button`}
+            label="From the Media Lib"
+            name={`${id}-file-dialog-box`}
+            ref={radioFromMedia}
+            value="from-media"
+          />
+        </div>
+      </div>
+    );
   }
   renderInsertLink() {
     const link = (c) => {
@@ -85,6 +170,9 @@ class MarkdownTextarea extends React.Component {
     const dialogBox = (c) => {
       this.dialogBox = c;
     };
+    const dialogBoxUpload = (c) => {
+      this.dialogBoxUpload = c;
+    };
     const boldAction = () => {
       bold(this.textarea);
       this.textareaValueCheck();
@@ -108,6 +196,9 @@ class MarkdownTextarea extends React.Component {
     const numberItemAction = () => {
       numberItem(this.textarea);
       this.textareaValueCheck();
+    };
+    const uploadItemAction = () => {
+
     };
     return (
       <div className="markdown-textarea">
@@ -144,6 +235,7 @@ class MarkdownTextarea extends React.Component {
               label='Pre-formated Text'
             />
             <MdlIconButton
+              handleCallback={this.openDialogUploadLink}
               icon="insert_photo"
               id={`markdown-textarea-${id}-insert-photo`}
               label='Insert Photo'
@@ -199,6 +291,13 @@ class MarkdownTextarea extends React.Component {
           content={this.renderInsertLink()}
           ref={dialogBox}
           title="Insert Link"
+        />
+        <DialogBox
+          actions={this.uploadActions()}
+          classList={['media-lib']}
+          content={this.renderUpload()}
+          ref={dialogBoxUpload}
+          title="Upload Picture"
         />
       </div>
     );

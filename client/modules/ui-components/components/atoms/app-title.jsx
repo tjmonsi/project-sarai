@@ -17,7 +17,9 @@ class AppTitle extends React.Component {
     const className = classNames('mdl-layout-title', 'app-title', classList);
     return (
       <div className={className}>
-        {title}
+        <a href="/">
+          {title}
+        </a>
       </div>
     );
   }
