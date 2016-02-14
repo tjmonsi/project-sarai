@@ -1,5 +1,6 @@
 import actions from './actions';
 import routes from './routes';
+import * as lib from './lib';
 
 import _CoreNav from './containers/core-nav';
 import _CoreAppTitle from './containers/core-app-title';
@@ -19,6 +20,7 @@ export default {
   routes
 };
 
+export const coreLib = lib;
 export const CoreNav = _CoreNav;
 export const CoreAppBar = _CoreAppBar;
 export const CoreAppDrawer = _CoreAppDrawer;

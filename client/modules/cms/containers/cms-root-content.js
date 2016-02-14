@@ -1,7 +1,5 @@
 import React from 'react';
-import CoreRootBanner from './core-root-banner';
-import CoreRootTriSection from './core-root-tri-section';
-import SaraiPartners from './../components/sarai-partners.jsx';
+import RootBanner from './cms-root-banner';
 import {SectionList} from '/client/modules/ui-components';
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
@@ -11,21 +9,14 @@ const composerLandingPage = ({context, edit}, onData) => {
   const sections = [];
   const spacing = false;
 
-  if (Meteor.subscribe('landing-page', 'core.root').ready()) {
+  if (Meteor.subscribe('landing-page', 'cms.root').ready()) {
     const landingData = LandingData.findOne();
     if (landingData) {
       if (landingData.banner) {
-        sections.push(React.createElement(CoreRootBanner, {
+        sections.push(React.createElement(RootBanner, {
           banner: landingData.banner
         }));
       }
-
-      if (landingData.services && landingData.services.visible) {
-        sections.push(React.createElement(CoreRootTriSection, {
-          services: landingData.services
-        }));
-      }
-      sections.push(React.createElement(SaraiPartners));
     }
   }
   onData(null, {sections, spacing});
