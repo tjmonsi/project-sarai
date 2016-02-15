@@ -3,7 +3,7 @@ import {Landing} from '/client/modules/ui-components';
 import CmsRootContent from './containers/cms-root-content';
 import CmsCropContent from './containers/cms-crop-content';
 import {CoreAppBar, CoreAppDrawer, CoreFooter, coreLib} from '/client/modules/core';
-const {authenticate} = coreLib;
+// const {authenticate} = coreLib;
 
 export default (injectDeps, context) => {
   const {FlowRouter, mount} = context;
@@ -12,7 +12,6 @@ export default (injectDeps, context) => {
 
   FlowRouter.route('/cms', {
     name: 'cms.root',
-    triggersEnter: [authenticate],
     action(params, query) {
       mount(LandingCtx, {
         appBar: React.createElement(CoreAppBar, {module}),

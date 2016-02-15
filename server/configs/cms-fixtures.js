@@ -1,4 +1,4 @@
-import {NavMenu, LandingData} from '/lib/collections';
+import {NavMenu, LandingData, Cms} from '/lib/collections';
 
 if (!NavMenu.findOne({module: 'cms'})) {
   NavMenu.insert({
@@ -34,4 +34,17 @@ if (!LandingData.findOne({path: 'cms.root'})) {
       text: 'Crops System'
     }
   });
+}
+
+if (!Cms.findOne({crop: 'rice'})) {
+  Cms.insert({
+    crop: 'rice',
+    title: 'Rice',
+    description: 'This is a description for Rice',
+    published: true,
+    writeup: 'This is a write up for rice',
+    keywords: ['rice'],
+    hits: 0,
+    bannerPic: null
+  })
 }

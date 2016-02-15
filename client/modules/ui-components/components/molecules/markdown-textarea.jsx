@@ -159,7 +159,7 @@ class MarkdownTextarea extends React.Component {
     );
   }
   render() {
-    const {id, label, value} = this.props;
+    const {id, label, value, callback} = this.props;
     const textAreaClassName = this.defaultClassNames();
     const textareaRef = (c) => {
       this.textarea = c;
@@ -269,13 +269,14 @@ class MarkdownTextarea extends React.Component {
               ref = {textareaContainer}
             >
               <textarea
+                
                 className="mdl-textfield__input textarea-input"
                 id={id}
                 ref={textareaRef}
                 rows="10"
                 type="text"
+                defaultValue = {value}
               >
-                {value}
               </textarea>
               <label
                 className="mdl-textfield__label"
@@ -305,14 +306,17 @@ class MarkdownTextarea extends React.Component {
 }
 
 MarkdownTextarea.propTypes = {
+  callback: React.PropTypes.func,
   id: React.PropTypes.string,
   label: React.PropTypes.string,
   value: React.PropTypes.string
 };
 
 MarkdownTextarea.defaultProps = {
+  callback: () => null,
   id: 'textarea',
-  label: 'Text here'
+  label: 'Text here',
+  value: ''
 };
 
 export default MarkdownTextarea;

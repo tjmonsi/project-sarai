@@ -1,9 +1,10 @@
 import React from 'react';
-import {Banner, BannerTitle} from '/client/modules/ui-components';
+import {BannerEditor} from '/client/modules/ui-components';
+import CmsRootBannerLeftEditor from './cms-root-banner-left-editor';
 import {useDeps, composeAll, compose} from 'mantra-core';
 
 const composer = ({banner}, onData) => {
-  const leftSection = React.createElement(BannerTitle, {
+  const leftSection = React.createElement(CmsRootBannerLeftEditor, {
     background: banner.background,
     title: banner.title,
     text: banner.text
@@ -14,4 +15,4 @@ const composer = ({banner}, onData) => {
 export default composeAll(
   compose(composer),
   useDeps()
-)(Banner);
+)(BannerEditor);

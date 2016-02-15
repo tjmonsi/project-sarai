@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-class Banner extends React.Component {
+class BannerEditor extends React.Component {
   componentDidMount() {
     if (componentHandler) {
       componentHandler.upgradeDom();
@@ -25,20 +25,12 @@ class Banner extends React.Component {
     }
   }
   render() {
-    const {leftSection, rightSection, classList, background} = this.props;
-    const className = classNames('banner', classList);
-    const style = {
-      backgroundImage: `linear-gradient(rgba(0,0,0,0),
-        rgba(0,0,0,0), rgba(0,0,0,0.7)), url(${background})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center top'
-    };
+    const {leftSection, rightSection, classList} = this.props;
+    const className = classNames(classList);
 
     return (
       <div
         className={className}
-        style={style}
       >
         <div className="mdl-grid">
           <div className="mdl-cell mdl-cell--6-col mdl-cell--bottom mdl-cell--8-col-tablet mdl-cell--4-col-phone">
@@ -58,19 +50,18 @@ class Banner extends React.Component {
   }
 }
 
-Banner.propTypes = {
-  background: React.PropTypes.string,
+BannerEditor.propTypes = {
   bottomSection: React.PropTypes.element,
   classList: React.PropTypes.arrayOf(React.PropTypes.string),
   leftSection: React.PropTypes.element,
   rightSection: React.PropTypes.element
 };
 
-Banner.defaultProps = {
+BannerEditor.defaultProps = {
   background: '',
   leftSection: React.createElement('div'),
   rightSection: React.createElement('div'),
   classList: []
 };
 
-export default Banner;
+export default BannerEditor;

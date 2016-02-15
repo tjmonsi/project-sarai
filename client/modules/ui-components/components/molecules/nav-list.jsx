@@ -1,5 +1,6 @@
 import React from 'react';
 import NavLink from './../atoms/nav-link.jsx';
+import LoginNav from './../atoms/login-nav.jsx';
 import classNames from 'classnames';
 
 class NavList extends React.Component {
@@ -37,6 +38,7 @@ class NavList extends React.Component {
     return (
       <nav className={className}>
         {this.renderNavs()}
+        <LoginNav />
       </nav>
     );
   }

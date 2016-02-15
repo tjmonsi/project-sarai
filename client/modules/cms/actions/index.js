@@ -1,1 +1,5 @@
-export default {};
+import root from './root';
+
+export default {
+  root
+};

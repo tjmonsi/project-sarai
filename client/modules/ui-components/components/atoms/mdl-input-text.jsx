@@ -16,7 +16,7 @@ class MdlInputText extends React.Component {
     return this.textfield.value;
   }
   render() {
-    const {id, label, value, pattern, classList} = this.props;
+    const {id, label, value, pattern, callback, classList} = this.props;
     const className = classNames('mdl-textfield', 'mdl-js-textfield',
       'mdl-textfield--floating-label', classList);
     const textfield = (c) => {
@@ -27,10 +27,11 @@ class MdlInputText extends React.Component {
         <input
           className="mdl-textfield__input"
           id={id}
+          // onChange={callback}
           pattern={pattern}
           ref = {textfield}
           type="text"
-          value={value}
+          defaultValue={value}
         />
         <label
           className="mdl-textfield__label"
@@ -44,6 +45,7 @@ class MdlInputText extends React.Component {
 }
 
 MdlInputText.propTypes = {
+  callback: React.PropTypes.func,
   classList: React.PropTypes.arrayOf(React.PropTypes.string),
   id: React.PropTypes.string,
   label: React.PropTypes.string,
@@ -52,6 +54,7 @@ MdlInputText.propTypes = {
 };
 
 MdlInputText.defaultProps = {
+  callback: () => null,
   classList: [],
   id: 'textfield',
   label: 'Input Text here'
