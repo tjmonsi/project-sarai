@@ -1,10 +1,18 @@
-import {Meteor} from 'meteor/meteor'
-import {ValidatedMethod as Method} from 'meteor/mdg:validated-method';
-import {SimpleSchema} from 'meteor/aldeed:simple-schema';
-import {LandingData, Cms} from '/lib/collections';
+import {Meteor} from 'meteor/meteor';
+import {check} from 'meteor/check';
+import {LandingData} from '/lib/collections';
+import adminAuthenticate from '/server/lib/admin-authenticate';
 
 Meteor.methods({
   'LandingData.update': (path, title, background, text) => {
-     return LandingData.update({path}, {$set: {banner: {title, background, text}}});
+    check(path, String);
+    check(title, String);
+    check(background, String);
+    check(text, String);
+    if (adminAuthenticate) {
+      return LandingData.upsert({path}, {$set: {title, background, text}});
+    } else {
+      throw new Meteor.Error('Not authorized');
+    }
   }
 });

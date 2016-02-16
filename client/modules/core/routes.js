@@ -13,8 +13,8 @@ export default (injectDeps, context) => {
   
   FlowRouter.triggers.enter([authenticate])
 
-  FlowRouter.route('/', {
-    name: 'core.root',
+  FlowRouter.route('/old', {
+    name: 'core.old.root',
     action() {
       mount(LandingCtx, {
         appBar: React.createElement(CoreAppBar),
@@ -25,8 +25,8 @@ export default (injectDeps, context) => {
     }
   });
   
-  FlowRouter.route('/login', {
-    name: 'core.login',
+  FlowRouter.route('/old/login', {
+    name: 'core.old.login',
     action() {
       Meteor.loginWithPassword('tester', 'tester', (err) => {
         if (err) console.log(err)
@@ -37,8 +37,8 @@ export default (injectDeps, context) => {
     }
   })
   
-  FlowRouter.route('/logout', {
-    name: 'core.logout',
+  FlowRouter.route('/old/logout', {
+    name: 'core.old.logout',
     action() {
       Meteor.logout((err) => {
         if (err) console.log(err)

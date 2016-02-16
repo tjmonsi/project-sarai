@@ -4,7 +4,6 @@ import MdlIconButton from './../atoms/mdl-icon-button.jsx';
 import MdlInputText from './../atoms/mdl-input-text.jsx';
 import DialogBox from './../molecules/dialog-box.jsx';
 import MdlRadioButton from './../atoms/mdl-radio-button.jsx';
-// import InsertLinkDialogBox from './../molecules/insert-link-dialog-box.jsx';
 import {bold, italics, insertLink,
   preformated, numberItem, blockquote,
   bulletItem} from './../../libs/textarea.js';

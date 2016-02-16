@@ -7,5 +7,6 @@ Meteor.publish('get-all-cms', () => {
 });
 
 Meteor.publish('get-cms', (crop) => {
-  return Cms.find({crop: crop},{limit: 1, sort: {_id: 1}})
+  check(crop, String);
+  return Cms.find({crop: crop}, {limit: 1, sort: {_id: 1}});
 });

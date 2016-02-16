@@ -11,8 +11,9 @@ const composer = ({banner}, onData) => {
   const rightSection = React.createElement(CoreRootBannerIconGroup, {
     iconGroup: banner.iconGroup
   });
-
-  onData(null, {leftSection, rightSection});
+  const {background} = banner;
+  
+  onData(null, {leftSection, rightSection, background});
 };
 
 export default composeAll(

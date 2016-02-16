@@ -9,6 +9,7 @@ import _LoginNav from './components/atoms/login-nav.jsx';
 import _Icon from './components/atoms/icon.jsx';
 import _MdlIconButton from './components/atoms/mdl-icon-button.jsx';
 import _MdlInputText from './components/atoms/mdl-input-text.jsx';
+import _MdlInputTextFile from './components/atoms/mdl-input-text-file.jsx';
 
 import _BannerTitle from './components/molecules/banner-title.jsx';
 import _BannerTitleEditor from './components/molecules/banner-title-editor.jsx';
@@ -55,5 +56,6 @@ export const MdlIconButton = _MdlIconButton;
 export const MarkdownTextarea = _MarkdownTextarea;
 export const DialogBox = _DialogBox;
 export const MdlInputText = _MdlInputText;
+export const MdlInputTextFile = _MdlInputTextFile;
 
 export const textareaLib = _textareaLib;

@@ -1,5 +1,6 @@
 import React from 'react';
 import CoreRootBanner from './core-root-banner';
+import RootBannerEditor from './core-root-banner-editor';
 import CoreRootTriSection from './core-root-tri-section';
 import SaraiPartners from './../components/sarai-partners.jsx';
 import {SectionList} from '/client/modules/ui-components';
@@ -18,8 +19,14 @@ const composerLandingPage = ({context, edit}, onData) => {
         sections.push(React.createElement(CoreRootBanner, {
           banner: landingData.banner
         }));
+        
+        if (FlowRouter.getQueryParam('edit') === 'true' && Meteor.user()) {
+          sections.push(React.createElement(RootBannerEditor, {
+            banner: landingData.banner
+          }));
+        }
       }
-
+      
       if (landingData.services && landingData.services.visible) {
         sections.push(React.createElement(CoreRootTriSection, {
           services: landingData.services

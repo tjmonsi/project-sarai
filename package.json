@@ -12,6 +12,7 @@
     "snyk-auth": "snyk auth",
     "snyk-monitor": "snyk monitor",    
     "lint": "eslint ./lib ./client ./server --ext .js --ext .jsx",
+    "lint-watch": "esw -w --ext .js --ext .jsx ./lib ./client ./server",
     "lintfix": "npm run lint -- --fix",
     "client-test": "mocha $npm_package_options_mocha",
     "testonly": "npm run client-test",

@@ -2,9 +2,10 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 import MdlInputText from './../atoms/mdl-input-text.jsx';
+import MdlInputTextFile from './../atoms/mdl-input-text-file.jsx';
 import MarkdownTextarea from './../molecules/markdown-textarea.jsx';
 
-class BannerTitle extends React.Component {
+class BannerTitleEditor extends React.Component {
   constructor() {
     super();
     this.handleSave = this.handleSave.bind(this);
@@ -38,7 +39,7 @@ class BannerTitle extends React.Component {
     } 
     return (
       <div className={className}>
-        <MdlInputText
+        <MdlInputTextFile
           id='banner-background'
           label='Banner Background'
           ref = {backgroundInpit}
@@ -72,20 +73,22 @@ class BannerTitle extends React.Component {
   }
 }
 
-BannerTitle.propTypes = {
+BannerTitleEditor.propTypes = {
   background: React.PropTypes.string,
   callback: React.PropTypes.func,
   classList: React.PropTypes.arrayOf(React.PropTypes.string),
+  id: React.PropTypes.string,
   text: React.PropTypes.string,
   title: React.PropTypes.string
 };
 
-BannerTitle.defaultProps = {
+BannerTitleEditor.defaultProps = {
   callback: () => {},
   classList: [],
   background: '',
+  id: 'banner-title-editor',
   text: 'Some texts',
   title: 'Title'
 };
 
-export default BannerTitle;
+export default BannerTitleEditor;

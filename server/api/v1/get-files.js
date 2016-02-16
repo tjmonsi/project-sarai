@@ -3,14 +3,21 @@ import bucket from './../lib/gcloud-bucket';
 import errorSend from './../lib/error-send';
 
 Picker.route('/v1/get-files', (params, req, res) => {
+  const {query} = params;
+  const folder = query.p && query.p === 'true' ? 'private' : 'public';
+  const token = query.token && query.token !== '' ? query.token : null;
+  if (!query.prefix) query.prefix = '';
   const options = {
-    prefix: 'public/'
+    autoPaginate: false,
+    maxResults: 60,
+    pageToken: token,
+    prefix: folder+query.prefix
   };
   if (bucket) {
-    bucket.getFiles(options, (err, files) => {
+    bucket.getFiles(options, (err, files, nextQuery) => {
       if (err) errorSend(err, res);
       else {
-        const obj = { files: [] };
+        const obj = { files: [], nextQuery };
         const headers = {
           'Content-Type': 'application/json'
         };

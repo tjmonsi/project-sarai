@@ -1,3 +1,6 @@
 packages/lib/package.js
 .scripts/mocha_runner.js
 imports/node_modules_temp
+client/modules/cms
+client/modules/core
+client/modules/ui-components

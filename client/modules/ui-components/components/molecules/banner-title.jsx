@@ -15,7 +15,7 @@ class BannerTitle extends React.Component {
   }
   render() {
     const {title, text, classList} = this.props;
-    const className = classNames('banner-title', classList);
+    const className = classNames('banner-title-v2', classList);
     return (
       <div className={className}>
         <h1 className='title'>{title}</h1>

@@ -4,11 +4,11 @@ import {useDeps, composeAll, compose} from 'mantra-core';
 
 const composer = ({banner}, onData) => {
   const leftSection = React.createElement(BannerTitle, {
-    background: banner.background,
     title: banner.title,
     text: banner.text
   });
-  onData(null, {leftSection});
+  const background = banner.background ? banner.background : '';
+  onData(null, {leftSection, background});
 };
 
 export default composeAll(

@@ -1,0 +1,42 @@
+.media-lib {
+  .media-lib-upload-file {
+    .media-lib-upload-file-input-container {
+      .media-lib-upload-file-input {
+        width: 100% !important;
+      }  
+    }
+    .media-lib-upload-button {
+    }
+  }
+  .media-lib-search-button {
+    padding-top: 20px !important;
+    text-align: right !important;
+  }
+  .media-lib-search-input {
+    
+  }
+  .media-lib-load-more-button {
+    text-align: center !important;
+  }
+  .media-lib-grid {
+    height: 200px;
+    padding-right: 4px !important;
+    overflow-y: auto;
+    .media-lib-card-cell {
+      height: 200px !important;
+      cursor: pointer;
+      .media-lib-card {
+        width: 99% !important;
+        height: inherit !important;
+        .media-lib-card-title {
+          height: 100px;
+        }
+        .media-lib-card-text {
+          padding: 10px !important;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
