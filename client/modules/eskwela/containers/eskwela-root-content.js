@@ -58,7 +58,9 @@ const composerLandingPage = ({context}, onData) => {
 		}
 	}));
 
-
+	// sections.push(React.createElement(EskwelaHeader, {
+	// 	headerText: 'Quick Links'
+	// }));
 
 	// sections.push(React.createElement(CoreRootTriSection, {
 	// 	services: landingData.services

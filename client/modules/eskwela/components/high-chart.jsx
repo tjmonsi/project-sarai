@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import highcharts from 'highcharts';
+require('highcharts/modules/exporting')(highcharts);
+require('highcharts/modules/drilldown')(highcharts);
 
 class HighChart extends React.Component {
   componentDidMount() {
