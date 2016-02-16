@@ -58,9 +58,8 @@ class MediaLibBox extends React.Component {
         <div className='mdl-cell mdl-cell--12-col'>
           {this.renderMediaLib()}
         </div>
-      </div>  
+      </div>
     );
-    
   }
 }
 

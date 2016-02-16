@@ -41,7 +41,7 @@ export default (injectDeps, context) => {
     action() {
       mount(MainCtx, Object.assign({}, layout, {
         content: React.createElement(SectionList, {
-          spacing: false, 
+          spacing: false,
           sections: [
             React.createElement(CoreRootBanner)
           ]
@@ -54,8 +54,10 @@ export default (injectDeps, context) => {
     name: 'core.login',
     action(params, queryParams) {
       Meteor.loginWithPassword('tester', 'tester', (err) => {
-        if (err) console.log(err);
-        else {
+        if (err) {
+          // handle error;
+          // console.log(err);
+        } else {
           if (queryParams.redirect) FlowRouter.go(queryParams.redirect);
           else FlowRouter.go('core.root');
         }
@@ -67,8 +69,10 @@ export default (injectDeps, context) => {
     name: 'core.logout',
     action(params, queryParams) {
       Meteor.logout((err) => {
-        if (err) console.log(err);
-        else {
+        if (err) {
+          // handle error;
+          // console.log(err);
+        } else {
           if (queryParams.redirect) FlowRouter.go(queryParams.redirect);
           else FlowRouter.go('core.root');
         }

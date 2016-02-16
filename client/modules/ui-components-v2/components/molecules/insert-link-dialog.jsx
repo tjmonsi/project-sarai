@@ -35,7 +35,7 @@ class InsertLinkDialog extends React.Component {
           this.link.setValue('');
         },
         label: 'Cancel'
-      }  
+      }
     ];
   }
   renderDialog() {
@@ -61,8 +61,8 @@ class InsertLinkDialog extends React.Component {
       <MdlDialog
         actions = {this.actionButtons()}
         content = {this.renderDialog()}
-        title = "Insert Link"
         ref = {dialog}
+        title = "Insert Link"
       />
     );
   }

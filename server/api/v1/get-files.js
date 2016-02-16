@@ -11,7 +11,7 @@ Picker.route('/v1/get-files', (params, req, res) => {
     autoPaginate: false,
     maxResults: 60,
     pageToken: token,
-    prefix: folder+query.prefix
+    prefix: folder + query.prefix
   };
   if (bucket) {
     bucket.getFiles(options, (err, files, nextQuery) => {

@@ -48,3 +48,6 @@ export const mediaLibPropTypes = _mediaLibPropTypes;
 
 import _textareaLib from './lib/textarea.js';
 export const textareaLib = _textareaLib;
+
+import _MdlSnackbar from './components/atoms/mdl-snackbar.jsx';
+export const MdlSnackbar = _MdlSnackbar;

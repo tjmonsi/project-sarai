@@ -22,7 +22,7 @@ class MarkdownTextarea extends React.Component {
     }
   }
   defaultClassNames() {
-    return classNames('mdl-textfield', 'mdl-js-textfield', 
+    return classNames('mdl-textfield', 'mdl-js-textfield',
       'markdown-editor-container');
   }
   getValue() {
@@ -39,7 +39,7 @@ class MarkdownTextarea extends React.Component {
     }
   }
   insertLinkCallback(link) {
-    textareaLib['insertLink'](this.editor, link);
+    textareaLib.insertLink(this.editor, link);
     this.textareaValueCheck();
   }
   optionActions(button) {
@@ -73,14 +73,14 @@ class MarkdownTextarea extends React.Component {
         label: 'Create a Header'
       },
       insertLink: {
-        handleCallback: () => {this.insertLinkDialog.openDialog()},
+        handleCallback: () => {this.insertLinkDialog.openDialog();},
         icon: 'insert_link',
         label: 'Insert Link'
       }
     };
     if (options[button].handleCallback) return options[button];
     return Object.assign({}, options[button], {
-      handleCallback: () => {textareaLib[button](this.editor)}
+      handleCallback: () => {textareaLib[button](this.editor);}
     });
   }
   renderButtons(buttons) {
@@ -113,7 +113,7 @@ class MarkdownTextarea extends React.Component {
     };
     const insertLinkRef = (c) => {
       this.insertLinkDialog = c;
-    }
+    };
     return (
       <div className="markdown-textarea">
         <div className="mdl-grid mdl-grid--no-spacing">
@@ -127,11 +127,11 @@ class MarkdownTextarea extends React.Component {
             >
               <textarea
                 className="mdl-textfield__input editor-input"
+                defaultValue = {value}
                 id={id}
                 ref={editorRef}
                 rows={rows}
                 type="text"
-                defaultValue = {value}
               >
               </textarea>
               <label

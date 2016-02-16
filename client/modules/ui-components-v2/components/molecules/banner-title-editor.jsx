@@ -4,10 +4,11 @@ import MdlInputText from './../atoms/mdl-input-text.jsx';
 import MarkdownEditor from './../molecules/markdown-editor.jsx';
 import MediaLibBox from './../molecules/media-lib-box.jsx';
 import {mediaLibPropTypes} from './../molecules/media-lib.jsx';
+import MdlSnackbar from './../atoms/mdl-snackbar.jsx';
 
 class BannerTitleEditor extends React.Component {
   constructor() {
-    super()
+    super();
     this.afterSave = this.afterSave.bind(this);
   }
   componentDidMount() {
@@ -28,12 +29,11 @@ class BannerTitleEditor extends React.Component {
     this.dialog.closeDialog();
     this.background.resetMediaLib();
   }
-  afterSave(err, res) {
-    console.log(err);
-    console.log(res);
+  afterSave(err) {
     if (err) {
-      // handle error
+      this.snackbar.notify(err.errMessage, 4000);
     } else {
+      this.snackbar.notify('Save Successful', 2000);
       this.closeDialog();
     }
   }
@@ -43,12 +43,21 @@ class BannerTitleEditor extends React.Component {
       {
         handleCallback: () => {
           const title = this.title && this.title.getValue ? this.title.getValue() : null;
-          const background = this.background && this.background.getValue ? this.background.getValue() : null;
+          const background = this.background && this.background.getValue ?
+            this.background.getValue() : null;
           const text = this.text && this.text.getValue ? this.text.getValue() : null;
+          if (!title) this.snackbar.notify('Please put a header title', 4000);
+          if (!background) this.snackbar.notify('Please put a valid header image', 4000);
+          if (!text) this.snackbar.notify('Please put a text description of the header ', 4000);
           if (title && background && text) {
-            handleCallback(path, this.title.getValue(), this.background.getValue(), this.text.getValue(), this.afterSave);  
-          } 
-          // handle no values
+            handleCallback(
+              path,
+              this.title.getValue(),
+              this.background.getValue(),
+              this.text.getValue(),
+              this.afterSave
+            );
+          }
         },
         label: 'Save'
       },
@@ -61,7 +70,7 @@ class BannerTitleEditor extends React.Component {
           this.closeDialog();
         },
         label: 'Cancel'
-      }  
+      }
     ];
   }
   renderDialog() {
@@ -78,7 +87,8 @@ class BannerTitleEditor extends React.Component {
     return (
       <div className='mdl-grid'>
         <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet
-          mdl-cell--4-phone'>
+          mdl-cell--4-phone'
+        >
           <div className='mdl-grid mdl-grid--no-spacing'>
             <div className='mdl-cell mdl-cell--12-col'>
               <MdlInputText
@@ -100,7 +110,8 @@ class BannerTitleEditor extends React.Component {
           </div>
         </div>
         <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet
-          mdl-cell-4-phone'>
+          mdl-cell-4-phone'
+        >
           <MediaLibBox
             id = {`${id}-banner-background`}
             label = 'Banner Background'
@@ -113,17 +124,27 @@ class BannerTitleEditor extends React.Component {
     );
   }
   render() {
+    const {id} = this.props;
     const dialog = (c) => {
       this.dialog = c;
     };
+    const snackbar = (c) => {
+      this.snackbar = c;
+    };
     return (
-      <MdlDialog
-        actions = {this.actionButtons()}
-        classList = {['banner-title-editor-v2']}
-        content = {this.renderDialog()}
-        title = "Edit Banner"
-        ref = {dialog}
-      />
+      <span>
+        <MdlDialog
+          actions = {this.actionButtons()}
+          classList = {['banner-title-editor-v2']}
+          content = {this.renderDialog()}
+          ref = {dialog}
+          title = "Edit Banner"
+        />
+        <MdlSnackbar
+          id = {id}
+          ref = {snackbar}
+        />
+      </span>
     );
   }
 }
@@ -132,9 +153,9 @@ BannerTitleEditor.propTypes = {
   background: React.PropTypes.string,
   classList: React.PropTypes.arrayOf(React.PropTypes.string),
   handleCallback: React.PropTypes.func,
+  id: React.PropTypes.string,
   mediaLib: React.PropTypes.shape(mediaLibPropTypes),
   path: React.PropTypes.string,
-  id: React.PropTypes.string,
   text: React.PropTypes.string,
   title: React.PropTypes.string
 };

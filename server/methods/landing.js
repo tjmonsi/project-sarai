@@ -11,8 +11,7 @@ Meteor.methods({
     check(text, String);
     if (adminAuthenticate) {
       return LandingData.upsert({path}, {$set: {title, background, text}});
-    } else {
-      throw new Meteor.Error('Not authorized');
     }
+    throw new Meteor.Error('Not authorized');
   }
 });

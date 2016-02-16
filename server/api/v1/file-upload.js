@@ -13,22 +13,22 @@ Picker.route('/v1/upload-file', (params, req, res) => {
     const form = new multiparty.Form();
     let partError = null;
     let file = null;
-  
+
     form.on('part', (part) => {
       if (!part.filename) {
-        console.log('got field name '+part.name);
+        // console.log('got field name '+part.name);
         part.resume();
       }
       if (part.filename) {
-        file = bucket.file(folder+query.prefix+'/'+part.filename);
+        file = bucket.file(`${folder}${query.prefix}/${part.filename}`);
         if (file) {
-          file.exists((err, exists) => {
-            if (err) partError = err;
+          file.exists((err1, exists) => {
+            if (err1) partError = err1;
             else if (exists) partError = new Error('File already exists');
-            
+
             if (partError) part.resume();
             else {
-              console.log(part.headers);
+              // console.log(part.headers);
               part.pipe(file.createWriteStream({metadata: {
                 contentType: part.headers['content-type']
               }}))
@@ -38,16 +38,16 @@ Picker.route('/v1/upload-file', (params, req, res) => {
               })
               .on('finish', () => {
                 if (query.p && query.p === 'true') {
-                  file.makePrivate((err, apiResponse) => {
+                  file.makePrivate((err) => {
                     if (err) partError = err;
-                    console.log(apiResponse);
-                    part.resume();    
+                    // console.log(apiResponse);
+                    part.resume();
                   });
                 } else {
-                  file.makePublic((err, apiResponse) => {
+                  file.makePublic((err) => {
                     if (err) partError = err;
-                    console.log(apiResponse);
-                    part.resume();    
+                    // console.log(apiResponse);
+                    part.resume();
                   });
                 }
               });
@@ -57,36 +57,35 @@ Picker.route('/v1/upload-file', (params, req, res) => {
       }
       part.on('error', (err) => {
         partError = err;
-        console.log(partError);
-        console.log('Error at Part file-upload');
+        // console.log(partError);
+        // console.log('Error at Part file-upload');
       });
       part.on('finish', () => {
-        console.log('Finish upload');
+        // console.log('Finish upload');
       });
     });
     form.on('error', (err) => {
       errorSend(err, res);
     });
-  
+
     form.on('close', () => {
       if (partError) errorSend(partError, res);
       else {
-        console.log(file.name);
+        // console.log(file.name);
         res.end(JSON.stringify({
           file: file.name
         }));
       }
     });
-  
-    form.parse(req);  
+
+    form.parse(req);
   } else if (error) {
     errorSend(error, res);
   } else if (!bucket) {
-    console.log(bucket);
+    // console.log(bucket);
     errorSend(new Error('Please contact admin, settings not set'), res);
   } else {
-    console.log(query);
+    // console.log(query);
     errorSend(new Error('Not Authorized'), res);
   }
-  
 });

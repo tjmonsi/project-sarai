@@ -6,8 +6,8 @@ import {mediaLibPropTypes} from './../molecules/media-lib.jsx';
 
 class BannerTitle extends React.Component {
   constructor() {
-    super()
-    this.openEditor = this.openEditor.bind(this);
+    super();
+    this.handleOpenEditor = this.handleOpenEditor.bind(this);
   }
   componentDidMount() {
     if (componentHandler) {
@@ -19,7 +19,7 @@ class BannerTitle extends React.Component {
       componentHandler.upgradeDom();
     }
   }
-  openEditor() {
+  handleOpenEditor() {
     this.dialog.openDialog();
   }
   renderEdit() {
@@ -31,22 +31,22 @@ class BannerTitle extends React.Component {
       return (
         <div className='edit'>
           <button
-            className="edit-button mdl-button mdl-js-button 
+            className="edit-button mdl-button mdl-js-button
               mdl-button--raised mdl-button--colored mdl-js-ripple-effect"
-            onClick={this.openEditor}
+            onClick={this.handleOpenEditor}
             type="button"
           >
             {'Edit Banner'}
           </button>
           <BannerTitleEditor
-            mediaLib = {mediaLib}
             background = {background}
             handleCallback = {saveBanner}
             id = {id}
+            mediaLib = {mediaLib}
+            path = {path}
             ref = {dialog}
             text = {text}
             title = {title}
-            path = {path}
           />
         </div>
       );

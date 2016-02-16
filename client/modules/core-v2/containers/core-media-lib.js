@@ -11,10 +11,18 @@ const composeMediaLibRedux = ({context}, onData) => {
   });
 };
 
-const composeMediaLibCallback = ({context, handleCallback, prefix, publicFlag, id, passMediaLib}, onData) => {
+const composeMediaLibCallback = ({context, handleCallback, prefix, publicFlag,
+  id, passMediaLib}, onData) => {
   const {Meteor} = context();
   const publicStorage = Meteor.settings.public.publicStorage;
-  onData(null, {handleCallback, prefix, publicFlag, publicStorage, id, passMediaLib});
+  onData(null, {
+    handleCallback,
+    prefix,
+    publicFlag,
+    publicStorage,
+    id,
+    passMediaLib
+  });
 };
 
 const depsMediaLib = (context, actions) => ({
@@ -33,6 +41,14 @@ const CoreMediaLib = composeAll(
 
 export default CoreMediaLib;
 
-export const mediaLibMethod = (handleCallback, authenticate, prefix, publicFlag, id, passMediaLib) => {
-  return React.createElement(CoreMediaLib, {handleCallback, authenticate, prefix, publicFlag, id, passMediaLib});
+export const mediaLibMethod = (handleCallback, authenticate, prefix, publicFlag,
+  id, passMediaLib) => {
+  return React.createElement(CoreMediaLib, {
+    handleCallback,
+    authenticate,
+    prefix,
+    publicFlag,
+    id,
+    passMediaLib
+  });
 };

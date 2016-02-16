@@ -2,8 +2,9 @@ export default {
   getFileHandle: (context, file) => {
     const {Accounts, Meteor, FlowRouter} = context;
     const userId = Meteor.userId();
-    const token =  Accounts._storedLoginToken();
-    // return `/v1/get-file?name=${file}&id=${encodeURIComponent(userId)}&token=${encodeURIComponent(token)}`;
+    const token = Accounts._storedLoginToken();
+    // return `/v1/get-file?name=${file}&id=${encodeURIComponent(userId)}
+    // &token=${encodeURIComponent(token)}`;
     return FlowRouter.path('/v1/get-file', {}, {
       name: file,
       id: userId,
@@ -13,11 +14,12 @@ export default {
   getFilesHandle: (context, prefix, publicFlag, XMLHttpRequest, nextQuery, filename, callback) => {
     const {mediaLib, FlowRouter} = context;
     if (XMLHttpRequest) {
-      console.log('Get Files');
+      // console.log('Get Files');
       const xhr = new XMLHttpRequest();
       const p = !publicFlag ? 'true' : 'false';
-      const name = filename ? prefix+'/'+filename : prefix+'/';
-      // const token = nextQuery && nextQuery !== '' ? `&token=${encodeURIComponent(nextQuery)}` : '';
+      const name = filename ? `${prefix}/${filename}` : `${prefix}/`;
+      // const token = nextQuery && nextQuery !== '' ?
+      // `&token=${encodeURIComponent(nextQuery)}` : '';
       // const uri = `/v1/get-files?prefix=${name}&p=${p}${token}`;
       const uri = FlowRouter.path('/v1/get-files', {}, {
         p,
@@ -44,11 +46,11 @@ export default {
             mediaLib.dispatch({
               type: 'SET_TOKEN',
               token: obj.nextQuery.pageToken
-            });  
+            });
           } else {
             mediaLib.dispatch({
               type: 'REMOVE_TOKEN'
-            }); 
+            });
           }
         } else if (xhr.status !== 200) {
           callback(JSON.parse(xhr.responseText));
@@ -61,16 +63,18 @@ export default {
       });
     }
   },
-  uploadFileHandle: (context, files, prefix, publicFlag, authenticate, XMLHttpRequest, FormData, callback) => {
+  uploadFileHandle: (context, files, prefix, publicFlag, authenticate,
+    XMLHttpRequest, FormData, callback) => {
     const {Accounts, Meteor, FlowRouter} = context;
     if (XMLHttpRequest && FormData && authenticate()) {
-      console.log('Upload');
+      // console.log('Upload');
       const xhr = new XMLHttpRequest();
       const fd = new FormData();
       const userId = Meteor.userId();
-      const token =  Accounts._storedLoginToken();
+      const token = Accounts._storedLoginToken();
       const p = !publicFlag ? 'true' : 'false';
-      // const uri = `/v1/upload-file?prefix=${prefix}&p=${p}&id=${encodeURIComponent(userId)}&token=${encodeURIComponent(token)}`;
+      // const uri = `/v1/upload-file?prefix=${prefix}&p=${p}
+      // &id=${encodeURIComponent(userId)}&token=${encodeURIComponent(token)}`;
       const uri = FlowRouter.path('/v1/upload-file', {}, {
         prefix,
         p,
@@ -78,7 +82,7 @@ export default {
         id: userId
       });
       xhr.open('POST', uri, true);
-      
+
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
           callback(null, JSON.parse(xhr.responseText));

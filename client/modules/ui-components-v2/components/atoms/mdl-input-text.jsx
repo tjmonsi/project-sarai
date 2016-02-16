@@ -46,17 +46,17 @@ class MdlInputText extends React.Component {
       this.textfieldContainer = c;
     };
     return (
-      <div 
+      <div
         className={className}
-        ref={textfieldContainer}  
+        ref={textfieldContainer}
       >
         <input
           className="mdl-textfield__input input-text-input"
+          defaultValue={value}
           id={id}
           pattern={pattern}
           ref = {textfield}
           type="text"
-          defaultValue={value}
         />
         <label
           className="mdl-textfield__label"

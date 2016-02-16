@@ -1,6 +1,6 @@
 import React from 'react';
 import { Banner, BannerTitle } from '/client/modules/ui-components-v2';
-import {composeAll, compose, useDeps, composeWithTracker} from 'mantra-core';
+import {composeAll, useDeps, composeWithTracker} from 'mantra-core';
 import lib from './../lib';
 import {mediaLibMethod} from './core-media-lib';
 
@@ -13,10 +13,10 @@ const composeLandingData = ({context, actions}, onData) => {
   const edit = !!coreAuthenticate() && FlowRouter.getQueryParam('edit') === 'true';
   const id = 'core-root-banner';
   const path = 'core.root';
-  
+
   if (Meteor.subscribe('landing-page', path).ready()) {
     const landingData = LandingData.findOne();
-    
+
     if (landingData) {
       const {title, background, text} = landingData;
       const leftSection = React.createElement(BannerTitle, {
@@ -31,7 +31,7 @@ const composeLandingData = ({context, actions}, onData) => {
           authenticate: coreAuthenticate,
           prefix: '/core',
           publicFlag: true,
-          mediaLibMethod  
+          mediaLibMethod
         }
       });
       onData(null, {background, leftSection});
@@ -39,7 +39,7 @@ const composeLandingData = ({context, actions}, onData) => {
   } else {
     onData(null);
   }
-}
+};
 
 export default composeAll(
   composeWithTracker(composeLandingData),

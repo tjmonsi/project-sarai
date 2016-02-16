@@ -2,15 +2,16 @@ import React from 'react';
 import classNames from 'classnames';
 import MdlIconButton from './../atoms/mdl-icon-button.jsx';
 import MdlInputText from './../atoms/mdl-input-text.jsx';
+import MdlSnackbar from './../atoms/mdl-snackbar.jsx';
 
 class MediaLib extends React.Component {
   constructor() {
     super();
-    this.handleUploadFile = this.handleUploadFile.bind(this);
-    this.handleMoreFiles = this.handleMoreFiles.bind(this);
-    this.handleSearchFile = this.handleSearchFile.bind(this);
+    this.onHandleUploadFile = this.onHandleUploadFile.bind(this);
+    this.onHandleMoreFiles = this.onHandleMoreFiles.bind(this);
+    this.onHandleSearchFile = this.onHandleSearchFile.bind(this);
     this.sendFilename = this.sendFilename.bind(this);
-    this.pickFile = this.pickFile.bind(this);
+    this.handlePickFile = this.handlePickFile.bind(this);
     this.afterGetFiles = this.afterGetFiles.bind(this);
     this.fileContainers = {};
   }
@@ -28,15 +29,20 @@ class MediaLib extends React.Component {
     const {passMediaLib} = this.props;
     passMediaLib(this);
   }
-  afterGetFiles(err, res) {
-    console.log(err);
-    console.log(res);
+  afterGetFiles(err) {
+    if (err) {
+      this.snackbar.notify(err.errMessage, 4000);
+    } else {
+      // console.log(res);
+      this.snackbar.notify('Files Loaded', 2000);
+    }
   }
-  handleSearchFile() {
+  onHandleSearchFile() {
+    this.snackbar.notify('Searching...', 4000);
     this.handleResetFiles();
     this.handleGetFiles(this.searchInput.getValue());
   }
-  handleMoreFiles() {
+  onHandleMoreFiles() {
     const {token} = this.props;
     const file = this.searchInput.getValue();
     this.handleGetFiles(file, token);
@@ -51,9 +57,9 @@ class MediaLib extends React.Component {
   }
   sendFilename(err, res) {
     if (err) {
-      // handle error
-      console.log(err);
+      this.snackbar.notify(err.errMessage, 4000);
     } else {
+      this.snackbar.notify('File uploaded successfully', 2000);
       this.props.handleCallback(this.props.publicStorage + res.file);
       this.uploadFile.value = '';
       this.uploadFile.files = [];
@@ -61,7 +67,7 @@ class MediaLib extends React.Component {
       this.handleGetFiles();
     }
   }
-  pickFile(e) {
+  handlePickFile(e) {
     const checkElement = (el) => {
       if (el) {
         const attr = el.getAttribute('data-file');
@@ -70,7 +76,7 @@ class MediaLib extends React.Component {
     };
     const attr = checkElement(e.target);
     this.props.handleCallback(attr);
-    
+
     if (this.fileContainers[attr]) {
       this.fileContainers[attr].className = classNames(
         this.defaultClassNameForCard(),
@@ -83,13 +89,22 @@ class MediaLib extends React.Component {
     }
     this.activePickedFile = attr;
   }
-  handleUploadFile() {
+  onHandleUploadFile() {
     const {uploadFileHandle, prefix, publicFlag, authenticate} = this.props;
-    if (this.uploadFile && this.uploadFile.files && this.uploadFile.files.length > 0 && XMLHttpRequest && FormData) {
+    if (this.uploadFile && this.uploadFile.files &&
+      this.uploadFile.files.length > 0 && XMLHttpRequest && FormData) {
       const files = this.uploadFile.files;
-      uploadFileHandle(files, prefix, publicFlag, authenticate, XMLHttpRequest, FormData, this.sendFilename);
+      uploadFileHandle(
+        files,
+        prefix,
+        publicFlag,
+        authenticate,
+        XMLHttpRequest,
+        FormData,
+        this.sendFilename
+      );
     } else if (this.uploadFile && this.uploadFile.files && this.uploadFile.files.length === 0 ) {
-      // Notify user to add a file
+      this.snackbar.notify('Please Put a filename', 4000);
     }
   }
   renderReload() {
@@ -97,7 +112,7 @@ class MediaLib extends React.Component {
     if (token && token.trim() !== '') {
       return (
         <MdlIconButton
-          handleCallback = {this.handleMoreFiles}
+          handleCallback = {this.onHandleMoreFiles}
           icon = 'arrow_drop_down_circle'
           id = {`${id}-load-more`}
           label = 'Load More'
@@ -128,29 +143,29 @@ class MediaLib extends React.Component {
       };
       return (
         <div
-          className='mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet 
+          className='mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet
             mdl-cell--2-col-phone media-lib-card-cell'
           data-file={newFile}
           key={key}
         >
-          <div 
+          <div
             className={className}
-            ref = {container}
             data-file={newFile}
-            onClick={this.pickFile}
+            onClick={this.handlePickFile}
+            ref = {container}
           >
-            <div 
+            <div
               className='mdl-card__title media-lib-card-title'
               data-file={newFile}
               style={style}
             >
               &nbsp;
             </div>
-            <div 
+            <div
               className='mdl-card__supporting-text media-lib-card-text'
               data-file={newFile}
             >
-              {file.substring(file.lastIndexOf('/')+1)} <br/>
+              {file.substring(file.lastIndexOf('/') + 1)} <br/>
               {timeCreated}
             </div>
           </div>
@@ -166,24 +181,27 @@ class MediaLib extends React.Component {
     const searchInput = (c) => {
       this.searchInput = c;
     };
+    const snackbar = (c) => {
+      this.snackbar = c;
+    };
     return (
       <div className='mdl-grid mdl-grid--no-spacing media-lib'>
         <div className='mdl-cell mdl-cell--12-col media-lib-upload-file'>
           <div className='mdl-grid mdl-grid--no-spacing'>
-            <div className='mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet 
+            <div className='mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet
               mdl-cell--3-col-phone media-lib-upload-file-input-container'
             >
               <input
                 className='media-lib-upload-file-input'
                 ref={uploadFile}
-                type='file'  
+                type='file'
               />
             </div>
-            <div className='mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet 
+            <div className='mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet
               mdl-cell--1-col-phone media-lib-upload-button'
             >
               <MdlIconButton
-                handleCallback = {this.handleUploadFile}
+                handleCallback = {this.onHandleUploadFile}
                 icon = 'file_upload'
                 id = {`${id}-upload-file-media-lib`}
                 label = 'Upload'
@@ -195,7 +213,7 @@ class MediaLib extends React.Component {
           <div className='mdl-grid mdl-grid--no-spacing'>
             <div className='mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone media-lib-search-button'>
               <MdlIconButton
-                handleCallback = {this.handleSearchFile}
+                handleCallback = {this.onHandleSearchFile}
                 icon = 'search'
                 id = {`${id}-search-file-media-lib`}
                 label = 'Search'
@@ -218,9 +236,12 @@ class MediaLib extends React.Component {
         <div className='mdl-cell mdl-cell--12-col media-lib-load-more-button'>
           {this.renderReload()}
         </div>
-      </div>  
+        <MdlSnackbar
+          id = {id}
+          ref = {snackbar}
+        />
+      </div>
     );
-    
   }
 }
 
@@ -234,8 +255,8 @@ MediaLib.propTypes = {
   getFilesHandle: React.PropTypes.func,
   handleCallback: React.PropTypes.func,
   id: React.PropTypes.string,
-  prefix: React.PropTypes.string,
   passMediaLib: React.PropTypes.func,
+  prefix: React.PropTypes.string,
   publicFlag: React.PropTypes.bool,
   publicStorage: React.PropTypes.string,
   refreshFilesHandle: React.PropTypes.func,

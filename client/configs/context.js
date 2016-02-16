@@ -11,29 +11,29 @@ import {createStore} from 'redux';
 const mediaLibDefaultState = {
   files: [],
   token: null
-}
+};
 
 const mediaLib = createStore((state = mediaLibDefaultState, action) => {
   switch (action.type) {
-    case 'CLEAR':
-      return mediaLibDefaultState;
-    case 'ADD':
-      return Object.assign({}, state, {
-        files: [
+  case 'CLEAR':
+    return mediaLibDefaultState;
+  case 'ADD':
+    return Object.assign({}, state, {
+      files: [
         ...state.files,
         ...action.files
-        ]
-      });
-    case 'SET_TOKEN':
-      return Object.assign({}, state, {
-        token: action.token
-      });
-    case 'REMOVE_TOKEN': 
-      return Object.assign({}, state, {
-        token: null
-      });
-    default:
-      return state;
+      ]
+    });
+  case 'SET_TOKEN':
+    return Object.assign({}, state, {
+      token: action.token
+    });
+  case 'REMOVE_TOKEN':
+    return Object.assign({}, state, {
+      token: null
+    });
+  default:
+    return state;
   }
 });
 
@@ -48,6 +48,6 @@ export function initContext() {
     Method,
     SimpleSchema,
     check,
-    mediaLib 
+    mediaLib
   };
 }
