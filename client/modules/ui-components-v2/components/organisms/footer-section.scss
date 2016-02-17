@@ -1,0 +1,43 @@
+@import '{}/client/theme';
+
+.footer-sections-v2 {
+  background-color: $color-primary-text-dark;
+  color: $color-primary-text-light;
+  padding-left: 50px;
+  padding-right: 50px;
+
+  .footer-section {
+
+    .footer-links {
+      .footer-links-title {
+        font-weight: 100;
+        margin-bottom: 0px;
+        margin-top: 0px
+      }
+
+      .footer-links-list {
+        margin: 0px;
+        padding: 0px;
+        
+        .footer-links-item {
+          list-style-type: none;
+
+
+          .footer-link {
+            color: inherit;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .footer-text {
+      .footer-text-title {
+        font-weight: 100;
+        margin-bottom: 0px;
+        margin-top: 0px
+      }
+    }
+
+  }
+}

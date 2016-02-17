@@ -2,53 +2,15 @@ import React from 'react';
 import CoreNavList from './containers/core-nav-list';
 import CoreRootBanner from './containers/core-root-banner';
 import CoreRootServices from './containers/core-root-services';
-import {Main, AppBar, AppDrawer,
-  AppTitle, AppLogo, SectionList} from '/client/modules/ui-components-v2';
+import SaraiPartners from './components/sarai-partners.jsx';
+import {Main, SectionList} from '/client/modules/ui-components-v2';
 import lib from './lib';
 
 export default (injectDeps, context) => {
   const {FlowRouter, mount, Meteor} = context;
   const MainCtx = injectDeps(Main);
-  const {triggerAuthenticate} = lib;
-
-  const appBarTitle = () => (React.createElement(AppTitle, {
-    displayName: 'AppTitle',
-    title: () => (React.createElement(AppLogo, {
-      displayName: 'AppLogo',
-      src: '/images/sarai-white.png'
-    })),
-    href: FlowRouter.path('core.root')
-  }));
-
-  const appDrawerTitle = () => (React.createElement(AppTitle, {
-    displayName: 'AppTitle',
-    title: () => (React.createElement(AppLogo, {
-      displayName: 'AppLogo',
-      src: '/images/sarai.png'
-    })),
-    href: FlowRouter.path('core.root')
-  }));
-
-  const layout = {
-    appBar: () => (React.createElement(AppBar, {
-      displayName: 'AppBar',
-      appTitle: appBarTitle,
-      appNav: () => (React.createElement(CoreNavList, {
-        displayName: 'CoreNavList',
-        module: 'core',
-        position: 'app-bar'
-      }))
-    })),
-    appDrawer: () => (React.createElement(AppDrawer, {
-      displayName: 'AppBar',
-      appTitle: appDrawerTitle,
-      appNav: () => (React.createElement(CoreNavList, {
-        displayName: 'CoreNavList',
-        module: 'core',
-        position: 'app-drawer'
-      }))
-    }))
-  };
+  const {triggerAuthenticate, appBarTitle, appDrawerTitle, coreLayout} = lib;
+  const layout = coreLayout('core', appBarTitle, appDrawerTitle, true, CoreNavList);
 
   FlowRouter.route('/', {
     name: 'core.root',
@@ -64,6 +26,9 @@ export default (injectDeps, context) => {
             })),
             () => (React.createElement(CoreRootServices, {
               displayName: 'CoreRootServices'
+            })),
+            () => (React.createElement(SaraiPartners, {
+              displayName: 'SaraiPartners'
             }))
           ]
         }))

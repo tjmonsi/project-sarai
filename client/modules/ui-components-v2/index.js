@@ -57,3 +57,10 @@ export const TriSection = _TriSection;
 
 import _SectionCard from './components/molecules/section-card.jsx';
 export const SectionCard = _SectionCard;
+
+import _FooterSection from './components/organisms/footer-section.jsx';
+import _FooterLinks from './components/molecules/footer-links.jsx';
+import _FooterText from './components/molecules/footer-text.jsx';
+export const FooterSection = _FooterSection;
+export const FooterLinks = _FooterLinks;
+export const FooterText = _FooterText;
