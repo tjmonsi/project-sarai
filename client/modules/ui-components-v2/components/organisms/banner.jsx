@@ -18,7 +18,7 @@ class Banner extends React.Component {
       return (
         <div className="mdl-cell mdl-cell--12-col">
           <div className="bottom-section">
-            {bottomSection}
+            {bottomSection()}
           </div>
         </div>
       );
@@ -43,12 +43,12 @@ class Banner extends React.Component {
         <div className="mdl-grid">
           <div className="mdl-cell mdl-cell--6-col mdl-cell--bottom mdl-cell--8-col-tablet mdl-cell--4-col-phone">
             <div className="left-section">
-              {leftSection}
+              {leftSection()}
             </div>
           </div>
           <div className="mdl-cell mdl-cell--6-col mdl-cell--middle mdl-cell--8-col-tablet mdl-cell--4-col-phone">
             <div className="right-section">
-              {rightSection}
+              {rightSection()}
             </div>
           </div>
           {this.renderBottom()}
@@ -60,16 +60,16 @@ class Banner extends React.Component {
 
 Banner.propTypes = {
   background: React.PropTypes.string,
-  bottomSection: React.PropTypes.element,
+  bottomSection: React.PropTypes.func,
   classList: React.PropTypes.arrayOf(React.PropTypes.string),
-  leftSection: React.PropTypes.element,
-  rightSection: React.PropTypes.element
+  leftSection: React.PropTypes.func,
+  rightSection: React.PropTypes.func
 };
 
 Banner.defaultProps = {
   background: '/default/fpo_16x9.png',
-  leftSection: React.createElement('div'),
-  rightSection: React.createElement('div'),
+  leftSection: () => null,
+  rightSection: () => null,
   classList: []
 };
 

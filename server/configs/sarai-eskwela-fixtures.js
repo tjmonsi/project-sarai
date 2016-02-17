@@ -6,7 +6,7 @@ if (!LandingData.findOne({path: 'knowledge-hub.root'})) {
     background: '',
     title: 'SARAI Eskwela',
     text: 'Learn more about farming by accessing agricultural courses online for free.',
-    link: 'knowledge-hub.root',
+    path: 'knowledge-hub.root',
     sort: 9
   });
 }

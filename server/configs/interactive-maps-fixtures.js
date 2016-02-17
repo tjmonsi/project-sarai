@@ -6,7 +6,7 @@ if (!LandingData.findOne({path: 'interactive-maps.root'})) {
     background: '',
     title: 'Interactive Maps',
     text: 'Guide your farming decisions through the suitability, vulnerability, hazard, and crop production area maps produced by SARAI.',
-    link: 'interactive-maps.root',
+    path: 'interactive-maps.root',
     sort: 4
   });
 }

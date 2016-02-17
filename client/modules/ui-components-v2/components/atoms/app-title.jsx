@@ -12,13 +12,20 @@ class AppTitle extends React.Component {
       componentHandler.upgradeDom();
     }
   }
+  renderTitle() {
+    const {title} = this.props;
+    if (typeof title === 'function') {
+      return title();
+    }
+    return title;
+  }
   render() {
-    const {title, href, classList} = this.props;
+    const {href, classList} = this.props;
     const className = classNames('mdl-layout-title', 'app-title', classList);
     return (
       <div className={className}>
         <a href={href}>
-          {title}
+          {this.renderTitle()}
         </a>
       </div>
     );
@@ -30,7 +37,7 @@ AppTitle.propTypes = {
   href: React.PropTypes.string,
   title: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.element
+    React.PropTypes.func
   ])
 };
 

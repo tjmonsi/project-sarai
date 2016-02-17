@@ -18,9 +18,9 @@ class AppBar extends React.Component {
     return (
       <header className={className}>
         <div className="mdl-layout__header-row">
-          {appTitle}
+          {appTitle()}
           <div className="mdl-layout-spacer"></div>
-          {appNav}
+          {appNav()}
         </div>
       </header>
     );
@@ -28,13 +28,13 @@ class AppBar extends React.Component {
 }
 
 AppBar.propTypes = {
-  appNav: React.PropTypes.element,
-  appTitle: React.PropTypes.element,
+  appNav: React.PropTypes.func,
+  appTitle: React.PropTypes.func,
   classList: React.PropTypes.arrayOf(React.PropTypes.string)
 };
 
 AppBar.defaultProps = {
-  appTitle: (<span className="mdl-layout-title">{'Title'}</span>),
+  appTitle: () => null,
   classList: []
 };
 

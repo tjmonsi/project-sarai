@@ -10,6 +10,7 @@ class BannerTitleEditor extends React.Component {
   constructor() {
     super();
     this.afterSave = this.afterSave.bind(this);
+    this.renderDialog = this.renderDialog.bind(this);
   }
   componentDidMount() {
     if (componentHandler) {
@@ -136,7 +137,7 @@ class BannerTitleEditor extends React.Component {
         <MdlDialog
           actions = {this.actionButtons()}
           classList = {['banner-title-editor-v2']}
-          content = {this.renderDialog()}
+          content = {this.renderDialog}
           ref = {dialog}
           title = "Edit Banner"
         />

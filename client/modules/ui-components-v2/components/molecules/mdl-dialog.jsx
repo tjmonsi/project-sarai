@@ -57,7 +57,7 @@ class MdlDialog extends React.Component {
           {title}
         </div>
         <div className="mdl-dialog__content dialog-box-content">
-          {content}
+          {content()}
         </div>
         <div className="mdl-dialog__actions dialog-box-actions">
           {this.renderActions()}
@@ -74,7 +74,7 @@ MdlDialog.propTypes = {
     label: React.PropTypes.string,
   })),
   classList: React.PropTypes.arrayOf(React.PropTypes.string),
-  content: React.PropTypes.element,
+  content: React.PropTypes.func,
   title: React.PropTypes.string
 };
 

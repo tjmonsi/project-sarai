@@ -18,11 +18,11 @@ class Main extends React.Component {
     return (
       <div className={className}>
         <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          {appBar}
-          {appDrawer}
+          {appBar()}
+          {appDrawer()}
           <main className="mdl-layout__content">
-            {content}
-            {footer}
+            {content()}
+            {footer()}
           </main>
         </div>
       </div>
@@ -31,19 +31,19 @@ class Main extends React.Component {
 }
 
 Main.propTypes = {
-  appBar: React.PropTypes.element,
-  appDrawer: React.PropTypes.element,
+  appBar: React.PropTypes.func,
+  appDrawer: React.PropTypes.func,
   classList: React.PropTypes.arrayOf(React.PropTypes.string),
-  content: React.PropTypes.element,
-  footer: React.PropTypes.element
+  content: React.PropTypes.func,
+  footer: React.PropTypes.func
 };
 
 Main.defaultProps = {
-  appBar: null,
-  appDrawer: null,
+  appBar: () => null,
+  appDrawer: () => null,
   classList: [],
-  content: null,
-  footer: null
+  content: () => null,
+  footer: () => null
 };
 
 export default Main;

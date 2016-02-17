@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-class SectionList extends React.Component {
+class TriSection extends React.Component {
   componentDidMount() {
     if (componentHandler) {
       componentHandler.upgradeDom();
@@ -16,7 +16,7 @@ class SectionList extends React.Component {
     return this.props.sections.map((section, key) => {
       return (
         <div
-          className="mdl-cell mdl-cell--12-col section"
+          className="mdl-cell mdl-cell--4-col mdl-cell--2-col-phone section"
           key={key}
         >
           {section()}
@@ -27,8 +27,8 @@ class SectionList extends React.Component {
   render() {
     const {spacing, classList} = this.props;
     const noSpacing = 'mdl-grid--no-spacing';
-    const className = spacing ? classNames('mdl-grid', 'section-list', classList)
-      : classNames('mdl-grid', 'section-list', noSpacing, classList);
+    const className = spacing ? classNames('mdl-grid', 'tri-section', classList)
+      : classNames('mdl-grid', 'tri-section-v2', noSpacing, classList);
     return (
       <div className={className}>
         {this.renderSections()}
@@ -37,16 +37,16 @@ class SectionList extends React.Component {
   }
 }
 
-SectionList.propTypes = {
+TriSection.propTypes = {
   classList: React.PropTypes.arrayOf(React.PropTypes.string),
   sections: React.PropTypes.arrayOf(React.PropTypes.func),
   spacing: React.PropTypes.bool
 };
 
-SectionList.defaultProps = {
+TriSection.defaultProps = {
   classList: [],
   sections: [],
   spacing: true
 };
 
-export default SectionList;
+export default TriSection;

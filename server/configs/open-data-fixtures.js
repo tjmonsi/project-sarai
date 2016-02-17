@@ -6,7 +6,7 @@ if (!LandingData.findOne({path: 'open-data.root'})) {
     background: '',
     title: 'Open Data',
     text: 'Search through SARAI’s database to know more about SARAI’s experiments.',
-    link: 'open-data.root',
+    path: 'open-data.root',
     sort: 7
   });
 }

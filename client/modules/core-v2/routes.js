@@ -1,6 +1,7 @@
 import React from 'react';
 import CoreNavList from './containers/core-nav-list';
 import CoreRootBanner from './containers/core-root-banner';
+import CoreRootServices from './containers/core-root-services';
 import {Main, AppBar, AppDrawer,
   AppTitle, AppLogo, SectionList} from '/client/modules/ui-components-v2';
 import lib from './lib';
@@ -10,29 +11,43 @@ export default (injectDeps, context) => {
   const MainCtx = injectDeps(Main);
   const {triggerAuthenticate} = lib;
 
-  const appBarTitle = React.createElement(AppTitle, {
-    title: React.createElement(AppLogo, {
+  const appBarTitle = () => (React.createElement(AppTitle, {
+    displayName: 'AppTitle',
+    title: () => (React.createElement(AppLogo, {
+      displayName: 'AppLogo',
       src: '/images/sarai-white.png'
-    }),
+    })),
     href: FlowRouter.path('core.root')
-  });
+  }));
 
-  const appDrawerTitle = React.createElement(AppTitle, {
-    title: React.createElement(AppLogo, {
+  const appDrawerTitle = () => (React.createElement(AppTitle, {
+    displayName: 'AppTitle',
+    title: () => (React.createElement(AppLogo, {
+      displayName: 'AppLogo',
       src: '/images/sarai.png'
-    }),
+    })),
     href: FlowRouter.path('core.root')
-  });
+  }));
 
   const layout = {
-    appBar: React.createElement(AppBar, {
+    appBar: () => (React.createElement(AppBar, {
+      displayName: 'AppBar',
       appTitle: appBarTitle,
-      appNav: React.createElement(CoreNavList, {module: 'core', position: 'app-bar'})
-    }),
-    appDrawer: React.createElement(AppDrawer, {
+      appNav: () => (React.createElement(CoreNavList, {
+        displayName: 'CoreNavList',
+        module: 'core',
+        position: 'app-bar'
+      }))
+    })),
+    appDrawer: () => (React.createElement(AppDrawer, {
+      displayName: 'AppBar',
       appTitle: appDrawerTitle,
-      appNav: React.createElement(CoreNavList, {module: 'core', position: 'app-drawer'})
-    })
+      appNav: () => (React.createElement(CoreNavList, {
+        displayName: 'CoreNavList',
+        module: 'core',
+        position: 'app-drawer'
+      }))
+    }))
   };
 
   FlowRouter.route('/', {
@@ -40,12 +55,18 @@ export default (injectDeps, context) => {
     triggersEnter: [triggerAuthenticate],
     action() {
       mount(MainCtx, Object.assign({}, layout, {
-        content: React.createElement(SectionList, {
+        content: () => (React.createElement(SectionList, {
+          displayName: 'SectionList',
           spacing: false,
           sections: [
-            React.createElement(CoreRootBanner)
+            () => (React.createElement(CoreRootBanner, {
+              displayName: 'CoreRootBanner'
+            })),
+            () => (React.createElement(CoreRootServices, {
+              displayName: 'CoreRootServices'
+            }))
           ]
-        })
+        }))
       }));
     }
   });

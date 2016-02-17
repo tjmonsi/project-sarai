@@ -15,11 +15,12 @@ const composeLandingData = ({context, actions}, onData) => {
   const path = 'core.root';
 
   if (Meteor.subscribe('landing-page', path).ready()) {
-    const landingData = LandingData.findOne();
+    const landingData = LandingData.find({path}, {limit: 1, sort: {sort: 1}})
+      .fetch()[0];
 
     if (landingData) {
       const {title, background, text} = landingData;
-      const leftSection = React.createElement(BannerTitle, {
+      const leftSection = () => (React.createElement(BannerTitle, {
         background,
         edit,
         id,
@@ -33,8 +34,10 @@ const composeLandingData = ({context, actions}, onData) => {
           publicFlag: true,
           mediaLibMethod
         }
-      });
+      }));
       onData(null, {background, leftSection});
+    } else {
+      onData(null);
     }
   } else {
     onData(null);

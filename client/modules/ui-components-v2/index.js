@@ -51,3 +51,9 @@ export const textareaLib = _textareaLib;
 
 import _MdlSnackbar from './components/atoms/mdl-snackbar.jsx';
 export const MdlSnackbar = _MdlSnackbar;
+
+import _TriSection from './components/organisms/tri-section.jsx';
+export const TriSection = _TriSection;
+
+import _SectionCard from './components/molecules/section-card.jsx';
+export const SectionCard = _SectionCard;

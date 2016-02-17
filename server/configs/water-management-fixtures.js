@@ -6,7 +6,7 @@ if (!LandingData.findOne({path: 'water-management.root'})) {
     background: '',
     title: 'Integrated Water Management',
     text: 'Monitor the moisture content of the soil in your area.',
-    link: 'water-management.root',
+    path: 'water-management.root',
     sort: 3
   });
 }

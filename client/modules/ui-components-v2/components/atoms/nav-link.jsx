@@ -31,6 +31,9 @@ class NavLink extends React.Component {
   renderSecondary(links) {
     const {classList} = this.props;
     const className = classNames('mdl-navigation__link', classList);
+    const style = {
+      paddingLeft: 40
+    };
     return links.map((link, key) => {
       const {href, label} = link;
       return (
@@ -38,8 +41,9 @@ class NavLink extends React.Component {
           className={className}
           href={href}
           key={key}
+          style={style}
         >
-          {`- ${label}`}
+          {label}
         </a>
       );
     });

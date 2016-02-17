@@ -3,6 +3,10 @@ import MdlDialog from './../molecules/mdl-dialog.jsx';
 import MdlInputText from './../atoms/mdl-input-text.jsx';
 
 class InsertLinkDialog extends React.Component {
+  constructor() {
+    super();
+    this.renderDialog = this.renderDialog.bind(this);
+  }
   componentDidMount() {
     if (componentHandler) {
       componentHandler.upgradeDom();
@@ -60,7 +64,7 @@ class InsertLinkDialog extends React.Component {
     return (
       <MdlDialog
         actions = {this.actionButtons()}
-        content = {this.renderDialog()}
+        content = {this.renderDialog}
         ref = {dialog}
         title = "Insert Link"
       />

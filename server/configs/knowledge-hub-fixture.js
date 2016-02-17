@@ -6,7 +6,7 @@ if (!LandingData.findOne({path: 'knowledge-hub.root'})) {
     background: '',
     title: 'Knowledge Hub',
     text: 'Read write-ups, videos, and other materials to know more about SARAI’s six priority crops.',
-    link: 'knowledge-hub.root',
+    path: 'knowledge-hub.root',
     sort: 8
   });
 }

@@ -17,21 +17,21 @@ class AppDrawer extends React.Component {
     const className = classNames('mdl-layout__drawer', 'app-drawer', classList);
     return (
       <div className={className}>
-        {appTitle}
-        {appNav}
+        {appTitle()}
+        {appNav()}
       </div>
     );
   }
 }
 
 AppDrawer.propTypes = {
-  appNav: React.PropTypes.element,
-  appTitle: React.PropTypes.element,
+  appNav: React.PropTypes.func,
+  appTitle: React.PropTypes.func,
   classList: React.PropTypes.arrayOf(React.PropTypes.string)
 };
 
 AppDrawer.defaultProps = {
-  appTitle: (<span className="mdl-layout-title">{'Title'}</span>),
+  appTitle: () => null,
   classList: []
 };
 
