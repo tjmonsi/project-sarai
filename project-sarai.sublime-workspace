@@ -1,0 +1,1397 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bold",
+				"boldAction"
+			],
+			[
+				"defau",
+				"defaultClassNames"
+			],
+			[
+				"tex",
+				"textfield"
+			],
+			[
+				"Landing",
+				"LandingCtx"
+			],
+			[
+				"Prop",
+				"PropTypes"
+			],
+			[
+				"fun",
+				"functionName"
+			],
+			[
+				"glob",
+				"globalSymbol"
+			],
+			[
+				"glo",
+				"globalSymbol"
+			],
+			[
+				"sy",
+				"symbols"
+			],
+			[
+				"n",
+				"none"
+			],
+			[
+				"render",
+				"renderSections"
+			],
+			[
+				"links",
+				"linksClassList"
+			],
+			[
+				"ui",
+				"uiComponentsModule"
+			],
+			[
+				"con",
+				"containerArticle"
+			],
+			[
+				"trac",
+				"trackerPostView"
+			],
+			[
+				"tran",
+				"transformContainer"
+			],
+			[
+				"compo",
+				"composeWithTracker"
+			],
+			[
+				"Com",
+				"ComponentTemplateCtx"
+			],
+			[
+				"atomic",
+				"atomicDesignRoute"
+			],
+			[
+				"header",
+				"headerBannerAlertLink"
+			],
+			[
+				"is",
+				"isRequired"
+			],
+			[
+				"at",
+				"atomicDesignTest"
+			],
+			[
+				"o",
+				"organismRoute"
+			],
+			[
+				"mole",
+				"moleculeRoute"
+			],
+			[
+				"Rea",
+				"ReactPattern"
+			],
+			[
+				"Hea",
+				"HeaderBannerAlert"
+			],
+			[
+				"Mole",
+				"MoleculeRoute"
+			],
+			[
+				"One",
+				"OnePageViewCtx"
+			],
+			[
+				"high",
+				"highlight1"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"sub",
+				"submitAlertActive"
+			],
+			[
+				"locatio",
+				"locationArray"
+			],
+			[
+				"backg",
+				"background-size"
+			],
+			[
+				"fi",
+				"fileExport"
+			],
+			[
+				"adv",
+				"advisoryMap"
+			],
+			[
+				"post",
+				"postAdvisory"
+			],
+			[
+				"Sara",
+				"SaraiAdvisory"
+			],
+			[
+				"advis",
+				"advisoryLimit"
+			],
+			[
+				"update",
+				"updateAdvisory"
+			],
+			[
+				"Sar",
+				"SaraiAdvisoryEditor"
+			],
+			[
+				"clie",
+				"clientPackages"
+			],
+			[
+				"course",
+				"courseScheduleModel"
+			],
+			[
+				"eq",
+				"EquivalencyData"
+			],
+			[
+				"E",
+				"Equivalencies"
+			],
+			[
+				"curricu",
+				"curriculumData"
+			],
+			[
+				"curriculum",
+				"curriculumData"
+			],
+			[
+				"find",
+				"findEquivalency"
+			],
+			[
+				"uni",
+				"uniqueIdentifier"
+			],
+			[
+				"uin",
+				"uniqueIdentifier"
+			],
+			[
+				"Eq",
+				"EquivalencyData"
+			],
+			[
+				"equ",
+				"equivalencyModel"
+			],
+			[
+				"res",
+				"resizeJumbotron"
+			],
+			[
+				"cu",
+				"currentData"
+			],
+			[
+				"St",
+				"StudentChecklistSemester"
+			],
+			[
+				"over",
+				"overflow-y"
+			],
+			[
+				"in",
+				"instance"
+			],
+			[
+				"un",
+				"unitsEarned"
+			],
+			[
+				"overall",
+				"overallTotalGrade"
+			],
+			[
+				"curr",
+				"currentlyRegdSemester"
+			],
+			[
+				"cur",
+				"currentlyRegdSemester"
+			],
+			[
+				"pre",
+				"previousSem2"
+			],
+			[
+				"aver",
+				"averageGwaCount"
+			],
+			[
+				"cumulat",
+				"cummulativeGwa"
+			],
+			[
+				"ave",
+				"averageCGwaCount"
+			],
+			[
+				"total",
+				"totalUnits"
+			],
+			[
+				"to",
+				"totalGrade"
+			],
+			[
+				"gwa",
+				"gwaPerSem"
+			],
+			[
+				"tota",
+				"totalUnits"
+			],
+			[
+				"ext",
+				"extraCourse"
+			],
+			[
+				"unit",
+				"unitsPassed"
+			],
+			[
+				"units",
+				"unitsRegistered"
+			],
+			[
+				"comp",
+				"compiledSchedule"
+			],
+			[
+				"c",
+				"checklist"
+			],
+			[
+				"get",
+				"getColleges"
+			],
+			[
+				"curri",
+				"curriculumCourse"
+			],
+			[
+				"cour",
+				"courseCurriculum"
+			],
+			[
+				"student",
+				"studentNumber"
+			],
+			[
+				"st",
+				"studentFolder"
+			],
+			[
+				"recomm",
+				"recommendedModel"
+			],
+			[
+				"ci",
+				"curriculumModel"
+			],
+			[
+				"Load",
+				"LoadStudent"
+			],
+			[
+				"stude",
+				"studentDictionary"
+			],
+			[
+				"file",
+				"fileWithoutEUP"
+			],
+			[
+				"load",
+				"loadCourseSchedule"
+			],
+			[
+				"loadCours",
+				"loadCourseSchedule"
+			],
+			[
+				"Cour",
+				"CourseSchedule"
+			],
+			[
+				"Cou",
+				"CourseSchedule"
+			],
+			[
+				"mong",
+				"mongoose"
+			],
+			[
+				"cam",
+				"camelToDash"
+			],
+			[
+				"Course",
+				"CourseCurriculum"
+			],
+			[
+				"grade",
+				"gradelookups"
+			],
+			[
+				"req",
+				"requiredCourseTypeId"
+			],
+			[
+				"require",
+				"requiredCourseType"
+			],
+			[
+				"year",
+				"yearlookups"
+			],
+			[
+				"currila",
+				"curricula"
+			],
+			[
+				"curric",
+				"curricula"
+			],
+			[
+				"Requi",
+				"RequiredCourseType"
+			],
+			[
+				"yearloo",
+				"yearlookups"
+			],
+			[
+				"pop",
+				"populateYearLookup"
+			],
+			[
+				"popul",
+				"populateStudentDB"
+			],
+			[
+				"poc",
+				"pocCountFile"
+			],
+			[
+				"pocC",
+				"pocCountFile"
+			],
+			[
+				"studnet",
+				"studentCount"
+			],
+			[
+				"populateStude",
+				"populateStudentMYSQLDB"
+			],
+			[
+				"populateSt",
+				"populateStudentMYSQLDB"
+			],
+			[
+				"err",
+				"errorGrade"
+			],
+			[
+				"error",
+				"errorStudent"
+			],
+			[
+				"stu",
+				"studentCount"
+			],
+			[
+				"populate",
+				"populateCurriculumDB"
+			],
+			[
+				"errorCu",
+				"errorCurriculum"
+			],
+			[
+				"cours",
+				"courseCurriculumCount"
+			],
+			[
+				"cou",
+				"courseCurriculumCount"
+			],
+			[
+				"popu",
+				"populateCourseDB"
+			],
+			[
+				"reqt",
+				"reqtypecountadd"
+			],
+			[
+				"populateD",
+				"populateDepartmentMYSQLDB"
+			],
+			[
+				"m",
+				"mysqlModels"
+			],
+			[
+				"my",
+				"mysqldb"
+			],
+			[
+				"mys",
+				"mysqlModels"
+			],
+			[
+				"Grade",
+				"GradeLookup"
+			],
+			[
+				"Year",
+				"YearType"
+			],
+			[
+				"curricul",
+				"curriculumCode"
+			],
+			[
+				"curril",
+				"curriculumCode"
+			],
+			[
+				"Curr",
+				"CurriculumEntry"
+			],
+			[
+				"Curri",
+				"CurriculumEntry"
+			],
+			[
+				"required",
+				"requiredCourseTypeId"
+			],
+			[
+				"R",
+				"RequiredCourseType"
+			],
+			[
+				"equi",
+				"equivalency"
+			],
+			[
+				"po",
+				"populateCollegeDB"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "server/api/experiment/file-upload.js",
+			"settings":
+			{
+				"buffer_size": 1328,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "package.json",
+			"settings":
+			{
+				"buffer_size": 2148,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/api/v1/file.js",
+			"settings":
+			{
+				"buffer_size": 541,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".meteor/local/build/programs/server/boot.js",
+			"settings":
+			{
+				"buffer_size": 10157,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/modules/ui-components/components/molecules/markdown-textarea.jsx",
+			"settings":
+			{
+				"buffer_size": 6260,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/modules/ui-components/components/atoms/mdl-tooltip.jsx",
+			"settings":
+			{
+				"buffer_size": 692,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/modules/ui-components/libs/textarea.js",
+			"settings":
+			{
+				"buffer_size": 4994,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/modules/ui-components/components/atoms/mdl-input-text.jsx",
+			"settings":
+			{
+				"buffer_size": 1360,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/modules/ui-components/components/molecules/dialog-box.jsx",
+			"settings":
+			{
+				"buffer_size": 2112,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/modules/ui-components/components/molecules/dialog-box.scss",
+			"settings":
+			{
+				"buffer_size": 237,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/modules/experiment/routes.js",
+			"settings":
+			{
+				"buffer_size": 626,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 390.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Tern",
+				"TernJS: Reload"
+			],
+			[
+				"Ter",
+				"TernJS: Reload"
+			],
+			[
+				"install package",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 191.0,
+		"history":
+		[
+			"ls",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) ",
+			" import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/.meteor",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/.meteor/local",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/.meteor/local/build",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/.meteor/local/build/programs",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/.meteor/local/build/programs/server",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/experiment",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/atoms",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/molecules",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/libs",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/gcloud",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/private",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/server",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/server/api",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/server/api/experiment",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/server/api/v1"
+	],
+	"file_history":
+	[
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/.meteor/local/build/programs/server/packages/modules.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/server/api/v1/file-upload.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/.gitignore",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/libs/textarea.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/atoms/mdl-icon-button.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/package.json",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/material.css",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/.meteor/release",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/inherits/inherits_browser.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/sass-lint/package.json",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/sass-lint/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/inherits/inherits.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/util/util.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/fd-slicer/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/multiparty/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/sinon/package.json",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/readable-stream/package.json",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/inherits/package.json",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/server/api/experiment/file-upload.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/server/main.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/util/package.json",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/.sass-lint.yml",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/util/.npmignore",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/inherits/test.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/inherits/README.md",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/.eslintignore",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/multiparty/package.json",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/fd-slicer/package.json",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/multiparty/.npmignore",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/babel-core/package.json",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/util/.gitinclude",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/util/support/isBuffer.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/node_modules/util/support/isBufferBrowser.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/imports/node_modules_temp/util/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/project-sarai.sublime-project",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/components/sarai-partners.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/lib/collections/admin.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/lib/collections/knowledge-hub.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/lib/collections/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/actions/core.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/quad-section.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/tri-section.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-root-content.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-root-tri-section.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/tri-section.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/quad-section.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/routes.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/lib/collections/landing-data.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-root-banner.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/molecules/banner-title.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/section-list.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/mantra-example.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/actions/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/components/mantra-example.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/cms/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-app-title.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-app-drawer.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/atoms/app-logo.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/templates/landing.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/main.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/banner.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/theme.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-app-bar.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-app-bar.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-app-nav-drawer.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-app-nav.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/configs/context.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/app-bar.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-footer.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-root-banner-icon-group.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/molecules/nav-list.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/atoms/nav-link.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/libs/mantra.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/configs/routes/core.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/configs/routes/index.js",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/.gitignore",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/modules/lexical.js",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/index.js",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/test/test-files/test1",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/modules/syntax.js",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/modules/cfg.js",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/test/lexical.test.js",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/modules/dfa.js",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/test.pseudo",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/modules/symbols.js",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/.eslintrc",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/package.json",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/test/test-files/symbol-table.js",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/test/symbols.test.js",
+		"/home/tjmonsi/dev_projects/node_projects/pseudo-asm/test/test1",
+		"/home/tjmonsi/dev_projects/slide-decks/cmsc191/cmsc191-slide1/index.html",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/footer-section.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/components/government-footer.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/components/sarai-partners.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/molecules/footer-text.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/molecules/footer-links.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/footer-section.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/footer.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/core/containers/core-footer.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/molecules/footer-text.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/footer.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/molecules/section-card.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/banner.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/molecules/section-card.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/atoms/icon.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/atoms/icon.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/molecules/icon-group.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/atoms/app-title.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/atoms/app-logo.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/configs/material.css",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/ui-components/components/organisms/app-drawer.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/packages/lib/package.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/configs/head.html",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/sarai-theme/general/font.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/head.html",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/imports/modules/ui-components/components/templates/landing.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/imports/configs/routes/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/imports/configs/routes/core.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/imports/modules/core/static/menu-static.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/imports/modules/core/index.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/imports/modules/core/containers/core-app-nav.js",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/imports/modules/ui-components/components/atoms/app-title.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/imports/modules/ui-components/components/atoms/nav-link.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/imports/modules/ui-components/components/molecules/nav-list.jsx",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/sarai-theme/index.scss",
+		"/home/tjmonsi/dev_projects/meteor_projects/project-sarai/project-sarai/client/modules/sarai-theme/general/colors.scss"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"/home/tjmonsi/dev_projects/project-bellweather/watchdogs/watchdogs-node/data/CHECKLISTS-raw",
+			"CHECKLISTS-raw",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"=>",
+			"const isDelimeter = (token) => {\n  return token[0] === 'newline';\n};",
+			"case",
+			"str ",
+			"str",
+			"num",
+			"app-bar-dropdown",
+			"-->",
+			"<!-- ",
+			"';\n",
+			"Link",
+			"space",
+			"invariant",
+			"class",
+			"this is where we",
+			"\"",
+			"const",
+			"processFromSSR",
+			"_buildContext",
+			"action",
+			"sarai-drop-down-item",
+			"mdl-cell--middle",
+			"each-bulletin",
+			"soon",
+			"SaraiAlertsAndAdvisoryData",
+			"SaraiAlertsAndAdvisoryEditor",
+			"AlertEditor",
+			"AlertAndAdvisoryEditor",
+			"SaraiAlertsAndAdvisoryEditor",
+			"SaraiAlertsAndAdvisoryData",
+			"SaraiAlertsAndAdvisory",
+			"SaraiAlertsAndAdvisoryData",
+			"postAdvisory",
+			"\",\n",
+			"map",
+			"^[ \\w\\.\\d-]*,[\\d\\(\\)\\w]*,[\\d-]*,[12S]*,[\\d\\.]*,0\\.0,\\d*,\\d*,[\\d\\.]*",
+			"^[ \\w\\.\\d-]*,[\\d\\(\\)\\w]*,[\\d-]*,[12S]*,[\\d\\.]*,0\\.0,\\d*,\\d*,\\d*\\.\\d*",
+			"^[ \\w\\.\\d-]*,[\\d\\(\\)\\w]*,[\\d-]*,[12S]*,[\\d\\.]*,0\\.0,\\d*,\\d*,\\d*",
+			"^[\\w\\.\\d-]*,[\\d\\(\\)\\w]*,[\\d-]*,[12S]*,[\\d\\.]*,0\\.0,\\d*,\\d*,\\d*",
+			"^CHEM 16[\\w\\.\\d-]*,[\\d\\(\\)\\w]*,[\\d-]*,[12S]*,[\\d\\.]*,[\\d\\.]*,\\d*,\\d*,0\\.0",
+			"^[\\w\\d-]*,[\\d\\(\\)\\w]*,[\\d-]*,[12S]*,[\\d\\.]*,[\\d\\.]*,\\d*,\\d*,0\\.0",
+			"^[\\w\\d-]*,[\\d\\(\\)\\w]*,[\\d-]*,[12S]*,[\\d\\.]*,0.0",
+			"[\\w\\d-]*,[\\d\\(\\)\\w]*,0",
+			",\\d,",
+			"\\d-\\d",
+			"-",
+			"1-6",
+			"ENG 1",
+			"])\n",
+			"parseLine",
+			"AENG 1",
+			"compileStep",
+			"bower_components/",
+			"bower_components",
+			",",
+			"for=",
+			"font-size",
+			"font-s",
+			"font-size: 11px",
+			"consol",
+			"console",
+			"console.log",
+			"ProgressBar",
+			"APE",
+			"obj",
+			"ProjectPotential",
+			"username: \"admin\",\n			email: \"uplbregteam@gmail.com\",\n			password: \"uplbadminpwd\",\n			profile: {\n				admin: true\n			}\n		}, function(err) {\n			console.log(err)\n		})",
+			"course: {\n			type: String,\n			index: true\n		},\n		studentNumber: {\n			type: String,\n			index: true\n		}\n	}))",
+			"new Mongo.Collection(\"users\");",
+			"new Mongo.collection(\"users\")",
+			"updatePOCDB",
+			"today1 - new Date()",
+			"time1",
+			"cb",
+			"STS",
+			"BSBIO",
+			"console.log\\(\\w",
+			" console.log\\(\\w",
+			"console.log\\(\\w",
+			"console.log",
+			"console.log\\(result\\)",
+			"console.log(result)",
+			"console.log",
+			"item",
+			"#",
+			"\\+OR\\+[\\w\\d ]*\\+AND",
+			"host",
+			"err",
+			"ClassSchedule",
+			"#",
+			"CHEM 16.1",
+			"valid",
+			"h1",
+			"15px",
+			"h1"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"->",
+			"var ",
+			"var",
+			"app-drawer-group",
+			"",
+			"{'Link'}",
+			"className",
+			"",
+			"'",
+			"sarai-drop-down-main-header-item",
+			"mdl-cell--bottom",
+			"summary",
+			"valid",
+			"SaraiAlert",
+			"SaraiAlertEditor",
+			"AlertEditor",
+			"SaraiAlertEditor",
+			"SaraiAlert",
+			"",
+			">",
+			"LittleQCore",
+			"new Date() - today1",
+			"//console.log(result)",
+			"CourseSchedule",
+			"h2"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "server/api/experiment/file-upload.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1328,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								270,
+								270
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "server/api/v1/file.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 541,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27,
+								27
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": ".meteor/local/build/programs/server/boot.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10157,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3817.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "client/modules/ui-components/components/molecules/markdown-textarea.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6260,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4646,
+								4646
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1620.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "client/modules/ui-components/components/atoms/mdl-tooltip.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 692,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								536,
+								536
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "client/modules/ui-components/libs/textarea.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4994,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4994,
+								4994
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2430.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "client/modules/ui-components/components/atoms/mdl-input-text.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27,
+								27
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "client/modules/ui-components/components/molecules/dialog-box.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2112,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1552,
+								1552
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 648.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "client/modules/ui-components/components/molecules/dialog-box.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 237,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								231,
+								231
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "client/modules/experiment/routes.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 626,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								499,
+								499
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "project-sarai.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 245.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

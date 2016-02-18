@@ -11,13 +11,14 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.3-modules-beta.4');
+  api.versionsFrom('1.3-modules-beta.6');
 
   var packages = [
     'meteor-base',
     'mongo',
     // 'blaze-html-templates',
     'static-html',
+    'session',
     'jquery',
     'tracker',
     'standard-minifiers',
@@ -27,10 +28,11 @@ Package.onUse(function(api) {
     'email',
     'underscore',    
     'fourseven:scss@3.4.1',
-    'meteorhacks:kadira@2.23.6',
+    'meteorhacks:kadira@2.27.2',
     'meteorhacks:kadira-profiler@1.2.1',
-    'kadira:debug@2.2.4',
-    'kadira:flow-router@2.7.0',    
+    'meteorhacks:picker@1.0.3',
+    'kadira:debug@3.0.1',
+    'kadira:flow-router@2.10.0',    
     'meteorhacks:sikka@1.0.1',
     'ongoworks:security@1.3.0',
     // 'zodiase:mdl@1.0.6_1',
@@ -40,15 +42,25 @@ Package.onUse(function(api) {
     'accounts-password',
     'service-configuration@1.0.5',
     // methods that would be part of 1.3,
-    'mdg:validated-method@0.2.3',
-    'aldeed:simple-schema@1.5.0'
+    'check',
+    'mdg:validated-method@1.0.1',
+    'mdg:validation-error@0.4.0',
+    'aldeed:simple-schema@1.5.3'
   ];
 
   api.use(packages);
   api.imply(packages);
+
+  // hack to use gcloud from atmosphere
+  api.mainModule('index.js', 'server');
+  api.export('gcloud', 'server');
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('sarai:sarai-packages');
+  api.use('sarai:lib');
+});
+
+Npm.depends({
+  'gcloud': '0.27.0'
 });

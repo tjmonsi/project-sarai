@@ -1,0 +1,19 @@
+.section-card {
+  width: 100% !important;
+  .section-card-title-container {
+    height: 200px;
+    .section-card-title {
+      font-weight: 300;
+      color: white;
+    }
+  }  
+  .section-card-text {
+    height: 70px;
+    color: black;
+  }
+  .section-card-actions {
+    .section-card-action {
+      color: black;
+    }
+  }
+}
