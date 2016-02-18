@@ -6,6 +6,7 @@ class NavLink extends React.Component {
     if (componentHandler) {
       componentHandler.upgradeDom();
     }
+    // add window event listener
   }
   componentDidUpdate() {
     if (componentHandler) {
@@ -32,7 +33,7 @@ class NavLink extends React.Component {
     const {classList} = this.props;
     const className = classNames('mdl-navigation__link', classList);
     const style = {
-      paddingLeft: 40
+      paddingLeft: 60
     };
     return links.map((link, key) => {
       const {href, label} = link;

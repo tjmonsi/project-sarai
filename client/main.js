@@ -4,8 +4,9 @@ import {initContext} from './configs/context';
 
 import experimentModule from './modules/experiment';
 import coreModule from './modules/core';
-import cmsModule from './modules/cms';
+// import cmsModule from './modules/cms';
 import coreModuleV2 from './modules/core-v2';
+import interactiveMapModule from './modules/interactive-maps';
 
 
 const context = initContext();
@@ -15,7 +16,8 @@ const app = createApp(context);
 app.loadModule(coreModuleV2);
 app.loadModule(coreModule);
 app.loadModule(experimentModule);
-app.loadModule(cmsModule);
+app.loadModule(interactiveMapModule);
+// app.loadModule(cmsModule);
 
 // Load routes last.
 app.init();

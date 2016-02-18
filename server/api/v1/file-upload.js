@@ -3,6 +3,7 @@ import bucket from './../lib/gcloud-bucket';
 import authenticate from './../lib/authenticate';
 import errorSend from './../lib/error-send';
 import multiparty from 'multiparty';
+import slug from 'slug';
 
 Picker.route('/v1/upload-file', (params, req, res) => {
   const {query} = params;
@@ -20,7 +21,10 @@ Picker.route('/v1/upload-file', (params, req, res) => {
         part.resume();
       }
       if (part.filename) {
-        file = bucket.file(`${folder}${query.prefix}/${part.filename}`);
+        const filenameArr = part.filename.split('.');
+        const fileExtension = filenameArr.pop();
+        const filename = filenameArr.length > 0 ? slug(filenameArr.join('-')) : '';
+        file = bucket.file(`${folder}${query.prefix}/${filename}.${fileExtension}`);
         if (file) {
           file.exists((err1, exists) => {
             if (err1) partError = err1;

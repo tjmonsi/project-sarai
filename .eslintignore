@@ -4,3 +4,4 @@ imports/node_modules_temp
 client/modules/cms
 client/modules/core
 client/modules/ui-components
+client/modules/experiment

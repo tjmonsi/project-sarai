@@ -1,24 +1,17 @@
 import React from 'react';
-import {Landing, MarkdownTextarea} from '/client/modules/ui-components';
-import FileUploader from './components/file-uploader.jsx';
+import {Main} from '/client/modules/ui-components-v2';
+import GeotiffExperiment from './components/geotiff.jsx';
 
 export default (injectDeps, context) => {
   const {FlowRouter, mount} = context;
-  const LandingCtx = injectDeps(Landing);
-
-  FlowRouter.route('/file-uploader-experiment', {
+  const MainCtx = injectDeps(Main);
+  
+  FlowRouter.route('/geotiff-experiment', {
     action() {
-      mount(LandingCtx, {
-        content: React.createElement(FileUploader),
+      mount(MainCtx, {
+        content: () => (React.createElement(GeotiffExperiment))
       });
     }
   });
 
-  FlowRouter.route('/markdown-textarea-experiment', {
-    action() {
-      mount(LandingCtx, {
-        content: React.createElement(MarkdownTextarea),
-      });
-    }
-  });
 };
