@@ -4,11 +4,11 @@ import googleMaps from 'google-maps';
 class GoogleMap extends React.Component {
   constructor() {
     super();
-    this,google = null;
+    this.google = null;
     this.map = null;
   }
   componentDidMount() {
-    const {lat, lng, zoom} = this.props; 
+    const {lat, lng, zoom} = this.props;
     googleMaps.load((google) => {
       if (google) {
         this.google = google;
@@ -56,7 +56,7 @@ GoogleMap.propTypes = {
     React.PropTypes.number
   ]),
   zoom: React.PropTypes.number
-}
+};
 
 GoogleMap.defaultProps = {
   height: 400,
