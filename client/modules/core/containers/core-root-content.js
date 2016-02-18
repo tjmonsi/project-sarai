@@ -15,6 +15,7 @@ const composerLandingPage = ({context, edit}, onData) => {
   if (Meteor.subscribe('landing-page', 'core.root').ready()) {
     const landingData = LandingData.findOne();
     if (landingData) {
+
       if (landingData.banner) {
         sections.push(React.createElement(CoreRootBanner, {
           banner: landingData.banner
@@ -28,6 +29,7 @@ const composerLandingPage = ({context, edit}, onData) => {
       }
       
       if (landingData.services && landingData.services.visible) {
+        console.log(landingData.services);
         sections.push(React.createElement(CoreRootTriSection, {
           services: landingData.services
         }));
