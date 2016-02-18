@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import {SectionCard} from '/client/modules/ui-components';
-
+// import {SectionCard} from '/client/modules/ui-components';
 
 class EskwelaRootCourses extends React.Component {
   componentDidMount() {
@@ -19,11 +18,11 @@ class EskwelaRootCourses extends React.Component {
     return this.props.courses.map((course, key) => {
       return (
         <div
-          className="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--2-col-phone"
+          className="mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet
+            mdl-cell--2-col-phone"
           key={key}
         >
-        {course}
-
+          {course}
         </div>
       );
     });
@@ -35,7 +34,10 @@ class EskwelaRootCourses extends React.Component {
       : classNames('mdl-grid', 'section-list', noSpacing, classList);
     return (
       <div className={className}>
-        <div className="mdl-cell mdl-cell--2-offset-desktop mdl-cell--8-col-desktop mdl-cell--1-offset-tablet mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+        <div
+          className="mdl-cell mdl-cell--2-offset-desktop mdl-cell--8-col-desktop
+            mdl-cell--1-offset-tablet mdl-cell--6-col-tablet mdl-cell--4-col-phone"
+        >
           <div className="mdl-grid">
             {this.renderCourses()}
           </div>
@@ -44,5 +46,11 @@ class EskwelaRootCourses extends React.Component {
     );
   }
 }
+
+EskwelaRootCourses.propTypes = {
+  classList: React.PropTypes.arrayOf(React.PropTypes.string),
+  courses: React.PropTypes.arrayOf(React.PropTypes.element),
+  spacing: React.PropTypes.bool
+};
 
 export default EskwelaRootCourses;

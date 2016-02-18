@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 
 class EskwelaHeader extends React.Component {
   componentDidMount() {
@@ -25,16 +25,8 @@ class EskwelaHeader extends React.Component {
   }
 }
 
-// SectionList.propTypes = {
-//   classList: React.PropTypes.arrayOf(React.PropTypes.string),
-//   sections: React.PropTypes.arrayOf(React.PropTypes.element),
-//   spacing: React.PropTypes.bool
-// };
-
-// SectionList.defaultProps = {
-//   classList: [],
-//   sections: [],
-//   spacing: true
-// };
+EskwelaHeader.propTypes = {
+  headerText: React.PropTypes.string
+};
 
 export default EskwelaHeader;

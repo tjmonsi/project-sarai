@@ -12,9 +12,9 @@ import _EskwelaList from './components/eskwela-list.jsx';
 import _FourColSection from './components/four-col-section.jsx';
 
 export default {
-	actions,
-	load: () => null,
-	routes
+  actions,
+  load: () => null,
+  routes
 };
 
 export const EskwelaRootContent = _EskwelaRootContent;
@@ -23,5 +23,5 @@ export const EskwelaRootCourses = _EskwelaRootCourses;
 
 export const HighChart = _HighChart;
 export const EskwelaHeader = _EskwelaHeader;
-export const EskwelaList =_EskwelaList;
+export const EskwelaList = _EskwelaList;
 export const FourColSection = _FourColSection;
