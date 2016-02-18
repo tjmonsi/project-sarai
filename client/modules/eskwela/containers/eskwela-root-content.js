@@ -22,7 +22,7 @@ const composerLandingPage = ({context}, onData) => {
 	}));
 
 	sections.push(React.createElement(EskwelaHeader, {
-		headerText: 'Featured Courses'
+		headerText: 'Courses'
 	}));
 
 	sections.push(React.createElement(EskwelaRootCourses, {
@@ -58,13 +58,30 @@ const composerLandingPage = ({context}, onData) => {
 		}
 	}));
 
-	// sections.push(React.createElement(EskwelaHeader, {
-	// 	headerText: 'Quick Links'
-	// }));
+	sections.push(React.createElement(EskwelaHeader, {
+		headerText: 'Featured Content'
+	}));
 
-	// sections.push(React.createElement(CoreRootTriSection, {
-	// 	services: landingData.services
-	// }));
+
+	sections.push(React.createElement(EskwelaRootCourses, {
+		courses: {
+			visible: true,
+			courses: [
+				{
+					img: '/images/eskwela/tna_screenshot.png',
+					title: 'Training Needs Analysis',
+					text: 'A compilation of survey answers from 1,208 farmers and 50 partners about their training needs.',
+					link: '/eskwela/tna'
+				},
+				{
+					img: '/images/eskwela/el_nino_screenshot.png',
+					title: 'El Nino Facts',
+					text: 'Ano ang dapat gawin sa panahon ng El Nino?',
+					link: ''
+				}
+			]
+		}
+	}));
 
 	onData(null, {sections, spacing});
 };
