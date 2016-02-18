@@ -5,51 +5,6 @@ import extents from 'geotiff-extents';
 import proj4 from 'proj4';
 import googleMaps from 'google-maps';
 
-// function PhOverlay(bounds, image, map) {
-//   this._bounds = bounds;
-//   this._image = image;
-//   this._map = map;
-//   this._div = null;
-//   console.log(this);
-// }
-
-// PhOverlay.prototype.onAdd = () => {
-//   if (document) {
-//     const div = document.createElement('div');
-//     div.style.borderStyle = 'none';
-//     div.style.borderWidth = '0px';
-//     div.style.position = 'absolute';
-    
-//     const img = document.createElement('img');
-//     img.src = this._image;
-//     img.style.width = '100%';
-//     img.style.height = '100%';
-//     img.style.position = 'absolute';
-//     div.appendChild(img);
-    
-//     this._div = div;
-//     const panes = this.getPanes();
-//     panes.overlayLayer.appendChild(div);  
-//   }
-// };
-
-// PhOverlay.prototype.draw = () => {
-//   const overlayProjection = this.getProjection();
-//   const sw = overlayProjection.fromLatLngToDivPixel(this._bounds.getSouthWest());
-//   const ne = overlayProjection.fromLatLngToDivPixel(this._bounds.getNorthEast());
-  
-//   const div = this._div;
-//   div.style.left = sw.x + 'px';
-//   div.style.top = ne.y + 'px';
-//   div.style.width = (ne.x - sw.x) + 'px';
-//   div.style.height = (sw.y - ne.y) + 'px';
-// };
-
-// PhOverlay.prototype.onRemove = () => {
-//   this._div.parentNode.removeChild(this._div);
-//   this._div = null;
-// };
-
 export default class GeotiffExperiment extends React.Component {
   constructor() {
     super();

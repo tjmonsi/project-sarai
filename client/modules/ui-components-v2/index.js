@@ -64,3 +64,6 @@ import _FooterText from './components/molecules/footer-text.jsx';
 export const FooterSection = _FooterSection;
 export const FooterLinks = _FooterLinks;
 export const FooterText = _FooterText;
+
+import _GoogleMap from './components/molecules/google-map.jsx';
+export const GoogleMap = _GoogleMap;

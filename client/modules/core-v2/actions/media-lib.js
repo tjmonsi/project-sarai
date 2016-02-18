@@ -3,8 +3,6 @@ export default {
     const {Accounts, Meteor, FlowRouter} = context;
     const userId = Meteor.userId();
     const token = Accounts._storedLoginToken();
-    // return `/v1/get-file?name=${file}&id=${encodeURIComponent(userId)}
-    // &token=${encodeURIComponent(token)}`;
     return FlowRouter.path('/v1/get-file', {}, {
       name: file,
       id: userId,
@@ -14,13 +12,9 @@ export default {
   getFilesHandle: (context, prefix, publicFlag, XMLHttpRequest, nextQuery, filename, callback) => {
     const {mediaLib, FlowRouter} = context;
     if (XMLHttpRequest) {
-      // console.log('Get Files');
       const xhr = new XMLHttpRequest();
       const p = !publicFlag ? 'true' : 'false';
       const name = filename ? `${prefix}/${filename}` : `${prefix}/`;
-      // const token = nextQuery && nextQuery !== '' ?
-      // `&token=${encodeURIComponent(nextQuery)}` : '';
-      // const uri = `/v1/get-files?prefix=${name}&p=${p}${token}`;
       const uri = FlowRouter.path('/v1/get-files', {}, {
         p,
         prefix: name,
