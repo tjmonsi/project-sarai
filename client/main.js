@@ -7,6 +7,7 @@ import coreModule from './modules/core';
 // import cmsModule from './modules/cms';
 import coreModuleV2 from './modules/core-v2';
 import interactiveMapModule from './modules/interactive-maps';
+import eskwelaModule from './modules/eskwela';
 
 
 const context = initContext();
@@ -18,6 +19,7 @@ app.loadModule(coreModule);
 app.loadModule(experimentModule);
 app.loadModule(interactiveMapModule);
 // app.loadModule(cmsModule);
+app.loadModule(eskwelaModule);
 
 // Load routes last.
 app.init();
