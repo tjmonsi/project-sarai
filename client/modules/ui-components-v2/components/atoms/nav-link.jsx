@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import {FlowRouter} from 'meteor/kadira:flow-router';
 
 class NavLink extends React.Component {
   componentDidMount() {
@@ -13,16 +14,20 @@ class NavLink extends React.Component {
       componentHandler.upgradeDom();
     }
   }
+  checkLink(url) {
+    return /^(f|ht)tps?:\/\//i.test(url);
+  }
   renderDropdown(links) {
     return links.map((link, key) => {
       const {href, label} = link;
+      const url = href.trim() === '' || this.checkLink(href.trim()) ? href : FlowRouter.path(href);
       return (
         <li
           className="mdl-menu__item"
-          data-link-href={href}
+          data-link-href={url}
           key={key}
         >
-          <a href={href}>
+          <a href={url}>
             {label}
           </a>
         </li>
@@ -37,10 +42,12 @@ class NavLink extends React.Component {
     };
     return links.map((link, key) => {
       const {href, label} = link;
+      // const url = ''
+      const url = href.trim() === '' || this.checkLink(href.trim()) ? href : FlowRouter.path(href);
       return (
         <a
           className={className}
-          href={href}
+          href={url}
           key={key}
           style={style}
         >
@@ -54,6 +61,8 @@ class NavLink extends React.Component {
     const className = classNames('mdl-navigation__link', classList);
     const dropdownClassName = classNames('mdl-menu', 'mdl-menu--bottom-left',
       'mdl-js-menu', 'mdl-js-ripple-effect', 'nav-link-dropdown-v2', dropdownClassList);
+    // const url = ''
+    const url = href.trim() === '' || this.checkLink(href.trim()) ? href : FlowRouter.path(href);
     if (links && links.length > 0) {
       if (position === 'app-bar') {
         return (
@@ -89,7 +98,7 @@ class NavLink extends React.Component {
     return (
       <a
         className={className}
-        href={href}
+        href={url}
       >
         {label}
       </a>

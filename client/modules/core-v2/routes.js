@@ -1,6 +1,6 @@
 import React from 'react';
 import CoreNavList from './containers/core-nav-list';
-import CoreRootBanner from './containers/core-root-banner';
+import CoreRootBanner from './containers/core-banner';
 import CoreRootServices from './containers/core-root-services';
 import SaraiPartners from './components/sarai-partners.jsx';
 import {Main, SectionList} from '/client/modules/ui-components-v2';
@@ -22,13 +22,33 @@ export default (injectDeps, context) => {
           spacing: false,
           sections: [
             () => (React.createElement(CoreRootBanner, {
-              displayName: 'CoreRootBanner'
+              displayName: 'CoreRootBanner',
+              path: this.name
             })),
             () => (React.createElement(CoreRootServices, {
               displayName: 'CoreRootServices'
             })),
             () => (React.createElement(SaraiPartners, {
               displayName: 'SaraiPartners'
+            }))
+          ]
+        }))
+      }));
+    }
+  });
+
+  FlowRouter.route('/about', {
+    name: 'core.about',
+    triggersEnter: [triggerAuthenticate],
+    action() {
+      mount(MainCtx, Object.assign({}, layout, {
+        content: () => (React.createElement(SectionList, {
+          displayName: 'SectionList',
+          spacing: false,
+          sections: [
+            () => (React.createElement(CoreRootBanner, {
+              displayName: 'CoreRootBanner',
+              path: this.name
             }))
           ]
         }))

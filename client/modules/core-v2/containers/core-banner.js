@@ -4,7 +4,7 @@ import {composeAll, useDeps, composeWithTracker} from 'mantra-core';
 import lib from './../lib';
 import {mediaLibMethod} from './core-media-lib';
 
-const composeLandingData = ({context, actions}, onData) => {
+const composeLandingData = ({context, actions, path}, onData) => {
   const {Collections, Meteor, FlowRouter} = context();
   const {coreRoot} = actions();
   const {saveBanner} = coreRoot;
@@ -12,7 +12,7 @@ const composeLandingData = ({context, actions}, onData) => {
   const {coreAuthenticate} = lib;
   const edit = !!coreAuthenticate() && FlowRouter.getQueryParam('edit') === 'true';
   const id = 'core-root-banner';
-  const path = 'core.root';
+  // const path = 'core.root';
 
   if (Meteor.subscribe('landing-page', path).ready()) {
     const landingData = LandingData.find({path}, {limit: 1, sort: {sort: 1}})

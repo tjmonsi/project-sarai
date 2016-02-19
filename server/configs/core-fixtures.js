@@ -5,7 +5,7 @@ if (!NavMenu.findOne({module: 'core'})) {
     module: 'core',
     navs: [
       {
-        href: '',
+        href: 'core.about',
         label: 'About SARAI',
         id: 'about-sarai-link'
       },
@@ -15,7 +15,7 @@ if (!NavMenu.findOne({module: 'core'})) {
         id: 'explore-sarai-link',
         links: [
           {
-            href: '',
+            href: 'interactive-maps.root',
             label: 'Interactive Maps'
           },
           {
@@ -30,11 +30,11 @@ if (!NavMenu.findOne({module: 'core'})) {
         id: 'be-updated-sarai-link',
         links: [
           {
-            href: '',
+            href: 'alerts-and-advisory.root',
             label: 'Alerts & Advisory'
           },
           {
-            href: '',
+            href: 'sarai-eskwela.root',
             label: 'SARAI Eskwela'
           },
           {
