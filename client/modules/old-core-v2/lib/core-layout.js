@@ -1,6 +1,6 @@
 import React from 'react';
 import CoreFooter from './../containers/core-footer';
-import {AppBar, AppDrawer} from '/client/modules/ui-components-v2';
+import {AppBar, AppDrawer} from '/client/modules/old-ui-components-v2';
 
 export default (module, appBarTitle, appDrawerTitle, footerFlag, navList) => {
   const footer = footerFlag ? () => (React.createElement(CoreFooter, {

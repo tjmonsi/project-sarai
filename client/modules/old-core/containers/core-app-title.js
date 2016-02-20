@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppTitle, AppLogo} from '/client/modules/ui-components';
+import {AppTitle, AppLogo} from '/client/modules/old-ui-components';
 import {composeAll, compose, useDeps} from 'mantra-core';
 
 const composer = ({position}, onData) => {

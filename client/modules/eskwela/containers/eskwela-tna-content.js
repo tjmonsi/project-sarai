@@ -1,5 +1,5 @@
 import React from 'react';
-import {SectionList} from '/client/modules/ui-components';
+import {SectionList} from '/client/modules/old-ui-components';
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 import EskwelaRootBanner from './eskwela-root-banner';
 import HighChart from './../components/high-chart.jsx';

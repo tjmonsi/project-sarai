@@ -5,7 +5,7 @@ import EskwelaRootCourses from './eskwela-root-courses';
 
 import EskwelaHeader from './../components/eskwela-header.jsx';
 
-import {SectionList} from '/client/modules/ui-components';
+import {SectionList} from '/client/modules/old-ui-components';
 // import {CoreRootTriSection} from '/client/modules/core';
 import {useDeps, composeAll, compose} from 'mantra-core';
 

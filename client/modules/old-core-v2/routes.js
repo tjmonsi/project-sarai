@@ -3,7 +3,7 @@ import CoreNavList from './containers/core-nav-list';
 import CoreRootBanner from './containers/core-banner';
 import CoreRootServices from './containers/core-root-services';
 import SaraiPartners from './components/sarai-partners.jsx';
-import {Main, SectionList} from '/client/modules/ui-components-v2';
+import {Main, SectionList} from '/client/modules/old-ui-components-v2';
 import lib from './lib';
 
 export default (injectDeps, context) => {

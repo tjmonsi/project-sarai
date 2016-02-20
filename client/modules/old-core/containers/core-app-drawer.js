@@ -1,4 +1,4 @@
-import {AppDrawer} from '/client/modules/ui-components';
+import {AppDrawer} from '/client/modules/old-ui-components';
 import {composerApp} from './core-app-bar';
 import {composeAll, compose, useDeps} from 'mantra-core';
 

@@ -5,11 +5,11 @@ export default {
     console.log(title, background, text);
     Meteor.call('LandingData.update', 'core.root', title, background, text, (err, res) => {
       if (err) {
-        console.error(err)
+        console.error(err);
       } else {
         console.log(res);
       }
-    })
+    });
   },
   getIconGroup() {
     return [

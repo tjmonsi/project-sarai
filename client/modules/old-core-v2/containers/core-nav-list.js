@@ -1,4 +1,4 @@
-import { NavList } from '/client/modules/ui-components-v2';
+import { NavList } from '/client/modules/old-ui-components-v2';
 import lib from './../lib';
 import {composeAll, compose, useDeps, composeWithTracker} from 'mantra-core';
 

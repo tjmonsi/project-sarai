@@ -1,5 +1,5 @@
 import React from 'react';
-import {BannerTitleEditor} from '/client/modules/ui-components';
+import {BannerTitleEditor} from '/client/modules/old-ui-components';
 import {useDeps, composeAll, compose} from 'mantra-core';
 
 const composer = ({title, background, text}, onData) => {

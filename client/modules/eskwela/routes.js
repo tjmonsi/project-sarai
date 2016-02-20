@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {Landing} from '/client/modules/ui-components';
-import {CoreAppBar, CoreAppDrawer, CoreFooter} from '/client/modules/core';
+import {Landing} from '/client/modules/old-ui-components';
+import {CoreAppBar, CoreAppDrawer, CoreFooter} from '/client/modules/old-core';
 
 import EskwelaRootContent from './containers/eskwela-root-content';
 import EskwelaTNAContent from './containers/eskwela-tna-content';

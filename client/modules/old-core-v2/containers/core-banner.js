@@ -1,5 +1,5 @@
 import React from 'react';
-import { Banner, BannerTitle } from '/client/modules/ui-components-v2';
+import { Banner, BannerTitle } from '/client/modules/old-ui-components-v2';
 import {composeAll, useDeps, composeWithTracker} from 'mantra-core';
 import lib from './../lib';
 import {mediaLibMethod} from './core-media-lib';

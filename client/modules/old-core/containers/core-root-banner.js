@@ -1,6 +1,6 @@
 import React from 'react';
 import CoreRootBannerIconGroup from './core-root-banner-icon-group';
-import {Banner, BannerTitle} from '/client/modules/ui-components';
+import {Banner, BannerTitle} from '/client/modules/old-ui-components';
 import {useDeps, composeAll, compose} from 'mantra-core';
 
 const composer = ({banner}, onData) => {
@@ -12,7 +12,7 @@ const composer = ({banner}, onData) => {
     iconGroup: banner.iconGroup
   });
   const {background} = banner;
-  
+
   onData(null, {leftSection, rightSection, background});
 };
 

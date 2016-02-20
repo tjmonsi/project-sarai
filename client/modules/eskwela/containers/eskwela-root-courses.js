@@ -1,5 +1,5 @@
 import React from 'react';
-import {SectionCard} from '/client/modules/ui-components';
+import {SectionCard} from '/client/modules/old-ui-components';
 import {useDeps, compose, composeAll} from 'mantra-core';
 
 import FourColSection from './../components/four-col-section.jsx';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MediaLib } from '/client/modules/ui-components-v2';
+import { MediaLib } from '/client/modules/old-ui-components-v2';
 import {composeAll, compose, useDeps} from 'mantra-core';
 
 const composeMediaLibRedux = ({context}, onData) => {

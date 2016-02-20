@@ -3,7 +3,7 @@ import CoreRootBanner from './core-root-banner';
 import RootBannerEditor from './core-root-banner-editor';
 import CoreRootTriSection from './core-root-tri-section';
 import SaraiPartners from './../components/sarai-partners.jsx';
-import {SectionList} from '/client/modules/ui-components';
+import {SectionList} from '/client/modules/old-ui-components';
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 const composerLandingPage = ({context, edit}, onData) => {
@@ -20,14 +20,14 @@ const composerLandingPage = ({context, edit}, onData) => {
         sections.push(React.createElement(CoreRootBanner, {
           banner: landingData.banner
         }));
-        
+
         if (FlowRouter.getQueryParam('edit') === 'true' && Meteor.user()) {
           sections.push(React.createElement(RootBannerEditor, {
             banner: landingData.banner
           }));
         }
       }
-      
+
       if (landingData.services && landingData.services.visible) {
         console.log(landingData.services);
         sections.push(React.createElement(CoreRootTriSection, {

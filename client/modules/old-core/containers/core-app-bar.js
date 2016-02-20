@@ -2,7 +2,7 @@ import React from 'react';
 // import CoreAppNav from './core-app-nav';
 import CoreNav from './core-nav';
 import CoreAppTitle from './core-app-title';
-import {AppBar} from '/client/modules/ui-components';
+import {AppBar} from '/client/modules/old-ui-components';
 import {composeAll, compose, useDeps} from 'mantra-core';
 
 export const composerApp = (obj, onData) => {

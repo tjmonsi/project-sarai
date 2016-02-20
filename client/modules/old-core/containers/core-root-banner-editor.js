@@ -1,5 +1,5 @@
 import React from 'react';
-import {BannerEditor} from '/client/modules/ui-components';
+import {BannerEditor} from '/client/modules/old-ui-components';
 import RootBannerLeftEditor from './core-root-banner-left-editor';
 import {useDeps, composeAll, compose} from 'mantra-core';
 

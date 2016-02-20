@@ -1,5 +1,5 @@
 import React from 'react';
-import {TriSection, SectionCard} from '/client/modules/ui-components';
+import {TriSection, SectionCard} from '/client/modules/old-ui-components';
 import {useDeps, compose, composeAll} from 'mantra-core';
 
 const composer = ({services}, onData) => {

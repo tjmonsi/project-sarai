@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlowRouter} from 'meteor/kadira:flow-router';
-import {AppTitle, AppLogo} from '/client/modules/ui-components-v2';
+import {AppTitle, AppLogo} from '/client/modules/old-ui-components-v2';
 
 export default () => (React.createElement(AppTitle, {
   displayName: 'AppTitle',

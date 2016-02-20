@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Banner, BannerTitle} from '/client/modules/ui-components';
+import {Banner, BannerTitle} from '/client/modules/old-ui-components';
 import {useDeps, composeAll, compose} from 'mantra-core';
 
 const composer = ({banner}, onData) => {

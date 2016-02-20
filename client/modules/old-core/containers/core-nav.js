@@ -1,4 +1,4 @@
-import { NavList } from '/client/modules/ui-components';
+import { NavList } from '/client/modules/old-ui-components';
 import {composeAll, useDeps, composeWithTracker} from 'mantra-core';
 
 const composer = ({context, position, module = 'core'}, onData) => {

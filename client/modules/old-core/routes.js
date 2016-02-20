@@ -1,5 +1,5 @@
 import React from 'react';
-import {Landing} from '/client/modules/ui-components';
+import {Landing} from '/client/modules/old-ui-components';
 import CoreAppBar from './containers/core-app-bar';
 import CoreAppDrawer from './containers/core-app-drawer';
 import CoreRootContent from './containers/core-root-content';
@@ -10,7 +10,7 @@ const {authenticate} = coreLib;
 export default (injectDeps, context) => {
   const {FlowRouter, mount, Meteor} = context;
   const LandingCtx = injectDeps(Landing);
-  
+
   FlowRouter.triggers.enter([authenticate])
 
   FlowRouter.route('/old', {
@@ -24,7 +24,7 @@ export default (injectDeps, context) => {
       });
     }
   });
-  
+
   FlowRouter.route('/old/login', {
     name: 'core.old.login',
     action() {
@@ -36,7 +36,7 @@ export default (injectDeps, context) => {
       })
     }
   })
-  
+
   FlowRouter.route('/old/logout', {
     name: 'core.old.logout',
     action() {

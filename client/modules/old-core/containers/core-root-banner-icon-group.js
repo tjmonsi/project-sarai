@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon, IconGroup} from '/client/modules/ui-components';
+import {Icon, IconGroup} from '/client/modules/old-ui-components';
 import {useDeps} from 'mantra-core';
 
 
