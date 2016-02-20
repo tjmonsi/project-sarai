@@ -8,11 +8,13 @@ import coreModule from './modules/core';
 // import cmsModule from './modules/cms';
 import coreModuleV2 from './modules/core-v2';
 import eskwelaModule from './modules/eskwela';
+<<<<<<< HEAD
 import oldAboutModule from './modules/old-about-v1';
 import oldInteractiveMaps from './modules/old-interactive-maps';
 import experiment from './modules/experiment';
 
 // These are the new ones
+import aboutModule from './modules/about-v1';
 import cmsModule from './modules/cms';
 import realTimeData from './modules/real-time-data';
 
