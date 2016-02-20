@@ -15,7 +15,6 @@ const composerLandingPage = ({context, edit}, onData) => {
   if (Meteor.subscribe('landing-page', 'core.root').ready()) {
     const landingData = LandingData.findOne();
     if (landingData) {
-
       if (landingData.banner) {
         sections.push(React.createElement(CoreRootBanner, {
           banner: landingData.banner
