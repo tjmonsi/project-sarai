@@ -2,26 +2,24 @@ import '/node_modules/material-design-lite/material';
 import {createApp} from 'mantra-core';
 import {initContext} from './configs/context';
 
-import experimentModule from './modules/experiment';
-import coreModule from './modules/core';
-// import cmsModule from './modules/cms';
-import coreModuleV2 from './modules/core-v2';
-import interactiveMapModule from './modules/interactive-maps';
+// This is deprecated...
+import coreModule from './modules/old-core';
+import coreModuleV2 from './modules/old-core-v2';
 import eskwelaModule from './modules/eskwela';
-import aboutModule from './modules/about-v1';
+
+// This is the new ones
 
 
 const context = initContext();
 const app = createApp(context);
 
 // Load first modules
+// Loading the deperacted
 app.loadModule(coreModuleV2);
 app.loadModule(coreModule);
-app.loadModule(experimentModule);
-app.loadModule(interactiveMapModule);
-app.loadModule(aboutModule);
-// app.loadModule(cmsModule);
 app.loadModule(eskwelaModule);
+
+// Load the new ones here
 
 // Load routes last.
 app.init();
