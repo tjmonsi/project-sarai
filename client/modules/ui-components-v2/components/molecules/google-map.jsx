@@ -32,7 +32,7 @@ class GoogleMap extends React.Component {
     };
     return (
       <div
-        className='google-map'
+        className="google-map"
       >
         <div
           ref={map}

@@ -8,6 +8,7 @@ import coreModule from './modules/core';
 import coreModuleV2 from './modules/core-v2';
 import interactiveMapModule from './modules/interactive-maps';
 import eskwelaModule from './modules/eskwela';
+import aboutModule from './modules/about-v1';
 
 
 const context = initContext();
@@ -18,6 +19,7 @@ app.loadModule(coreModuleV2);
 app.loadModule(coreModule);
 app.loadModule(experimentModule);
 app.loadModule(interactiveMapModule);
+app.loadModule(aboutModule);
 // app.loadModule(cmsModule);
 app.loadModule(eskwelaModule);
 

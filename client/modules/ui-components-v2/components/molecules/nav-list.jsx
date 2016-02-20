@@ -20,9 +20,9 @@ class NavList extends React.Component {
       return (
         <NavLink
           classList = {linksClassList}
-          href = ''
-          id = 'edit-app-menu'
-          label = 'Edit Menu'
+          href = ""
+          id = "edit-app-menu"
+          label = "Edit Menu"
         />
       );
     }

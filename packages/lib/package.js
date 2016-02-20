@@ -11,7 +11,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.3-modules-beta.6');
+  api.versionsFrom('1.3-beta.11');
 
   var packages = [
     'meteor-base',
@@ -23,16 +23,16 @@ Package.onUse(function(api) {
     'tracker',
     'standard-minifiers',
     'es5-shim',
-    'ecmascript',    
+    'ecmascript',
     'http',
     'email',
-    'underscore',    
+    'underscore',
     'fourseven:scss@3.4.1',
     'meteorhacks:kadira@2.27.2',
     'meteorhacks:kadira-profiler@1.2.1',
     'meteorhacks:picker@1.0.3',
     'kadira:debug@3.0.1',
-    'kadira:flow-router@2.10.0',    
+    'kadira:flow-router@2.10.0',
     'meteorhacks:sikka@1.0.1',
     'ongoworks:security@1.3.0',
     // 'zodiase:mdl@1.0.6_1',

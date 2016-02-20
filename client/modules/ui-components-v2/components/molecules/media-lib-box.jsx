@@ -46,8 +46,8 @@ class MediaLibBox extends React.Component {
       this.mediaLibInput = c;
     };
     return (
-      <div className='mdl-grid mdl-grid--no-spacing'>
-        <div className='mdl-cell mdl-cell--12-col'>
+      <div className="mdl-grid mdl-grid--no-spacing">
+        <div className="mdl-cell mdl-cell--12-col">
           <MdlInputText
             id={`${id}-media-lib`}
             label={label}
@@ -55,7 +55,7 @@ class MediaLibBox extends React.Component {
             value={value}
           />
         </div>
-        <div className='mdl-cell mdl-cell--12-col'>
+        <div className="mdl-cell mdl-cell--12-col">
           {this.renderMediaLib()}
         </div>
       </div>

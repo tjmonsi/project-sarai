@@ -29,7 +29,7 @@ class BannerTitle extends React.Component {
     };
     if (edit) {
       return (
-        <div className='edit'>
+        <div className="edit">
           <button
             className="edit-button mdl-button mdl-js-button
               mdl-button--raised mdl-button--colored mdl-js-ripple-effect"
@@ -57,10 +57,10 @@ class BannerTitle extends React.Component {
     const className = classNames('banner-title-v2', classList);
     return (
       <div className={className}>
-        <h1 className='title'>
+        <h1 className="title">
           {title}
         </h1>
-        <div className='text'>
+        <div className="text">
           <ReactMarkdown source={text} />
         </div>
         {this.renderEdit()}

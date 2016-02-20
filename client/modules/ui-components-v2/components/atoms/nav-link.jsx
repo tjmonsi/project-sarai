@@ -69,7 +69,7 @@ class NavLink extends React.Component {
           <span>
             <a
               className={className}
-              href=''
+              href=""
               id={id}
             >
               {label}
@@ -87,7 +87,7 @@ class NavLink extends React.Component {
         <span>
           <a
             className={className}
-            href=''
+            href=""
           >
             {label}
           </a>

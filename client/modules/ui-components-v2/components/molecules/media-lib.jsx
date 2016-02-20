@@ -113,9 +113,9 @@ class MediaLib extends React.Component {
       return (
         <MdlIconButton
           handleCallback = {this.onHandleMoreFiles}
-          icon = 'arrow_drop_down_circle'
+          icon = "arrow_drop_down_circle"
           id = {`${id}-load-more`}
-          label = 'Load More'
+          label = "Load More"
         />
       );
     }
@@ -143,8 +143,8 @@ class MediaLib extends React.Component {
       };
       return (
         <div
-          className='mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet
-            mdl-cell--2-col-phone media-lib-card-cell'
+          className="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet
+            mdl-cell--2-col-phone media-lib-card-cell"
           data-file={newFile}
           key={key}
         >
@@ -155,14 +155,14 @@ class MediaLib extends React.Component {
             ref = {container}
           >
             <div
-              className='mdl-card__title media-lib-card-title'
+              className="mdl-card__title media-lib-card-title"
               data-file={newFile}
               style={style}
             >
               &nbsp;
             </div>
             <div
-              className='mdl-card__supporting-text media-lib-card-text'
+              className="mdl-card__supporting-text media-lib-card-text"
               data-file={newFile}
             >
               {file.substring(file.lastIndexOf('/') + 1)} <br/>
@@ -185,55 +185,55 @@ class MediaLib extends React.Component {
       this.snackbar = c;
     };
     return (
-      <div className='mdl-grid mdl-grid--no-spacing media-lib'>
-        <div className='mdl-cell mdl-cell--12-col media-lib-upload-file'>
-          <div className='mdl-grid mdl-grid--no-spacing'>
-            <div className='mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet
-              mdl-cell--3-col-phone media-lib-upload-file-input-container'
+      <div className="mdl-grid mdl-grid--no-spacing media-lib">
+        <div className="mdl-cell mdl-cell--12-col media-lib-upload-file">
+          <div className="mdl-grid mdl-grid--no-spacing">
+            <div className="mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet
+              mdl-cell--3-col-phone media-lib-upload-file-input-container"
             >
               <input
-                className='media-lib-upload-file-input'
+                className="media-lib-upload-file-input"
                 ref={uploadFile}
-                type='file'
+                type="file"
               />
             </div>
-            <div className='mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet
-              mdl-cell--1-col-phone media-lib-upload-button'
+            <div className="mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet
+              mdl-cell--1-col-phone media-lib-upload-button"
             >
               <MdlIconButton
                 handleCallback = {this.onHandleUploadFile}
-                icon = 'file_upload'
+                icon = "file_upload"
                 id = {`${id}-upload-file-media-lib`}
-                label = 'Upload'
+                label = "Upload"
               />
             </div>
           </div>
         </div>
-        <div className='mdl-cell mdl-cell--12-col'>
-          <div className='mdl-grid mdl-grid--no-spacing'>
-            <div className='mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone media-lib-search-button'>
+        <div className="mdl-cell mdl-cell--12-col">
+          <div className="mdl-grid mdl-grid--no-spacing">
+            <div className="mdl-cell mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone media-lib-search-button">
               <MdlIconButton
                 handleCallback = {this.onHandleSearchFile}
-                icon = 'search'
+                icon = "search"
                 id = {`${id}-search-file-media-lib`}
-                label = 'Search'
+                label = "Search"
               />
             </div>
-            <div className='mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet mdl-cell--3-col-phone media-lib-search-input'>
+            <div className="mdl-cell mdl-cell--11-col mdl-cell--7-col-tablet mdl-cell--3-col-phone media-lib-search-input">
               <MdlInputText
                 id={`${id}-search-file`}
-                label='Search File'
+                label="Search File"
                 ref={searchInput}
               />
             </div>
           </div>
         </div>
-        <div className='mdl-cell mdl-cell--12-col'>
-          <div className='mdl-grid mdl-grid--no-spacing media-lib-grid'>
+        <div className="mdl-cell mdl-cell--12-col">
+          <div className="mdl-grid mdl-grid--no-spacing media-lib-grid">
             {this.renderMedia()}
           </div>
         </div>
-        <div className='mdl-cell mdl-cell--12-col media-lib-load-more-button'>
+        <div className="mdl-cell mdl-cell--12-col media-lib-load-more-button">
           {this.renderReload()}
         </div>
         <MdlSnackbar

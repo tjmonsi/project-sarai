@@ -37,8 +37,6 @@ export default (injectDeps, context) => {
     }
   });
 
-  
-
   FlowRouter.route('/login', {
     name: 'core.login',
     action(params, queryParams) {

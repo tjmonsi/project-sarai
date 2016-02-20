@@ -86,23 +86,23 @@ class BannerTitleEditor extends React.Component {
       this.background = c;
     };
     return (
-      <div className='mdl-grid'>
-        <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet
-          mdl-cell--4-phone'
+      <div className="mdl-grid">
+        <div className="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet
+          mdl-cell--4-phone"
         >
-          <div className='mdl-grid mdl-grid--no-spacing'>
-            <div className='mdl-cell mdl-cell--12-col'>
+          <div className="mdl-grid mdl-grid--no-spacing">
+            <div className="mdl-cell mdl-cell--12-col">
               <MdlInputText
                 id={`${id}-banner-title`}
-                label='Banner Title'
+                label="Banner Title"
                 ref={titleRef}
                 value={title}
               />
             </div>
-            <div className='mdl-cell mdl-cell--12-col'>
+            <div className="mdl-cell mdl-cell--12-col">
               <MarkdownEditor
                 id={`${id}-banner-text`}
-                label='Banner Text'
+                label="Banner Text"
                 ref={textRef}
                 rows = {5}
                 value={text}
@@ -110,12 +110,12 @@ class BannerTitleEditor extends React.Component {
             </div>
           </div>
         </div>
-        <div className='mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet
-          mdl-cell-4-phone'
+        <div className="mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet
+          mdl-cell-4-phone"
         >
           <MediaLibBox
             id = {`${id}-banner-background`}
-            label = 'Banner Background'
+            label = "Banner Background"
             mediaLib = {mediaLib}
             ref = {backgroundRef}
             value = {background}

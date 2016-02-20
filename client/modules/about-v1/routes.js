@@ -9,7 +9,7 @@ export default (injectDeps, context) => {
   const layout = coreLayout('core', appBarTitle, appDrawerTitle, true, CoreNavList);
 
   FlowRouter.route('/about', {
-    name: 'core.about',
+    name: 'about.root',
     triggersEnter: [triggerAuthenticate],
     action() {
       mount(MainCtx, Object.assign({}, layout, {
