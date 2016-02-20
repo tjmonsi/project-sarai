@@ -1,8 +1,8 @@
 import {LandingData} from '/lib/collections';
 
-if (!LandingData.findOne({path: 'core.about'})) {
+if (!LandingData.findOne({path: 'about.root'})) {
   LandingData.insert({
-    path: 'core.about',
+    path: 'about.root',
     background: '/images/banner-approved.jpg',
     img: '',
     title: 'About Project SARAI',

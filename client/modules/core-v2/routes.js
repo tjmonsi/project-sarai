@@ -37,24 +37,7 @@ export default (injectDeps, context) => {
     }
   });
 
-  FlowRouter.route('/about', {
-    name: 'core.about',
-    triggersEnter: [triggerAuthenticate],
-    action() {
-      mount(MainCtx, Object.assign({}, layout, {
-        content: () => (React.createElement(SectionList, {
-          displayName: 'SectionList',
-          spacing: false,
-          sections: [
-            () => (React.createElement(CoreRootBanner, {
-              displayName: 'CoreRootBanner',
-              path: this.name
-            }))
-          ]
-        }))
-      }));
-    }
-  });
+  
 
   FlowRouter.route('/login', {
     name: 'core.login',

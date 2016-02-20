@@ -5,7 +5,7 @@ if (!NavMenu.findOne({module: 'core'})) {
     module: 'core',
     navs: [
       {
-        href: 'core.about',
+        href: 'about.root',
         label: 'About SARAI',
         id: 'about-sarai-link'
       },
