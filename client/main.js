@@ -5,9 +5,9 @@ import {initContext} from './configs/context';
 // This is deprecated...
 import coreModule from './modules/old-core';
 import coreModuleV2 from './modules/old-core-v2';
-import eskwelaModule from './modules/eskwela';
+import eskwelaModule from './modules/old-eskwela';
 
-// This is the new ones
+// These are the new ones
 
 
 const context = initContext();
