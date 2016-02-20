@@ -24,6 +24,15 @@ export default (injectDeps, context) => {
             () => (React.createElement(CoreRootBanner, {
               displayName: 'CoreRootBanner'
             })),
+            // function() {
+            //   return React.createElement(...) 
+            // }
+
+            // () => {
+            //   return React.createElement(...) 
+            // }
+
+            // () => (React.createElement(...))
             () => (React.createElement(CoreRootServices, {
               displayName: 'CoreRootServices'
             })),
