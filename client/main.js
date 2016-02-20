@@ -3,9 +3,9 @@ import {createApp} from 'mantra-core';
 import {initContext} from './configs/context';
 
 // This is deprecated...
-import coreModule from './modules/old-core';
-import coreModuleV2 from './modules/old-core-v2';
-import eskwelaModule from './modules/old-eskwela';
+import coreModule from './modules/core';
+import coreModuleV2 from './modules/core-v2';
+import eskwelaModule from './modules/eskwela';
 
 // These are the new ones
 
