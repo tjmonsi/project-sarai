@@ -7,7 +7,7 @@ import coreModule from './modules/core';
 import coreModuleV2 from './modules/core-v2';
 import eskwelaModule from './modules/eskwela';
 import oldAboutModule from './modules/old-about-v1';
-import oldInteractiveMaps from './modules/oldInteractiveMaps';
+import oldInteractiveMaps from './modules/old-interactive-maps';
 import experiment from './modules/experiment';
 
 // These are the new ones
