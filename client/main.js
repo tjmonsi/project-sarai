@@ -6,6 +6,8 @@ import {initContext} from './configs/context';
 import coreModule from './modules/core';
 import coreModuleV2 from './modules/core-v2';
 import eskwelaModule from './modules/eskwela';
+import oldAboutModule from './modules/old-about-v1';
+import oldInteractiveMaps from './modules/oldInteractiveMaps';
 
 // These are the new ones
 
@@ -18,6 +20,8 @@ const app = createApp(context);
 app.loadModule(coreModuleV2);
 app.loadModule(coreModule);
 app.loadModule(eskwelaModule);
+app.loadModule(oldAboutModule);
+app.loadModule(oldInteractiveMaps);
 
 // Load the new ones here
 

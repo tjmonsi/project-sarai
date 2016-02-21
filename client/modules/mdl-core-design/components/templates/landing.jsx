@@ -1,6 +1,7 @@
 import React from 'react';
+import classNames from 'classnames';
 
-class Landing extends React.Component {
+class MdlLanding extends React.Component {
   componentDidMount() {
     if (componentHandler) {
       componentHandler.upgradeDom();
@@ -12,7 +13,8 @@ class Landing extends React.Component {
     }
   }
   render() {
-    const {classList, appBar, appDrawer, banner, content, footer} = this.props;
+    // const {classList, appBar, appDrawer, banner, content, footer} = this.props;
+    const {classList} = this.props;
     const className = classNames('mdl-core-design-landing', classList);
     return (
       <div className={className}>
@@ -21,3 +23,13 @@ class Landing extends React.Component {
     );
   }
 }
+
+MdlLanding.propTypes = {
+  classList: React.PropTypes.arrayOf(React.PropTypes.string)
+};
+
+MdlLanding.defaultProps = {
+  classList: []
+};
+
+export default MdlLanding;

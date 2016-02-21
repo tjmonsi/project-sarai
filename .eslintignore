@@ -1,6 +1,7 @@
 packages/lib/package.js
 .scripts/mocha_runner.js
-client/modules/old-core
-client/modules/old-ui-components
+client/modules/core
+client/modules/ui-components
+client/modules/eskwela
 client/modules/experiment
 .archive/
