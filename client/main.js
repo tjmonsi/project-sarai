@@ -8,6 +8,7 @@ import coreModuleV2 from './modules/core-v2';
 import eskwelaModule from './modules/eskwela';
 import oldAboutModule from './modules/old-about-v1';
 import oldInteractiveMaps from './modules/oldInteractiveMaps';
+import experiment from './modules/experiment';
 
 // These are the new ones
 
@@ -22,6 +23,7 @@ app.loadModule(coreModule);
 app.loadModule(eskwelaModule);
 app.loadModule(oldAboutModule);
 app.loadModule(oldInteractiveMaps);
+app.loadModule(experiment);
 
 // Load the new ones here
 
