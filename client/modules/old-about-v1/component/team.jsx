@@ -30,7 +30,7 @@ class TeamComponent extends React.Component {
     );
   }
   defaultClass() {
-    return 'mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--2-col-phone project-team'
+    return 'mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--2-col-phone project-team';
   }
   renderProjectLeaders() {
     return this.data.projectLeaders.map((leader, key) => {
