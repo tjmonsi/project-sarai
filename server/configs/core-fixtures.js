@@ -5,9 +5,23 @@ if (!NavMenu.findOne({module: 'core'})) {
     module: 'core',
     navs: [
       {
-        href: 'about.root',
+        href: '',
         label: 'About SARAI',
-        id: 'about-sarai-link'
+        id: 'about-sarai-link',
+        links: [
+          {
+            href: 'about.root',
+            label: 'About the Project'
+          },
+          {
+            href: 'about.team',
+            label: 'About the Team'
+          },
+          {
+            href: 'about.partner',
+            label: 'Partner Institutions'
+          }
+        ]
       },
       {
         href: '',

@@ -19,7 +19,7 @@
     "test": "npm run lint && npm run snyk && npm run testonly",
     "watch-tests": "mocha $npm_package_options_mocha --watch",
     "start": "meteor --settings settings.json",
-    "postinstall": "cp node_modules/material-design-lite/material.css client/"
+    "start-c9": "meteor --settings settings.json --port $PORT"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,19 @@
+@import '{}/client/theme';
+
+.banner {
+  color: $color-primary-text-light;
+  padding-bottom: 30px;
+
+  .banner-title {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    .title {
+      font-weight: 300;
+      margin-bottom: 0px;
+    }
+    .text {
+
+    }
+  }
+}
