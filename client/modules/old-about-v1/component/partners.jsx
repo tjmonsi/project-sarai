@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import text from './coded-text/about.js';
+import text from './coded-text/partners';
 
-class AboutComponent extends React.Component {
+class PartnersComponent extends React.Component {
   constructor() {
     super();
     this.text = text;
@@ -29,4 +29,4 @@ class AboutComponent extends React.Component {
   }
 }
 
-export default AboutComponent;
+export default PartnersComponent;
