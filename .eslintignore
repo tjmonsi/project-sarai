@@ -5,4 +5,5 @@ client/modules/ui-components
 client/modules/eskwela
 client/modules/experiment
 client/modules/old-about-v1
+client/modules/old-interactive-maps
 .archive/
