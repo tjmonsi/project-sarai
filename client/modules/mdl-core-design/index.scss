@@ -1,3 +1,5 @@
+@import '../../../../node_modules/material-design-lite/material.css';
+
 // all atoms
 @import 'components/atoms/mdl-app-login-nav';
 @import 'components/atoms/mdl-app-logo';
@@ -9,7 +11,10 @@
 @import 'components/atoms/mdl-tooltip';
 
 // all molecules
+@import 'components/molecules/google-map';
 @import 'components/molecules/mdl-app-bar-header-row';
+@import 'components/molecules/mdl-dialog';
+@import 'components/molecules/mdl-insert-link-dialog';
 @import 'components/molecules/title-text';
 
 // all organisms

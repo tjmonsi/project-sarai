@@ -6,10 +6,14 @@ import MdlIconButton from './components/atoms/mdl-icon-button.jsx';
 import MdlInputText from './components/atoms/mdl-input-text.jsx';
 import MdlNavLink from './components/atoms/mdl-nav-link.jsx';
 import MdlSnackbar from './components/atoms/mdl-snackbar.jsx';
+import MdlSpinner from './components/atoms/mdl-spinner.jsx';
 import MdlTooltip from './components/atoms/mdl-tooltip.jsx';
 
 // all molecules
+import GoogleMap from './components/molecules/google-map.jsx';
 import MdlAppBarHeaderRow from './components/molecules/mdl-app-bar-header-row.jsx';
+import MdlDialog from './components/molecules/mdl-dialog.jsx';
+import MdlInsertLinkDialog from './components/molecules/mdl-insert-link-dialog.jsx';
 import TitleText from './components/molecules/title-text.jsx';
 
 // all organisms
@@ -30,10 +34,14 @@ export {
   MdlInputText,
   MdlNavLink,
   MdlSnackbar,
+  MdlSpinner,
   MdlTooltip,
 
   // all molecules
+  GoogleMap,
   MdlAppBarHeaderRow,
+  MdlDialog,
+  MdlInsertLinkDialog,
   TitleText,
 
   // all organisms

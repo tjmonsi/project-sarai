@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import MdlSpinner from './../atoms/mdl-spinner.jsx';
 
 class MdlAppLoginNav extends React.Component {
   componentDidMount() {
@@ -32,10 +33,7 @@ class MdlAppLoginNav extends React.Component {
       );
     } else if (loggingIn) {
       return (
-        <div className="react-mdl-logging-in mdl-spinner mdl-js-spinner
-          is-active"
-        >
-        </div>
+        <MdlSpinner classList = {[...classList, 'react-mdl-logging-in']} />
       );
     }
     return (
