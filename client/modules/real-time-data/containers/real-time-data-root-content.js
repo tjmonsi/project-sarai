@@ -1,5 +1,6 @@
 import React from 'react';
 
+<<<<<<< HEAD
 import WeatherMap from './../components/weather-map.jsx';
 import RealTimeDataRootStuff from './../components/real-time-data-root-stuff.jsx';
 

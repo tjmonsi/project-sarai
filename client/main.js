@@ -8,7 +8,6 @@ import coreModule from './modules/core';
 // import cmsModule from './modules/cms';
 import coreModuleV2 from './modules/core-v2';
 import eskwelaModule from './modules/eskwela';
-<<<<<<< HEAD
 import oldAboutModule from './modules/old-about-v1';
 import oldInteractiveMaps from './modules/old-interactive-maps';
 import experiment from './modules/experiment';
@@ -27,12 +26,12 @@ app.loadModule(coreModuleV2);
 app.loadModule(coreModule);
 app.loadModule(eskwelaModule);
 app.loadModule(realTimeData);
-
 app.loadModule(oldAboutModule);
 app.loadModule(oldInteractiveMaps);
 app.loadModule(experiment);
 
 // Load the new ones here
+
 
 // Load routes last.
 app.init();
