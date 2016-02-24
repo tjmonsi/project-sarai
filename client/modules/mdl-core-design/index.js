@@ -10,13 +10,14 @@ import MdlSpinner from './components/atoms/mdl-spinner.jsx';
 import MdlTooltip from './components/atoms/mdl-tooltip.jsx';
 
 // all molecules
-import GoogleMap from './components/molecules/google-map.jsx';
-import MdlAppBarHeaderRow from './components/molecules/mdl-app-bar-header-row.jsx';
-import MdlDialog from './components/molecules/mdl-dialog.jsx';
-import MdlInsertLinkDialog from './components/molecules/mdl-insert-link-dialog.jsx';
 import TitleText from './components/molecules/title-text.jsx';
 
 // all organisms
+import GoogleMap from './components/organisms/google-map.jsx';
+import MarkdownEditor from './components/organisms/markdown-editor.jsx';
+import MdlAppBarHeaderRow from './components/organisms/mdl-app-bar-header-row.jsx';
+import MdlDialog from './components/organisms/mdl-dialog.jsx';
+import MdlInsertLinkDialog from './components/organisms/mdl-insert-link-dialog.jsx';
 import MdlAppBar from './components/organisms/mdl-app-bar.jsx';
 import MdlBanner from './components/organisms/mdl-banner.jsx';
 import MdlSections from './components/organisms/mdl-sections.jsx';
@@ -38,13 +39,14 @@ export {
   MdlTooltip,
 
   // all molecules
-  GoogleMap,
-  MdlAppBarHeaderRow,
-  MdlDialog,
-  MdlInsertLinkDialog,
   TitleText,
 
   // all organisms
+  GoogleMap,
+  MarkdownEditor,
+  MdlAppBarHeaderRow,
+  MdlDialog,
+  MdlInsertLinkDialog,
   MdlAppBar,
   MdlBanner,
   MdlSections,

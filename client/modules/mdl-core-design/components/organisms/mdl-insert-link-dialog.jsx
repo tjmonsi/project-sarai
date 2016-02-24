@@ -1,5 +1,5 @@
 import React from 'react';
-import MdlDialog from './../molecules/mdl-dialog.jsx';
+import MdlDialog from './../organisms/mdl-dialog.jsx';
 import MdlInputText from './../atoms/mdl-input-text.jsx';
 
 class MdlInsertLinkDialog extends React.Component {

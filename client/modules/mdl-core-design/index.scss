@@ -11,13 +11,14 @@
 @import 'components/atoms/mdl-tooltip';
 
 // all molecules
-@import 'components/molecules/google-map';
-@import 'components/molecules/mdl-app-bar-header-row';
-@import 'components/molecules/mdl-dialog';
-@import 'components/molecules/mdl-insert-link-dialog';
 @import 'components/molecules/title-text';
 
 // all organisms
+@import 'components/organisms/google-map';
+@import 'components/organisms/markdown-editor';
+@import 'components/organisms/mdl-app-bar-header-row';
+@import 'components/organisms/mdl-dialog';
+@import 'components/organisms/mdl-insert-link-dialog';
 @import 'components/organisms/mdl-app-bar';
 @import 'components/organisms/mdl-banner';
 @import 'components/organisms/mdl-sections';
