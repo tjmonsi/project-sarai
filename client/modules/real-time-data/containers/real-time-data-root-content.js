@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MapBanner from './../components/map-banner.jsx';
+import WeatherMap from './../components/weather-map.jsx';
 import RealTimeDataRootStuff from './../components/real-time-data-root-stuff.jsx';
 
 import {SectionList} from '/client/modules/ui-components';
@@ -14,16 +14,15 @@ const composerLandingPage = ({context}, onData) => {
   const sections = [];
   const spacing = false;
 
-  // const path = 'real-time-data.root';
-
   if (Meteor.subscribe('station-list').ready()) {
     
     // const stationList = StationList.findOne();
-    const stations = StationList.find().fetch(); //So this'll return an array
+    const stations = StationList.find().fetch();
+
 
     if(stations) {
-      //const {contacts} = station;
-      sections.push(React.createElement(MapBanner, {stations}));
+      console.log(`Found ${StationList.find().count()} stations`)
+      sections.push(React.createElement(WeatherMap, {stations}));
     }
   }
   
