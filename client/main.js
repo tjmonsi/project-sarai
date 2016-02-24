@@ -13,8 +13,8 @@ import oldInteractiveMaps from './modules/old-interactive-maps';
 import experiment from './modules/experiment';
 
 // These are the new ones
-import aboutModule from './modules/about-v1';
-import cmsModule from './modules/cms';
+// import aboutModule from './modules/about-v1';
+// import cmsModule from './modules/cms';
 import realTimeData from './modules/real-time-data';
 
 const context = initContext();
