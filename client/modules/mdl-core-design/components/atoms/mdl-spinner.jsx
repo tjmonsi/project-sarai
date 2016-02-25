@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-class MdlLanding extends React.Component {
+class MdlSpinner extends React.Component {
   componentDidMount() {
     if (componentHandler) {
       componentHandler.upgradeDom();
@@ -13,23 +13,26 @@ class MdlLanding extends React.Component {
     }
   }
   render() {
-    // const {classList, appBar, appDrawer, banner, content, footer} = this.props;
     const {classList} = this.props;
-    const className = classNames('mdl-core-design-landing', classList);
-    return (
-      <div className={className}>
 
-      </div>
+    const className = classNames(
+      'mdl-spinner',
+      'mdl-js-spinner',
+      'is-active',
+      'react-mdl-spinner',
+      classList.map((name) => (`${name}-react-mdl-spinner`))
     );
+
+    return (<div className={className}></div>);
   }
 }
 
-MdlLanding.propTypes = {
+MdlSpinner.propTypes = {
   classList: React.PropTypes.arrayOf(React.PropTypes.string)
 };
 
-MdlLanding.defaultProps = {
+MdlSpinner.defaultProps = {
   classList: []
 };
 
-export default MdlLanding;
+export default MdlSpinner;

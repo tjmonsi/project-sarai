@@ -11,7 +11,7 @@ import oldInteractiveMaps from './modules/old-interactive-maps';
 import experiment from './modules/experiment';
 
 // These are the new ones
-
+import MdlCoreDeisgn from './modules/mdl-core-design';
 
 const context = initContext();
 const app = createApp(context);
@@ -26,6 +26,7 @@ app.loadModule(oldInteractiveMaps);
 app.loadModule(experiment);
 
 // Load the new ones here
+app.loadModule(MdlCoreDeisgn);
 
 // Load routes last.
 app.init();

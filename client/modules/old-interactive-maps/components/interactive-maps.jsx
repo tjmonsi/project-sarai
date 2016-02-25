@@ -1,12 +1,9 @@
 import React from 'react';
-import googleMaps from 'google-maps';
 
-class SuitabilityMapComponent extends React.Component {
+class InteractiveMapComponent extends React.Component {
   constructor() {
     super()
     this.auto = this.auto.bind(this);
-    this.google = null;
-    this.map = null;
   }
   auto() {
     let myWidth = 0;
@@ -24,8 +21,8 @@ class SuitabilityMapComponent extends React.Component {
       myWidth = document.body.clientWidth;
       myHeight = document.body.clientHeight;
     }
-    console.log(this.map.style)
-    this.map.style.height = (myHeight-60)+'px';
+    console.log(this.frame.style)
+    this.frame.style.height = (myHeight-60)+'px';
   }
   componentDidMount() {
     if (componentHandler) {
@@ -43,48 +40,34 @@ class SuitabilityMapComponent extends React.Component {
     }
   }
   render() {
-    const {width, height} = this.props;
     const style = {
-      width,
-      height
-    };
-    const map = (c) => {
-      this.map = c;
+      width: '100%',
+      height: 400
     };
     return (
       <div className="mdl-grid mdl-grid--no-spacing">
-        <div className="mdl-cell mdl-cell--12-col old-suitability-map">
-          <div
-            ref={map}
+        <div className="mdl-cell mdl-cell--12-col old-interactive-map">
+          <iframe
+            allow-same-origin
             style={style}
+            ref={(c) => {
+              this.frame = c;
+            }}
+            src="https://sarai-interactive-map-backup-tjmonsi1.c9users.io/three/"
           >
-          </div>
+          </iframe>
         </div>
       </div>
     );
   }
 }
 
-SuitabilityMapComponent.propType = {
-  height: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number
-  ]),
-  lat: React.PropTypes.number,
-  lng: React.PropTypes.number,
-  width: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number
-  ]),
-  zoom: React.PropTypes.number
-};
+// SuitabilityMapComponent.propType = {
+//   height: React.PropTypes.number
+// };
 
-SuitabilityMapComponent.defaultProps = {
-  height: 400,
-  lat: 12.2969397,
-  lng: 121.6576634,
-  width: '100%',
-  zoom: 6
-};
+// SuitabilityMapComponent.defaultProps = {
+//   height: this.auto()
+// };
 
-export default SuitabilityMapComponent;
+export default InteractiveMapComponent;
