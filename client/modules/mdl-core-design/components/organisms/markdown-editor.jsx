@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import MdlIconButton from './../atoms/mdl-icon-button.jsx';
-import InsertLinkDialog from './../organisms/insert-link-dialog.jsx';
-import * as textareaLib from './../../lib/textarea.js';
+import MdlInsertLinkDialog from './../organisms/mdl-insert-link-dialog.jsx';
+import * as textareaLib from './../../libs/textarea.js';
 
 class MarkdownTextarea extends React.Component {
   constructor() {
@@ -177,7 +177,7 @@ class MarkdownTextarea extends React.Component {
             </div>
           </div>
         </div>
-        <InsertLinkDialog
+        <MdlInsertLinkDialog
           classList = {classList}
           onCallback = {this.onInsertLinkCallback}
           id = {`${id}-markdown-editor-insert-link-dialog`}
