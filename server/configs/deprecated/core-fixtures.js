@@ -33,6 +33,10 @@ if (!NavMenu.findOne({module: 'core'})) {
             label: 'Interactive Maps'
           },
           {
+            href: 'suitability-maps.root',
+            label: 'Suitability Maps'
+          },
+          {
             href: '',
             label: 'Planting Calendar'
           }
