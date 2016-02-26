@@ -17,9 +17,15 @@ class HighChart extends React.Component {
     $(idTemp).highcharts(chartData);
   }
   componentDidUpdate() {
+    const {id, chartData} = this.props;
+
     if (componentHandler) {
       componentHandler.upgradeDom();
     }
+    
+    const idTemp = `#${id}`;
+
+    $(idTemp).highcharts(chartData);
   }
   render() {
     // const className = classNames('mdl-layout-title', 'app-title', classList);
