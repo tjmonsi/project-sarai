@@ -17,6 +17,7 @@ import experiment from './modules/experiment';
 // import cmsModule from './modules/cms';
 import weatherMonitoring from './modules/weather-monitoring';
 import monitoring from './modules/monitoring';
+import MdlCoreDeisgn from './modules/mdl-core-design';
 
 const context = initContext();
 const app = createApp(context);
@@ -33,6 +34,7 @@ app.loadModule(oldInteractiveMaps);
 app.loadModule(experiment);
 
 // Load the new ones here
+app.loadModule(MdlCoreDeisgn);
 
 
 // Load routes last.
