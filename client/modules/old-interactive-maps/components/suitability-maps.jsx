@@ -1,9 +1,10 @@
 import React from 'react';
 import googleMaps from 'google-maps';
+import {FlowRouter} from 'meteor/kadira:flow-router';
 
 class SuitabilityMapComponent extends React.Component {
   constructor() {
-    super()
+    super();
     this.auto = this.auto.bind(this);
     this.google = null;
     this.map = null;
@@ -118,14 +119,26 @@ class SuitabilityMapComponent extends React.Component {
       self.layer[l].layer.flag = false;
     }, 500);
   }
+  renderText(crop, suitable) {
+    return (FlowRouter.getParam('crop') === crop && FlowRouter.getParam('suitability') === suitable) ?
+      (<strong><u>{`${crop} ${suitable} Suitable Areas`}</u></strong>) :
+      `${crop} ${suitable} Suitable Areas`;
+  }
   renderLinks() {
     const {kml} = this.props;
     return kml.map((crop, key) => {
       return crop.kml.map((layer, key2) => {
+        const style = {
+          textDecoration: 'none',
+          color: "#33691e"
+        };
         return (
           <div className='mdl-cell mdl-cell--12-col'>
-            <a href={`/suitability-maps/${crop.name}/${layer.name}`}>
-              {`${crop.name} ${layer.name} Suitable`}
+            <a
+              href={`/suitability-maps/${crop.name}/${layer.name}`}
+              style = {style}
+            >
+              {this.renderText(crop.name, layer.name)}
             </a>
           </div>
         );
@@ -172,11 +185,19 @@ class SuitabilityMapComponent extends React.Component {
             ref={controls}
           >
             <div className="mdl-cell mdl-cell--12-col">
-              <div className="mdl-grid mdl-grid--no-spacing">
+              <div
+                className="mdl-grid mdl-grid--no-spacing"
+              >
                 <div className="mdl-cell mdl-cell--12-col">
                   {'Click to see Suitability per Crop'}
                 </div>
                 {this.renderLinks()}
+                <div className="mdl-cell mdl-cell--12-col">
+                  &nbsp;
+                </div>
+                <div className="mdl-cell mdl-cell--12-col">
+                  &nbsp;
+                </div>
               </div>
             </div>
           </div>
@@ -274,12 +295,12 @@ SuitabilityMapComponent.defaultProps = {
           color: '#00FF00'
         },
         {
-          name: 'Moderate',
+          name: 'Marginal',
           id: '1lOY7NIsrsmmJMyyMnbESWvpNkEl_KmcOapF63Fo2',
           color: '#FFFF00'
         },
         {
-          name: 'Marginal',
+          name: 'Moderate',
           id: '1xfYw4qqdpOmvFKN9P-0wIND08vSsGCBYgLey2mjP',
           color: '#a52a2a'
         },
@@ -341,6 +362,26 @@ SuitabilityMapComponent.defaultProps = {
         {
           name: 'Marginal',
           id: '12Tv4FO4rPCTzwFt9NzuojDFSvsnSbOq2UUVbFS6-',
+          color: '#a52a2a'
+        },
+      ]
+    },
+    {
+      name: 'Coconut',
+      kml: [
+        {
+          name: 'High',
+          id: '1a_JjeLALhJGVqD3uiri0D8jBsPWSxKmweR2SPoeB',
+          color: '#00FF00'
+        },
+        // {
+        //   name: 'Moderate',
+        //   id: '1SXXhBVGzgn4B5xKPYpJzcE37HRJ1-kS8HbM5uROG',
+        //   color: '#FFFF00'
+        // },
+        {
+          name: 'Marginal',
+          id: '1hOASaBR8EnNq13rIuSSpdOkICzg_nG6If2rJQsLg',
           color: '#a52a2a'
         },
       ]
