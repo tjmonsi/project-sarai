@@ -15,7 +15,8 @@ import experiment from './modules/experiment';
 // These are the new ones
 // import aboutModule from './modules/about-v1';
 // import cmsModule from './modules/cms';
-import realTimeData from './modules/real-time-data';
+import weatherMonitoring from './modules/weather-monitoring';
+import monitoring from './modules/monitoring';
 
 const context = initContext();
 const app = createApp(context);
@@ -25,7 +26,8 @@ const app = createApp(context);
 app.loadModule(coreModuleV2);
 app.loadModule(coreModule);
 app.loadModule(eskwelaModule);
-app.loadModule(realTimeData);
+app.loadModule(weatherMonitoring);
+app.loadModule(monitoring);
 app.loadModule(oldAboutModule);
 app.loadModule(oldInteractiveMaps);
 app.loadModule(experiment);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class RealTimeDataRootStuff extends React.Component {
+class WeatherMonitoringRootStuff extends React.Component {
 
 	renderSections() {
 	    return this.props.items.map((item, key) => {
@@ -33,4 +33,4 @@ class RealTimeDataRootStuff extends React.Component {
   }
 }
 
-export default RealTimeDataRootStuff;
+export default WeatherMonitoringRootStuff;

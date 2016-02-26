@@ -1,7 +1,5 @@
 import React from 'react';
 import WeatherMap from './../components/weather-map.jsx';
-import RealTimeDataRootStuff from './../components/real-time-data-root-stuff.jsx';
-
 import {SectionList} from '/client/modules/ui-components';
 import {CoreRootTriSection} from '/client/modules/core';
 import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
