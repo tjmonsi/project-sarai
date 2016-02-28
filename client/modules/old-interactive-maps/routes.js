@@ -2,6 +2,7 @@ import React from 'react';
 import {Main, SectionList} from '/client/modules/ui-components-v2';
 import InteractiveMaps from './components/interactive-maps.jsx';
 import SuitabilityMaps from './components/suitability-maps.jsx';
+import VulnerabilityMaps from './components/vulnerability-maps.jsx';
 import {coreLib, CoreNavList, CoreBanner} from '/client/modules/core-v2';
 
 export default (injectDeps, context) => {
@@ -78,6 +79,43 @@ export default (injectDeps, context) => {
               displayName: 'SuitabilityMaps',
               crop: FlowRouter.getParam('crop'),
               suitable: FlowRouter.getParam('suitability')
+            }))
+          ]
+        }))
+      }));
+    }
+  });
+
+  FlowRouter.route('/vulnerability-maps', {
+    name: 'vulnerability-maps.root',
+    triggersEnter: [triggerAuthenticate],
+    action() {
+      mount(MainCtx, Object.assign({}, layout, {
+        content: () => (React.createElement(SectionList, {
+          displayName: 'SectionList',
+          spacing: false,
+          sections: [
+            () => (React.createElement(VulnerabilityMaps, {
+              displayName: 'VulnerabilityMaps'
+            }))
+          ]
+        }))
+      }));
+    }
+  });
+
+  FlowRouter.route('/vulnerability-maps/:type', {
+    name: 'vulnerability-maps.root',
+    triggersEnter: [triggerAuthenticate],
+    action() {
+      mount(MainCtx, Object.assign({}, layout, {
+        content: () => (React.createElement(SectionList, {
+          displayName: 'SectionList',
+          spacing: false,
+          sections: [
+            () => (React.createElement(VulnerabilityMaps, {
+              displayName: 'VulnerabilityMaps',
+              type: FlowRouter.getParam('type')
             }))
           ]
         }))
