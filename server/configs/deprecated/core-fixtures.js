@@ -37,6 +37,10 @@ if (!NavMenu.findOne({module: 'core'})) {
             label: 'Suitability Maps'
           },
           {
+            href: 'vulnerability-maps.root',
+            label: 'Vulnerability Maps'
+          },
+          {
             href: '',
             label: 'Planting Calendar'
           }

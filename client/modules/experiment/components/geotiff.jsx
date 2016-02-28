@@ -25,7 +25,7 @@ export default class GeotiffExperiment extends React.Component {
           super();
           this._bounds = bounds;
           this._image = image;
-          this._map = null;          
+          this._map = null;
           this._div = null;
         }
         onAdd() {
@@ -41,7 +41,7 @@ export default class GeotiffExperiment extends React.Component {
           div.appendChild(img);
           this._div = div;
           const panes = this.getPanes();
-          panes.overlayLayer.appendChild(div);  
+          panes.overlayLayer.appendChild(div);
         }
         draw() {
           const overlayProjection = this.getProjection();
@@ -58,64 +58,72 @@ export default class GeotiffExperiment extends React.Component {
           this._div = null;
         }
       };
-      
+
       this.PhOverlay = PhOverlay;
-      
+
       console.log(PhOverlay);
       console.log(new PhOverlay())
     });
   }
   handleSubmit() {
-    const xhr = new XMLHttpRequest();
-    const url = '/images/Rainfall.tif';
-    const img = '/images/Rainfall.png';
-    xhr.open('GET', url, true);
-    xhr.responseType = 'arraybuffer';
-    xhr.onload = (e) => {
-      const tiff = GeoTIFF.parse(xhr.response);
-      const im = tiff.getImage();
-      const fd = im.getFileDirectory();
-      const gk = im.getGeoKeys();
-      const points = extents({
-        tiePoint: fd.ModelTiepoint,
-        pixelScale: fd.ModelPixelScale,
-        width: fd.ImageWidth,
-        height: fd.ImageLength,
-        proj: proj4,
-        from: epsg[gk.ProjectedCSTypeGeoKey || gk.GeographicTypeGeoKey],
-        to: epsg[4326]
-      });
-      
-      if (this.google) {
-        // const bounds = new this.google.maps.LatLngBounds(
-        //   new this.google.maps.LatLng(points.lowerLeft[0], points.lowerLeft[1]),
-        //   new this.google.maps.LatLng(points.upperRight[0], points.upperRight[1])
-        // );
-        console.log(points);  
-        const imageBounds = {
-          north: points.upperRight[1],
-          south: points.lowerLeft[1],
-          east: points.upperRight[0],
-          west: points.lowerLeft[0]
-        };
-        
-        if (this.map) {
-          console.log(this.map);
-          const overlay = new this.google.maps.GroundOverlay(
-            img,
-            imageBounds
-          );
-          console.log(overlay);
-          overlay.setMap(this.map);
-          // console.log(this.PhOverlay.prototype);
-          // const overlay = new this.PhOverlay(bounds, img);
-          // overlay.setMap(this.map);  
-        }
-        
+    // const xhr = new XMLHttpRequest();
+    // const url = '/images/Rainfall.tif';
+    // const img = '/images/Rainfall.png';
+    // xhr.open('GET', url, true);
+    // xhr.responseType = 'arraybuffer';
+    // xhr.onload = (e) => {
+    //   const tiff = GeoTIFF.parse(xhr.response);
+    //   const im = tiff.getImage();
+    //   const fd = im.getFileDirectory();
+    //   const gk = im.getGeoKeys();
+    //   const points = extents({
+    //     tiePoint: fd.ModelTiepoint,
+    //     pixelScale: fd.ModelPixelScale,
+    //     width: fd.ImageWidth,
+    //     height: fd.ImageLength,
+    //     proj: proj4,
+    //     from: epsg[gk.ProjectedCSTypeGeoKey || gk.GeographicTypeGeoKey],
+    //     to: epsg[4326]
+    //   });
+
+    if (this.google) {
+      // const bounds = new this.google.maps.LatLngBounds(
+      //   new this.google.maps.LatLng(points.lowerLeft[0], points.lowerLeft[1]),
+      //   new this.google.maps.LatLng(points.upperRight[0], points.upperRight[1])
+      // );
+      // console.log(points);
+      const points = {
+        upperRight: [ 122.591114,18.389447],
+        lowerLeft: [120.416964, 16.285728]
       }
-      
-    };
-    xhr.send();
+      const img = '/NDVI_converted.png'
+      const imageBounds = {
+        north: points.upperRight[1],
+        south: points.lowerLeft[1],
+        east: points.upperRight[0],
+        west: points.lowerLeft[0]
+      };
+
+      if (this.map) {
+        console.log(this.map);
+        const overlay = new this.google.maps.GroundOverlay(
+          img,
+          imageBounds,
+          {
+            opacity:0.3
+          }
+        );
+        console.log(overlay);
+        overlay.setMap(this.map);
+        // console.log(this.PhOverlay.prototype);
+        // const overlay = new this.PhOverlay(bounds, img);
+        // overlay.setMap(this.map);
+      }
+
+    }
+
+    // };
+    // xhr.send();
   }
   render() {
     const map = (c) => {
@@ -130,12 +138,12 @@ export default class GeotiffExperiment extends React.Component {
         <button onClick={this.handleSubmit} >
           {'Submit file'}
         </button>
-        <div 
+        <div
           ref={map}
           style={style}
         >
         </div>
-      </div>  
+      </div>
     );
-  }  
+  }
 }
