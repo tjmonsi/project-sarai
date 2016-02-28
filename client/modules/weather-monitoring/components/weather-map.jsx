@@ -68,11 +68,14 @@ class WeatherMap extends React.Component {
 
             //Get last timestamp
             $.getJSON(
-              `http:\/\/localhost:3080/api/${station.name}/last`,
+              //`http:\/\/localhost:3080/api/${station.name}/last`,
+              `https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/last`,
               (data) => {
                 console.log(`Success: Latest from ${station.name} is ${data}`);
 
-                $.getJSON(`http:\/\/localhost:3080/api/${station.name}/get/${data}`,
+                //$.getJSON(`http:\/\/localhost:3080/api/${station.name}/get/${data}`,
+                $.getJSON(`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/get/${data}`,
+
                   (data) => {
                     console.log(data);
                     // this.temp.set(data.temperature.outside.value);
