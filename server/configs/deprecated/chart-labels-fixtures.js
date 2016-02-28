@@ -56,7 +56,6 @@ if (!ChartLabels.findOne({name: 'simulatedYield'})) {
       "Dec 9-15",
       "Dec 16-22",
       "Dec 23-31"
-​
     ]
   });
 }
