@@ -9,24 +9,28 @@ import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 const composerLandingPage = ({context}, onData) => {
   const {Meteor, Collections} = context();
-  const {LandingData, SimulatedYield, ChartLabels} = Collections;
+  const {LandingData, SimulatedYield, ChartLabels, SoilData} = Collections;
 
   const sections = [];
   const spacing = false;
 
   if (Meteor.subscribe('simulated-yield-areas').ready()
-      && Meteor.subscribe('chart-labels').ready()) {
+      && Meteor.subscribe('chart-labels').ready()
+      && Meteor.subscribe('soil-data').ready()) {
 
     // const areas = SimulatedYield.find({}, {name: 1, coordinates: 1}).fetch();
     const areas = SimulatedYield.find({}).fetch();
     const labels = ChartLabels.findOne({name: "simulatedYield"});
+    const soilData = SoilData.find({}).fetch();
+
+    console.log(`Found ${SoilData.find({}).count()} soil areas`);
     
     // console.log(areas);
     // console.log(SimulatedYield.findOne({}));
     // console.log(`Found ${SimulatedYield.find().count()} areas`);
 
     sections.push(React.createElement(MonitoringMapCharts, {
-      areas, labels
+      areas, labels, soilData
     }));
 
     sections.push(React.createElement(MonitoringInfoGrid));

@@ -23,11 +23,17 @@ class MonitoringInfoGrid extends React.Component {
         },
 
         title: {
-            text: 'Difference between simulated (potential) yield of the varieties (using the DSSAT program) at different Nitrogen levels and. maximum attainable yield'
+            text: 'Difference between simulated (potential) yield of the varieties (using the DSSAT program) at different Nitrogen levels and maximum attainable yield'
         },
 
         xAxis: {
-            categories: ['90 N kg/ha', '135 N kg/ha', '180 N kg/ha']
+            categories: ['90 N kg/ha', '135 N kg/ha', '180 N kg/ha'],
+            labels: {
+                style: {
+                    fontSize: '17px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
         },
 
         yAxis: {
@@ -35,6 +41,12 @@ class MonitoringInfoGrid extends React.Component {
             min: 0,
             title: {
                 text: 'Yield in kg/ha'
+            },
+            labels: {
+                style: {
+                    fontSize: '17px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
             }
         },
 
@@ -81,7 +93,13 @@ class MonitoringInfoGrid extends React.Component {
         },
 
         xAxis: {
-            categories: ['90 N kg/ha', '135 N kg/ha', '180 N kg/ha']
+            categories: ['90 N kg/ha', '135 N kg/ha', '180 N kg/ha'],
+            labels: {
+                style: {
+                    fontSize: '17px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
         },
 
         yAxis: {
@@ -89,6 +107,12 @@ class MonitoringInfoGrid extends React.Component {
             min: 0,
             title: {
                 text: 'Yield in kg/ha'
+            },
+            labels: {
+                style: {
+                    fontSize: '17px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
             }
         },
 
@@ -137,7 +161,20 @@ class MonitoringInfoGrid extends React.Component {
               <img className="monitoring-infographic" src="images/monitoring/infographics/yield_gap.png" />
             </div>
             <div className="mdl-cell mdl-cell--6-col">
-              <h4>The <b>practical yield gap</b> that can be addressed is the difference between the maximum attainable yield and the farm- level yield, which are defined as: 1) Maximum attainable yield, the rice yield of experimental/on-farm plots with no physical, biological or economic constraints and with the best-known management practices for a given time and in a given ecology; 2) Farm-level yield: the average farmer’s yield in a given target area at a given time and in a given ecology (Roetter et al., 1998).</h4>
+                
+                    <h4>Maximum attainable yield - the rice yield of experimental/on-farm plots with no physical, biological or economic constraints and with the best-known management practices for a given time and in a given ecology;</h4>
+                    <h4>Farm-level yield - the average farmer’s yield in a given target area at a given time and in a given ecology</h4>
+
+                
+              
+                
+              <h4>               
+                 Yield gap is the difference between the max attainable yield and the farm level yield.
+                </h4>
+                (Roetter et al., 1998)
+            
+                
+
             </div>
           </div>
         </div>

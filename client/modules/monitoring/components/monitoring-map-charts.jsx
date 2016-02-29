@@ -13,7 +13,7 @@ class MonitoringMapCharts extends React.Component {
     Session.set('selected_area', 'none');
     Session.set('selected_marker', 'none');
 
-    const {areas, labels} = this.props;
+    const {areas, labels, soilData} = this.props;
 
     const northEast = L.latLng(20.355148, 114.300721);
     const southWest = L.latLng(4.010501, 135.367402);   
@@ -35,7 +35,7 @@ class MonitoringMapCharts extends React.Component {
     }).addTo(map);
 
     //???
-    document.getElementById('monitoring-map').style.display = 'block';
+    //document.getElementById('monitoring-map').style.display = 'block';
 
     const riceMarker = L.icon({
       iconUrl: '/images/monitoring/map/rice_marker.png',
@@ -51,7 +51,14 @@ class MonitoringMapCharts extends React.Component {
       popupAnchor: [0, -40]
     });
 
-    //Add markers
+    const soilMarker = L.icon({
+      iconUrl: '/images/monitoring/map/soil_marker.png',
+      iconSize: [40, 40],
+      iconAnchor: [20, 39],
+      popupAnchor: [0, -40]
+    });
+
+    //Add yield markers
     for (let area of areas) {
       L.marker([area.coordinates[0], area.coordinates[1]], {icon: riceMarker})
         .bindPopup(area.name)
@@ -60,6 +67,18 @@ class MonitoringMapCharts extends React.Component {
           Session.set('selected_area', area.name);
         })
         .addTo(map);
+    }
+
+    console.log(areas);
+    console.log(soilData);
+
+    for (let soil of soilData) {
+      L.marker([soil.coordinates[0], soil.coordinates[1]], {icon: soilMarker}).addTo(map);
+        // .bindPopup(sd.location)
+        // .on('click', () => {
+          // console(`Soil: ${sd.location}`);
+        // })
+        
     }
   }
 
@@ -124,7 +143,7 @@ class MonitoringMapCharts extends React.Component {
             labels: {
                 rotation: -45,
                 style: {
-                    fontSize: '15px',
+                    fontSize: '17px',
                     fontFamily: 'Verdana, sans-serif'
                 }
             }
@@ -133,6 +152,12 @@ class MonitoringMapCharts extends React.Component {
             min: 0,
             title: {
                 text: 'kg/ha'
+            },
+            labels: {
+                style: {
+                    fontSize: '17px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
             }
         },
         legend: {
@@ -145,14 +170,14 @@ class MonitoringMapCharts extends React.Component {
             name: 'Simulated Yield',
             data: series_data,
             dataLabels: {
-                enabled: true,
+                enabled: false,
                 rotation: -90,
                 color: '#FFFFFF',
                 align: 'right',
                 format: '{point.y}', // one decimal
                 y: 10, // 10 pixels down from the top
                 style: {
-                    fontSize: '15px',
+                    fontSize: '17px',
                     fontFamily: 'Verdana, sans-serif'
                 }
             }
@@ -184,7 +209,7 @@ class MonitoringMapCharts extends React.Component {
                 </div>
 
                 <div className="mdl-cell mdl-cell--12-col">
-                  <div className="quick-fact-header">BEST POSSIBLE YIELD</div>
+                  <div className="quick-fact-header">BEST YIELD</div>
                   <div className="quick-fact">
                     {selected_area.simulatedYield[0].weeklyYield[highest_yield_week]} kg/ha
                   </div>
