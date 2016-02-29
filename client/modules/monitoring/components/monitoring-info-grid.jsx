@@ -195,6 +195,7 @@ class MonitoringInfoGrid extends React.Component {
               <HighChart id = {'chart1'}
                 chartData = {yield_gap_data_1}
               />
+              <h4>A higher gap means there are problems in the weather and soil data.</h4>
 
             </div>
             <div className="mdl-cell mdl-cell--6-col">
@@ -202,6 +203,7 @@ class MonitoringInfoGrid extends React.Component {
               <HighChart id = {'chart2'}
                 chartData = {yield_gap_data_2}
               />
+              <h4>A higher gap means there are problems in irrigation, deprivation of fertilizers, manifestation of pests and diseases, or any combinations of these.</h4>
             </div>
           </div>
         </div>
