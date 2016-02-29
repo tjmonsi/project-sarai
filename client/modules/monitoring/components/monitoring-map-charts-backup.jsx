@@ -1,28 +1,27 @@
 import React from 'react';
 import L from 'leaflet';
 
-import HighChart from './high-chart.jsx';
+import {HighChart} from '/client/modules/eskwela';
 
 class MonitoringMapCharts extends React.Component {
   componentDidMount() {
     if (componentHandler) {
       componentHandler.upgradeDom();
-      this.displayInformation = this.displayInformation.bind(this);
+      this.displayCharts = this.displayCharts.bind(this);
     }
 
     Session.set('selected_area', 'none');
-    Session.set('selected_marker', 'none');
 
     const {areas, labels} = this.props;
 
-    const northEast = L.latLng(20.355148, 114.300721);
-    const southWest = L.latLng(4.010501, 135.367402);   
+    const northEast = L.latLng(21.924058, 115.342984);
+    const southWest = L.latLng(4.566972, 128.614468);   
     const bounds = L.latLngBounds(southWest, northEast);
 
     const map = L.map('monitoring-map', {
       maxBounds: bounds,
-      center: [13.624467, 126.456410],
-      zoom: 7,
+      center: [14.154604, 121.247505],
+      zoom: 8,
       minZoom: 7,
       zoomControl: false
     });
@@ -37,15 +36,8 @@ class MonitoringMapCharts extends React.Component {
     //???
     document.getElementById('monitoring-map').style.display = 'block';
 
-    const riceMarker = L.icon({
-      iconUrl: '/images/weather-monitoring/map/rice_marker.png',
-      iconSize: [40, 40],
-      iconAnchor: [20, 39],
-      popupAnchor: [0, -40]
-    });
-
-    const weatherMarker = L.icon({
-      iconUrl: '/images/weather-monitoring/map/weather_marker.png',
+    const markerIcon = L.icon({
+      iconUrl: '/images/real-time-data/map_marker.png',
       iconSize: [40, 40],
       iconAnchor: [20, 39],
       popupAnchor: [0, -40]
@@ -53,30 +45,25 @@ class MonitoringMapCharts extends React.Component {
 
     //Add markers
     for (let area of areas) {
-      L.marker([area.coordinates[0], area.coordinates[1]], {icon: riceMarker})
+      L.marker([area.coordinates[0], area.coordinates[1]], {icon: markerIcon})
         .bindPopup(area.name)
         .on('click', () => {
-          Session.set('selected_marker', 'rice_yield');
           Session.set('selected_area', area.name);
         })
         .addTo(map);
     }
   }
 
-  displayInformation() {
+  displayCharts() {
     const {callback, areas, labels} = this.props;
-    let id = 'monitoring-drawer'
+    // const data = callback('NE01');
+    // console.log(`Callback sends ${data}`);
 
-
-    if (Session.get('selected_marker') == 'none'
-      || Session.get('selected_area') === undefined) {
+    if (Session.get('selected_area') == 'none') {
       return (
-        <div id={id}>
-          <h4>{'Select a location from the map.'}</h4>
-        </div>  
-        
+        <h4>{'Select a location from the map.'}</h4>
       );
-    } else if (Session.get('selected_marker') == 'rice_yield') {
+    } else if (!(Session.get('selected_area') === undefined)) {
 
       //Passing around the db call didn't work so doing this for now ._.
       let selected_area = '';
@@ -89,19 +76,22 @@ class MonitoringMapCharts extends React.Component {
       console.log(`Clicked ${Session.get('selected_area')}.`);
 
       let series_data = [];
-      let highest_yield_week = 17;
+      let highest_yield_week = 0;
+      let i = 0;
 
-      for (let y = 17; y <= 51; y++) {
-        let entry = []
-        let y_temp = selected_area.simulatedYield[0].weeklyYield[y];
+      for (let y of selected_area.simulatedYield[0].weeklyYield) {
+        // console.log(`["${labels.labels[i]}", ${y}]`);
+        
+        let entry = [];
 
-        entry.push(`${labels.labels[y]}`);
-        entry.push(y_temp);
+        entry.push(`${labels.labels[i]}`);
+        entry.push(y);
 
-        if (y_temp > selected_area.simulatedYield[0].weeklyYield[highest_yield_week]) {
-          highest_yield_week = y;
+        if (y > selected_area.simulatedYield[0].weeklyYield[highest_yield_week]) {
+          highest_yield_week = i;
         }
 
+        i++;
         series_data.push(entry);
       }
       //Redo this LATER
@@ -160,62 +150,54 @@ class MonitoringMapCharts extends React.Component {
         };
 
       return (
-        <div id={id}>
-
+        <div>
+          <HighChart
+            id = {`${Session.get('selected_area')}-simulated-yield-chart`}
+            chartData = {chartData}
+          />
+          <br/>
           <div className="mdl-grid">
-            <div className="mdl-cell mdl-cell--9-col">
-              <HighChart id = {
-                `${Session.get('selected_area')}-simulated-yield-chart`}
-                chartData = {chartData}
-              />
+            <div className="mdl-cell--4-col">
+              <div className="quick-fact-title">
+                <h5>Recommended Planting Date</h5>
+              </div>
+              
+              <div className="quick-fact">
+                Week {highest_yield_week + 1}: {labels.labels[highest_yield_week]}
+              </div>
             </div>
 
-            <div className="mdl-cell mdl-cell--3-col">
-              <div className="mdl-grid">
-                <div className="mdl-cell mdl-cell--12-col">
-                  <div className="quick-fact-header">BEST PLANTING DATE</div>
-                  <div className="quick-fact">Week {highest_yield_week + 1}
-                    <br />
-                    {labels.labels[highest_yield_week]}</div>
-                </div>
-
-                <div className="mdl-cell mdl-cell--2-offset mdl-cell--8-col">
-                  <hr />
-                </div>
-
-                <div className="mdl-cell mdl-cell--12-col">
-                  <div className="quick-fact-header">BEST POSSIBLE YIELD</div>
-                  <div className="quick-fact">
-                    {selected_area.simulatedYield[0].weeklyYield[highest_yield_week]} kg/ha
-                  </div>
-                </div>
-
-                <div className="mdl-cell mdl-cell--2-offset mdl-cell--8-col">
-                  <hr />
-                </div>
-
-                <div className="mdl-cell mdl-cell--12-col">
-                  <div className="quick-fact-header">
-                    PROBABILITY OF EXCEEDANCE
-                  </div>
-                  <div className="quick-fact">
-                    {selected_area.simulatedYield[0].exceedanceProbability}%
-                  </div>
-                </div>
+            <div className="mdl-cell--4-col">
+              <div className="quick-fact-title">
+                <h5>Highest Simulated Yield</h5>
               </div>
+              
+              <div className="quick-fact">
+                {selected_area.simulatedYield[0].weeklyYield[highest_yield_week]} kg/ha
+              </div>
+            </div>
+
+            <div className="mdl-cell--4-col">
+              <div className="quick-fact-title">
+                <h5>Probability of Exceedance</h5>
+              </div>
+              
+              <div className="quick-fact">
+                {selected_area.simulatedYield[0].exceedanceProbability}%
+              </div>
+            </div>
+
+            <div id="quick-fact-notes" className="mdl-cell--12-col">
+              <ul>
+                <li>Simulated yield based on 2016 generated weather from MarkSim.</li>
+                <li>Typical rainfed rice variety was used.</li>
+                <li>Assumptions: No typhoon or other natural calamities, no pest 
+incidence, direct-seeded, 20cm row spacing</li>
+                <li>Source: John Christopher Lorenzo, SARAI Project 1</li>
+              </ul>
             </div>
           </div>
           
-          
-        </div>
-      );
-    }
-
-    else if (Session.get('selected_marker') == 'weather_marker') {
-
-      return (
-        <div>
-          <h4>Under construction</h4>
         </div>
       );
     }
@@ -228,10 +210,26 @@ class MonitoringMapCharts extends React.Component {
 
   render() {
     return (
-      <div id="monitoring-map-container">
-        <div id="monitoring-map"></div>
-        {this.displayInformation()}
-      </div>        
+
+      <div id="monitoring-banner" className="mdl-grid">  
+        <div className="mdl-cell mdl-cell--1-offset-desktop mdl-cell--10-col-desktop">
+
+          <div className="mdl-grid">
+            <div className="mdl-cell mdl-cell--4-col mdl-cell--4-col-phone">
+              <div id="monitoring-map">
+                
+              </div> 
+            </div>
+
+            <div className="mdl-cell mdl-cell--8-col mdl-cell--4-col-phone">
+              {this.displayCharts()}
+            </div>  
+
+          </div>
+        
+        </div>
+      </div>
+        
     );
   }
 

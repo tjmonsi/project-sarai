@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MonitoringMapCharts from './../components/monitoring-map-charts.jsx';
+import MonitoringInfoGrid from './../components/monitoring-info-grid.jsx';
 
 import {SectionList} from '/client/modules/ui-components';
 import {CoreRootTriSection} from '/client/modules/core';
@@ -27,6 +28,8 @@ const composerLandingPage = ({context}, onData) => {
     sections.push(React.createElement(MonitoringMapCharts, {
       areas, labels
     }));
+
+    sections.push(React.createElement(MonitoringInfoGrid));
   }
   
 
