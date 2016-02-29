@@ -40,7 +40,7 @@ class WeatherMap extends React.Component {
     }).addTo(map);
 
     const markerIcon = L.icon({
-      iconUrl: '/images/weather-monitoring/map_marker.png',
+      iconUrl: '/images/weather-monitoring/marker.png',
       iconSize: [40, 40],
       iconAnchor: [20, 39],
       popupAnchor: [0, -40]

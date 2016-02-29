@@ -38,14 +38,14 @@ class MonitoringMapCharts extends React.Component {
     document.getElementById('monitoring-map').style.display = 'block';
 
     const riceMarker = L.icon({
-      iconUrl: '/images/weather-monitoring/map/rice_marker.png',
+      iconUrl: '/images/monitoring/map/rice_marker.png',
       iconSize: [40, 40],
       iconAnchor: [20, 39],
       popupAnchor: [0, -40]
     });
 
     const weatherMarker = L.icon({
-      iconUrl: '/images/weather-monitoring/map/weather_marker.png',
+      iconUrl: '/images/monitoring/map/weather_marker.png',
       iconSize: [40, 40],
       iconAnchor: [20, 39],
       popupAnchor: [0, -40]
