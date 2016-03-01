@@ -43,6 +43,7 @@
     "leaflet": "^0.7.7",
     "mantra-core": "^1.2.0",
     "marked": "^0.3.5",
+    "material-design-icons": "^2.2.0",
     "material-design-lite": "^1.1.1",
     "moment": "^2.11.2",
     "multiparty": "^4.1.2",
