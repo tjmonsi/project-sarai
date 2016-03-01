@@ -4,14 +4,23 @@ import L from 'leaflet';
 import HighChart from './high-chart.jsx';
 
 class MonitoringMapCharts extends React.Component {
+  constructor() {
+    super();
+    this.displayInformation = this.displayInformation.bind(this);
+    this.clearMarkers = this.clearMarkers.bind(this);
+    this.addYieldMarkers = this.addYieldMarkers.bind(this);
+    this.addSoilMarkers = this.addSoilMarkers.bind(this);
+  }
+
   componentDidMount() {
     if (componentHandler) {
       componentHandler.upgradeDom();
-      this.displayInformation = this.displayInformation.bind(this);
+      
     }
 
     Session.set('selected_area', 'none');
     Session.set('selected_marker', 'none');
+    Session.set('current_marker_group', 'yield');
 
     const {areas, labels, soilData} = this.props;
 
@@ -19,7 +28,7 @@ class MonitoringMapCharts extends React.Component {
     const southWest = L.latLng(4.010501, 135.367402);   
     const bounds = L.latLngBounds(southWest, northEast);
 
-    const map = L.map('monitoring-map', {
+    this.map = L.map('monitoring-map', {
       maxBounds: bounds,
       center: [13.624467, 126.456410],
       zoom: 7,
@@ -32,7 +41,7 @@ class MonitoringMapCharts extends React.Component {
       maxZoom: 14,
       id: 'mcarandang.p67769a5',
       accessToken: 'pk.eyJ1IjoibWNhcmFuZGFuZyIsImEiOiJjaWtxaHgzYTkwMDA4ZHZtM3E3aXMyYnlzIn0.x63VGx2C-BP_ttuEsn2fVg'
-    }).addTo(map);
+    }).addTo(this.map);
 
     //???
     //document.getElementById('monitoring-map').style.display = 'block';
@@ -58,7 +67,13 @@ class MonitoringMapCharts extends React.Component {
       popupAnchor: [0, -40]
     });
 
-    //Add yield markers
+    this.yieldGroup = new L.FeatureGroup();
+    this.soilGroup = new L.FeatureGroup();
+    this.weatherGroup = new L.FeatureGroup();
+
+
+
+    //Create group for yield markers
     for (let area of areas) {
       L.marker([area.coordinates[0], area.coordinates[1]], {icon: riceMarker})
         .bindPopup(area.name)
@@ -66,20 +81,21 @@ class MonitoringMapCharts extends React.Component {
           Session.set('selected_marker', 'rice_yield');
           Session.set('selected_area', area.name);
         })
-        .addTo(map);
+        .addTo(this.yieldGroup);
+    }
+    this.map.addLayer(this.yieldGroup);
+
+    //Create group for soil markers
+    for (let sd of soilData) {
+      L.marker([sd.coordinates[0], sd.coordinates[1]], {icon: soilMarker})
+        .bindPopup(sd.location)
+        .on('click', () => {
+          console(`Soil: ${sd.location}`);
+        })
+        .addTo(this.soilGroup)
     }
 
-    console.log(areas);
-    console.log(soilData);
 
-    for (let soil of soilData) {
-      L.marker([soil.coordinates[0], soil.coordinates[1]], {icon: soilMarker}).addTo(map);
-        // .bindPopup(sd.location)
-        // .on('click', () => {
-          // console(`Soil: ${sd.location}`);
-        // })
-        
-    }
   }
 
   displayInformation() {
@@ -251,10 +267,41 @@ class MonitoringMapCharts extends React.Component {
           </div>
   */
 
+  clearMarkers() {
+    console.log("Removing markers");
+    if (Session.get('current_marker_group') == 'yield') {
+      this.map.removeLayer(this.yieldGroup);
+    }
+
+    else if (Session.get('current_marker_group') == 'soil') {
+      this.map.removeLayer(this.soilGroup);
+    }
+
+    else if (Session.get('current_marker_group') == 'weather') {
+      this.map.removeLayer(this.weatherGroup);
+    }
+  }
+
+  addYieldMarkers() {
+    this.clearMarkers();
+    this.map.addLayer(this.yieldGroup);
+  }
+
+  addSoilMarkers() {
+    this.clearMarkers();
+    this.map.addLayer(this.soilGroup);
+  }
+
   render() {
     return (
       <div id="monitoring-map-container">
         <div id="monitoring-map"></div>
+
+        <div id="layer-selection">
+          <a href="#" onClick={this.addYieldMarkers}>Yield</a>
+          <a href="#" onClick={this.addSoilMarkers}>Soil</a>
+        </div>
+
         {this.displayInformation()}
       </div>        
     );

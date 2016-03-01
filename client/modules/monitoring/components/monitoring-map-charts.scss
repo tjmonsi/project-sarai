@@ -1,31 +1,9 @@
-/*#monitoring-map- {
-  background-color: rgb(51, 51, 51);
-
+#layer-selection {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background-color: gray;
 }
-
-#monitoring-map {
-  width: 100%;
-  height: 600px;
-
-}
-
-#chart-explanation {
-  color: rgb(153, 153, 153);
-}
-
-.quick-fact-title {
-  color: rgb(153, 153, 153);
-}
-
-.quick-fact {
-  color: #95CEFF;
-  font-size: 1.8em;
-  font-weight: bold;
-}
-
-#quick-fact-notes {
-  color: rgb(153, 153, 153); 
-}*/
 
 #monitoring-map-container {
   width: 100%;
