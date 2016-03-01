@@ -11,7 +11,7 @@ export default (injectDeps, context) => {
 	const MapPageCtx = injectDeps(MapPage);
 
 	FlowRouter.route('/weather-monitoring', {
-		name: 'weather-monitoring.root',
+		name: 'real-time-data.root',
 		action() {
 			mount(LandingCtx, {
 				appBar: React.createElement(CoreAppBar),

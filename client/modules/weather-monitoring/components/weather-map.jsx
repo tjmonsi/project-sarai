@@ -22,7 +22,7 @@ class WeatherMap extends React.Component {
 
     //Store all this data in db
     const northEast = L.latLng(21.924058, 115.342984);
-    const southWest = L.latLng(4.566972, 128.614468);   
+    const southWest = L.latLng(4.566972, 128.614468);
     const bounds = L.latLngBounds(southWest, northEast);
 
     const map = L.map('map', {
@@ -31,7 +31,7 @@ class WeatherMap extends React.Component {
       zoom: 8,
       minZoom: 7
     });
-    
+
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWNhcmFuZGFuZyIsImEiOiJjaWtxaHgzYTkwMDA4ZHZtM3E3aXMyYnlzIn0.x63VGx2C-BP_ttuEsn2fVg', {
       // attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
       maxZoom: 14,
@@ -46,9 +46,10 @@ class WeatherMap extends React.Component {
       popupAnchor: [0, -40]
     });
 
-    
+
 
     for (let station of stations) {
+      console.log(stations)
       L.marker(
         [station.coords[0], station.coords[1]],
         {icon: markerIcon}).bindPopup(station.label).on('click', () => {
@@ -58,7 +59,7 @@ class WeatherMap extends React.Component {
             let drawer = document.getElementById('drawer');
             drawer.classList.remove('hidden-drawer', 'hidden-element');
             drawer.classList.add('visible-drawer', 'visible-element');
-            
+
             //Un-hide drawer content
             let drawerContent = document.getElementById('drawer-content');
             drawerContent.classList.remove('hidden-element');
@@ -118,13 +119,13 @@ class WeatherMap extends React.Component {
 
   }
 
-  
+
 
   closeDrawer() {
 
     if (Session.get('drawerVisibility') == 'true') {
 
-      //Decrease drawer width to 0 
+      //Decrease drawer width to 0
       let drawer = document.getElementById('drawer');
       drawer.classList.remove('visible-drawer');
       drawer.classList.add('hidden-drawer');
@@ -159,17 +160,17 @@ class WeatherMap extends React.Component {
               </div>
               <div id="last-updated">
                 Updated just now
-              </div>              
+              </div>
             </div>
 
-            <div className="mdl-cell mdl-cell--6-col">              
+            <div className="mdl-cell mdl-cell--6-col">
               <div id="temp-minmax">
                 {Session.get('temperature.outside.min')}&deg; | {Session.get('temperature.outside.max')}&deg;
               </div>
 
               <div id="temp">
                 {Session.get('temperature.outside.value')}&deg; F
-              </div>                
+              </div>
             </div>
 
             <div className="mdl-cell mdl-cell--6-col first-row">
@@ -283,7 +284,7 @@ class WeatherMap extends React.Component {
 
 
           </div>
-          
+
           <div id="drawer-controls">
             <button id="drawer-close-button" onClick={this.closeDrawer}>x</button>
           </div>
@@ -299,7 +300,7 @@ class WeatherMap extends React.Component {
         <div id="map"></div>
         {this.renderDrawerContent()}
       </div>
-        
+
     );
   }
 }
