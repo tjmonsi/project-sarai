@@ -2,7 +2,6 @@
   position: absolute;
   left: 10px;
   top: 10px;
-  background-color: gray;
 }
 
 #monitoring-map-container {
@@ -56,4 +55,32 @@
   color: white;
   text-align: center;
   
+}
+
+.marker-layer-link {
+  font-size:16px;
+  color:#FFF;
+  transition: all 0.3s ease-in;
+  text-decoration:none;
+      background-color: #424242;
+}
+
+.marker-layer-link:hover{
+  -webkit-stroke-width: 5.3px;
+  -webkit-stroke-color: #FFFFFF;
+  -webkit-fill-color: #FFFFFF;
+  text-shadow: 1px 0px 20px yellow;
+}
+
+.soil-data-header {
+  color: white;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.soil-data-info {
+  font-weight: bold;
+  font-size: 1.8em;
+  color: #F09465;
+  text-align: left;
 }

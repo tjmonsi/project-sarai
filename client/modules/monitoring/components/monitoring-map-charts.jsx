@@ -90,7 +90,8 @@ class MonitoringMapCharts extends React.Component {
       L.marker([sd.coordinates[0], sd.coordinates[1]], {icon: soilMarker})
         .bindPopup(sd.location)
         .on('click', () => {
-          console.log(`Soil: ${sd.location}`);
+          Session.set('selected_marker', 'soil');
+          Session.set('selected_area', sd.identifier);
         })
         .addTo(this.soilGroup)
     }
@@ -99,7 +100,7 @@ class MonitoringMapCharts extends React.Component {
   }
 
   displayInformation() {
-    const {callback, areas, labels} = this.props;
+    const {callback, areas, labels, soilData} = this.props;
     let id = 'monitoring-drawer'
 
 
@@ -140,8 +141,6 @@ class MonitoringMapCharts extends React.Component {
         series_data.push(entry);
       }
       //Redo this LATER
-
-      console.log(`Highest Yield week is ${highest_yield_week + 1}`);
 
       const chartData = {
         chart: {
@@ -252,7 +251,117 @@ class MonitoringMapCharts extends React.Component {
       );
     }
 
-    else if (Session.get('selected_marker') == 'weather_marker') {
+    else if (Session.get('selected_marker') == 'soil') {
+
+      let selected_area = '';
+
+      for (let s of soilData) {
+        if (s.identifier == Session.get('selected_area')) {
+          selected_area = s;
+
+        }
+      }
+
+      console.log(`Clicked ${Session.get('selected_area')}.`);
+
+      return (
+        <div id={id}>
+          <div className="mdl-grid">
+            <div className="mdl-cell mdl-cell--8-col">
+              <div className="soil-data-header">LOCATION</div>
+              <div className="soil-data-info">
+                {selected_area.location}
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">ELEVATION</div>
+              <div className="soil-data-info">
+                {selected_area.elevation_m} m
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--2-offset mdl-cell--8-col">
+              <hr />
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">TEXTURE</div>
+              <div className="soil-data-info">
+                {selected_area.texture}
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">PERMEABILITY</div>
+              <div className="soil-data-info">
+                {selected_area.permeability} cm/hr
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">POROSITY</div>
+              <div className="soil-data-info">
+                {selected_area.porosity}%
+              </div>
+            </div>
+
+            
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">BULK DENSITY</div>
+              <div className="soil-data-info">
+                {selected_area.bulkDensity}gm/cm<sup>3</sup>
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">FIELD CAPACITY</div>
+              <div className="soil-data-info">
+                {selected_area.fieldCapacity}%<sup> </sup>
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">PERMANENT WILTING POINT</div>
+              <div className="soil-data-info">
+                {selected_area.permanentWilting}%<sup> </sup>
+              </div>
+            </div>
+
+            
+
+            
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">DRY WEIGHT - MOISTURE</div>
+              <div className="soil-data-info">
+                {selected_area.moisture.dryWeight}%
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">VOLUME - MOISTURE</div>
+              <div className="soil-data-info">
+                {selected_area.moisture.volume}%
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--3-col">
+              <div className="soil-data-header">DEPTH - MOISTURE</div>
+              <div className="soil-data-info">
+                {selected_area.moisture.depth}%
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      );
+    }
+
+    else if (Session.get('selected_marker') == 'weather') {
 
       return (
         <div>
@@ -261,11 +370,6 @@ class MonitoringMapCharts extends React.Component {
       );
     }
   }
-  /*
-  <div id="chart-explanation" className="text-advisory">
-            <h5>{`At a ${selected_area.simulatedYield[0].exceedanceProbability}% for ${selected_area.simulatedYield[0].weeklyYield[highest_yield_week]} kg/ha to be exceeded, the Recommended planting period for this area is week ${highest_yield_week + 1} ${labels.labels[highest_yield_week]}.`}</h5>
-          </div>
-  */
 
   clearMarkers() {
     console.log("Removing markers");
@@ -298,8 +402,14 @@ class MonitoringMapCharts extends React.Component {
         <div id="monitoring-map"></div>
 
         <div id="layer-selection">
-          <a href="#" onClick={this.addYieldMarkers}>Yield</a>
-          <a href="#" onClick={this.addSoilMarkers}>Soil</a>
+          
+          <button className="mdl-button mdl-js-button mdl-button--primary" onClick={this.addYieldMarkers}>
+            YIELD
+          </button>
+
+          <button className="mdl-button mdl-js-button mdl-button--primary" onClick={this.addSoilMarkers}>
+            SOIL
+          </button>
         </div>
 
         {this.displayInformation()}
