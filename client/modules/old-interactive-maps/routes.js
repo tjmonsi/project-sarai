@@ -86,6 +86,25 @@ export default (injectDeps, context) => {
     }
   });
 
+  FlowRouter.route('/suitability-maps/:crop/', {
+    name: 'suitability-maps.root',
+    triggersEnter: [triggerAuthenticate],
+    action() {
+      mount(MainCtx, Object.assign({}, layout, {
+        content: () => (React.createElement(SectionList, {
+          displayName: 'SectionList',
+          spacing: false,
+          sections: [
+            () => (React.createElement(SuitabilityMaps, {
+              displayName: 'SuitabilityMaps',
+              crop: FlowRouter.getParam('crop')
+            }))
+          ]
+        }))
+      }));
+    }
+  });
+
   FlowRouter.route('/vulnerability-maps', {
     name: 'vulnerability-maps.root',
     triggersEnter: [triggerAuthenticate],

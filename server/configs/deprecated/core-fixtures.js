@@ -41,6 +41,10 @@ if (!NavMenu.findOne({module: 'core'})) {
             label: 'Vulnerability Maps'
           },
           {
+            href: 'monitoring.root',
+            label: 'Simulated-Yield Monitoring System'
+          },
+          {
             href: '',
             label: 'Planting Calendar'
           }
