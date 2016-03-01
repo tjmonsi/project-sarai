@@ -90,7 +90,7 @@ class MonitoringMapCharts extends React.Component {
       L.marker([sd.coordinates[0], sd.coordinates[1]], {icon: soilMarker})
         .bindPopup(sd.location)
         .on('click', () => {
-          console(`Soil: ${sd.location}`);
+          console.log(`Soil: ${sd.location}`);
         })
         .addTo(this.soilGroup)
     }

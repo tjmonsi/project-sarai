@@ -138,6 +138,25 @@ class WeatherMap extends React.Component {
     }
   }
 
+  toCelsius(f_temp) {
+    if (f_temp == -1) return 'NA';
+
+    let c = (f_temp - 32) * (0.5556);
+    c = Number(Math.round(c+'e1')+'e-1');
+    
+    return c;
+  }
+
+  formatRain(rain) {
+    if (rain == -1) return 'NA';
+    else return rain + 'mm';
+  }
+
+  formatSolar(solar) {
+    if (solar == -1) return 'NA';
+    else return solar;
+  }
+
   renderDrawerContent() {
     let windDirection = Session.get('wind.direction.prevailing') - 45;
     // console.log(windDirection);
@@ -164,11 +183,11 @@ class WeatherMap extends React.Component {
 
             <div className="mdl-cell mdl-cell--6-col">              
               <div id="temp-minmax">
-                {Session.get('temperature.outside.min')}&deg; | {Session.get('temperature.outside.max')}&deg;
+                {this.toCelsius(Session.get('temperature.outside.min'))}&deg; | {this.toCelsius(Session.get('temperature.outside.max'))}&deg;
               </div>
 
               <div id="temp">
-                {Session.get('temperature.outside.value')}&deg; F
+                {this.toCelsius(Session.get('temperature.outside.value'))}&deg; C
               </div>                
             </div>
 
@@ -177,7 +196,7 @@ class WeatherMap extends React.Component {
                 <img className="label-icon" src="images/weather-monitoring/icons/precip.png" /><span className="icon-title"> PRECIP</span>
               </div>
               <div className="first-row-value">
-                {Session.get('rainfall.value')} mm<sup>&nbsp;</sup>
+                {this.formatRain(Session.get('rainfall.value'))}<sup>&nbsp;</sup>
               </div>
             </div>
 
@@ -186,7 +205,7 @@ class WeatherMap extends React.Component {
                 <img className="label-icon" src="images/weather-monitoring/icons/solar.png" /> SOLAR
               </div>
               <div className="first-row-value">
-                {Session.get('solar.radiation.value')} w/m<sup>2</sup>
+                {this.formatSolar(Session.get('solar.radiation.value'))} w/m<sup>2</sup>
               </div>
             </div>
 
@@ -210,7 +229,7 @@ class WeatherMap extends React.Component {
               1ft&darr;
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {Session.get('soil.temperature.0')}&deg; F
+              {this.toCelsius(Session.get('soil.temperature.0'))}&deg; C
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-moisture">
               {Session.get('soil.humidity.0')} cb
@@ -220,7 +239,7 @@ class WeatherMap extends React.Component {
               2ft&darr;
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {Session.get('soil.temperature.1')}&deg; F
+              {this.toCelsius(Session.get('soil.temperature.1'))}&deg; C
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-moisture">
               {Session.get('soil.humidity.1')} cb
@@ -230,7 +249,7 @@ class WeatherMap extends React.Component {
               3ft&darr;
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {Session.get('soil.temperature.2')}&deg; F
+              {this.toCelsius(Session.get('soil.temperature.2'))}&deg; C
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-moisture">
               {Session.get('soil.humidity.2')} cb
@@ -240,7 +259,7 @@ class WeatherMap extends React.Component {
               4ft&darr;
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {Session.get('soil.temperature.3')}&deg; F
+              {this.toCelsius(Session.get('soil.temperature.3'))}&deg; C
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-moisture">
               {Session.get('soil.humidity.3')} cb
