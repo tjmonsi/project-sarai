@@ -17,7 +17,7 @@ class WeatherMap extends React.Component {
     }
 
     //Modal stuff
-    const dialog = document.querySelector('dialog');
+    const dialog = document.querySelector('#rainfall-dialog');
     const showDialogButton = document.querySelector('#show-dialog');
     if (! dialog.showModal) {
       dialogPolyfill.registerDialog(dialog);
@@ -28,6 +28,7 @@ class WeatherMap extends React.Component {
     dialog.querySelector('.close').addEventListener('click', function() {
       dialog.close();
     });
+
 
     Session.set('drawerVisibility', 'false');
 
@@ -82,13 +83,13 @@ class WeatherMap extends React.Component {
 
             //Get last timestamp
             $.getJSON(
-              `http:\/\/localhost:3080/api/${station.name}/last`,
-              //`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/last`,
+              // `http:\/\/localhost:3080/api/${station.name}/last`,
+              `https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/last`,
               (data) => {
                 console.log(`Success: Latest from ${station.name} is ${data}`);
 
-                $.getJSON(`http:\/\/localhost:3080/api/${station.name}/get/${data}`,
-                // $.getJSON(`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/get/${data}`,
+                // $.getJSON(`http:\/\/localhost:3080/api/${station.name}/get/${data}`,
+                $.getJSON(`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/get/${data}`,
 
                   (data) => {
                     console.log(data);
@@ -129,6 +130,16 @@ class WeatherMap extends React.Component {
           }
         }).addTo(map);
     }
+
+    //Instruction modal
+    const instructionDialog = document.querySelector('#instruction-dialog');
+    if (! instructionDialog.showModal) {
+      dialogPolyfill.registerDialog(instructionDialog);
+    }
+    instructionDialog.querySelector('.close').addEventListener('click', function() {
+      instructionDialog.close();
+    });
+    instructionDialog.showModal();
 
   }
 
@@ -314,17 +325,11 @@ class WeatherMap extends React.Component {
             <div className="mdl-cell mdl-cell--6-col simple-weather-header">
               {Session.get('barometer')} inHG
             </div>
-
-
-
-
-
           </div>
 
           <div id="drawer-controls">
-
             <button id="show-dialog" type="button" className="mdl-button mdl-js-button mdl-button--primary">Rainfall</button>
-            <dialog className="mdl-dialog" style={dialogStyle}>
+            <dialog id="rainfall-dialog" className="mdl-dialog" style={dialogStyle}>
               <h4 className="mdl-dialog__title"></h4>
               <div className="mdl-dialog__content">
                 <img className="rainfall-gif" src="/images/weather-monitoring/rainfall/PHL.SP2015-2016.ANIM.gif" />
@@ -347,6 +352,15 @@ class WeatherMap extends React.Component {
       <div id="map-container">
         <div id="map"></div>
         {this.renderDrawerContent()}
+
+        <dialog id="instruction-dialog" className="mdl-dialog">
+          <div className="mdl-dialog__content">
+            {'Select a weather station from the map to view its latest reading.'}
+          </div>
+          <div className="mdl-dialog__actions">
+            <button type="button" className="mdl-button close">OK</button>
+          </div>
+        </dialog>
       </div>
 
     );
