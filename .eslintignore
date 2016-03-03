@@ -6,4 +6,5 @@ client/modules/eskwela
 client/modules/experiment
 client/modules/old-about-v1
 client/modules/old-interactive-maps
+.scripts-2/
 .archive/

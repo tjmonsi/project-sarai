@@ -19,7 +19,8 @@
     "test": "npm run lint && npm run snyk && npm run testonly",
     "watch-tests": "mocha $npm_package_options_mocha --watch",
     "start": "meteor --settings settings.json",
-    "start-c9": "meteor --settings settings.json --port $PORT"
+    "start-c9": "meteor --settings settings.json --port $PORT",
+    "prod-c9": "meteor --settings settings.json --port $PORT --production"
   },
   "repository": {
     "type": "git",

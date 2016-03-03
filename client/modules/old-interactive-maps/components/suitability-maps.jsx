@@ -27,7 +27,7 @@ class SuitabilityMapComponent extends React.Component {
       myWidth = document.body.clientWidth;
       myHeight = document.body.clientHeight;
     }
-    console.log(this.mapContainer.style)
+    // console.log(this.mapContainer.style)
     this.mapContainer.style.height = (myHeight-60)+'px';
     this.mapControls.style.height = (myHeight-200)+'px';
   }
@@ -120,30 +120,61 @@ class SuitabilityMapComponent extends React.Component {
     }, 500);
   }
   renderText(crop, suitable) {
-    return (FlowRouter.getParam('crop') === crop && FlowRouter.getParam('suitability') === suitable) ?
-      (<strong><u>{`${crop} ${suitable} Suitable Areas`}</u></strong>) :
-      `${crop} ${suitable} Suitable Areas`;
+    // return (FlowRouter.getParam('crop') === crop && FlowRouter.getParam('suitability') === suitable) ?
+    //   (<strong><u>{`${crop} ${suitable} Suitable Areas`}</u></strong>) :
+    //   `${crop} ${suitable} Suitable Areas`;
+    if (crop) return FlowRouter.getParam('crop') === crop ? (<strong>{`${crop}`}</strong>) : crop;
+    else if (suitable) return FlowRouter.getParam('suitability') === suitable ? (<strong>{`${suitable}`}</strong>) : suitable;
   }
-  renderLinks() {
-    const {kml} = this.props;
-    return kml.map((crop, key) => {
-      return crop.kml.map((layer, key2) => {
-        const style = {
-          textDecoration: 'none',
-          color: "#33691e"
-        };
-        return (
-          <div className='mdl-cell mdl-cell--12-col'>
-            <a
-              href={`/suitability-maps/${crop.name}/${layer.name}`}
-              style = {style}
-            >
-              {this.renderText(crop.name, layer.name)}
-            </a>
-          </div>
-        );
-      });
+  renderCrop() {
+    const {kml, crop} = this.props;
+
+    return kml.map((crop1, key) => {
+      const style = {
+        textDecoration: crop === crop1.name ? 'underline' : 'none',
+        color: "#33691e"
+      };
+
+      return (
+        <div
+          className='mdl-cell mdl-cell--12-col'
+          key = {key}
+        >
+          <a
+            href={`/suitability-maps/${crop1.name}`}
+            style = {style}
+
+          >
+            {this.renderText(crop1.name)}
+          </a>
+        </div>
+      );
     });
+  }
+  renderSuitability() {
+    const {crop, suitable} = this.props;
+    const layers = ['High', 'Moderate', 'Marginal'];
+
+    return layers.map((layer, key) => {
+      const style = {
+        textDecoration: layer === suitable ? 'underline' : 'none',
+        color: "#33691e"
+      };
+      return (
+        <div
+          className='mdl-cell mdl-cell--12-col'
+          key = {key}
+        >
+          <a
+            href={`/suitability-maps/${crop}/${layer}`}
+            style = {style}
+
+          >
+            {this.renderText(null, layer)}
+          </a>
+        </div>
+      );
+    })
   }
   render() {
     const {width, height,crop, suitable} = this.props;
@@ -189,9 +220,24 @@ class SuitabilityMapComponent extends React.Component {
                 className="mdl-grid mdl-grid--no-spacing"
               >
                 <div className="mdl-cell mdl-cell--12-col">
-                  {'Click to see Suitability per Crop'}
+                  <h5>{'Click to see Suitability per Crop'}</h5>
                 </div>
-                {this.renderLinks()}
+                <div className="mdl-cell mdl-cell--12-col">
+                  {'Pick a crop'}
+                </div>
+                <div className="mdl-cell mdl-cell--11-col mdl-cell--1-offset">
+                  <div className="mdl-grid mdl-grid--no-spacing">
+                  {this.renderCrop()}
+                  </div>
+                </div>
+                <div className="mdl-cell mdl-cell--12-col">
+                  {'Pick type of suitability'}
+                </div>
+                <div className="mdl-cell mdl-cell--11-col mdl-cell--1-offset">
+                  <div className="mdl-grid mdl-grid--no-spacing">
+                  {this.renderSuitability()}
+                  </div>
+                </div>
                 <div className="mdl-cell mdl-cell--12-col">
                   &nbsp;
                 </div>
@@ -241,7 +287,7 @@ SuitabilityMapComponent.propType = {
 
 SuitabilityMapComponent.defaultProps = {
   crop: 'Rice',
-  suitable: 'Moderate',
+  suitable: 'High',
   height: 400,
   lat: 12.2969397,
   lng: 121.6576634,
