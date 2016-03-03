@@ -1,5 +1,61 @@
 @import '{}/client/theme';
 
+#footer { background: #212121; color: #787878; }
+#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6, #footer a { color: #fff; }
+#footer a:hover { color: #787878; }
+.social { padding: 0; margin: 0; }
+.social li { background: none; list-style-type: none; display: inline !important; margin: 0; }
+.social li a, .item-number, .widget-phone:before, .widget-email:before, .widget-address:before, .feature-styled .icon-wrapper { width: 35px; height: 35px; margin-right: 1px; margin-bottom: 5px; border-radius: 50%; display: inline-block; font-size: 14px; line-height: 35px; text-align: center; position: relative; z-index: 2; }
+.social li a, .item-number, .media-zoom, .media-link { font-size: 16px; }
+.item-number { width: 25px; height: 25px; line-height: 25px; font-size: 12px; }
+.feature-styled .icon-wrapper { width: 100px; height: 100px; font-size: 32px; line-height: 100px; }
+.social li a::after, .item-number::after, .media-zoom::after, .media-link::after, .feature-styled .icon-wrapper::after { width: 100%; height: 100%; border-radius: 50%; content: ""; position: absolute; top: 0; left: 0; opacity: 0; transform: scale(0); z-index: -1; }
+.social li a:hover::after, .cart-items:hover .item-number::after, .media-zoom:hover::after, .media-link:hover::after, .feature-styled:hover .icon-wrapper::after { opacity: 1; transform: scale(1); }
+.cart-items::before { font-family: 'icomoon'; content: "\e0ed"; vertical-align: baseline; margin-right: 5px; }
+.cart-items { height: 25px; display: block; }
+#header-wrapper .social li a { margin-bottom: 0; }
+.team .social { margin-top: 10px; }
+.team .member-image figcaption .social { position: relative; top: 100%; margin: -38px 0 0 0; text-align: right; }
+.single-member-meta .social li a { float: left; }
+#copyright .col-md-6 .social { float: right; }
+#copyright .col-md-12 .social li a { float: none; }
+/* social icons */
+.social li a:before { vertical-align: bottom; }
+.social li a.behance:before { font-family: 'icomoon'; content: "\f1b4"; }
+.social li a.blogger:before { font-family: 'icomoon'; content: "\eab9"; }
+.social li a.codepen:before { font-family: 'icomoon'; content: "\f1cb"; }
+.social li a.delicious:before { font-family: 'icomoon'; content: "\f1a5"; }
+.social li a.dribbble:before { font-family: 'icomoon'; content: "\f17d"; }
+.social li a.dropbox:before { font-family: 'icomoon'; content: "\f16b"; }
+.social li a.facebook:before { font-family: 'icomoon'; content: "\f09a"; }
+.social li a.flickr:before { font-family: 'icomoon'; content: "\eaa1"; }
+.social li a.forrst:before { font-family: 'icomoon'; content: "\eaa9"; }
+.social li a.forumbee:before { font-family: 'icomoon'; content: "\f3b7"; }
+.social li a.foursquare:before { font-family: 'icomoon'; content: "\ead5"; }
+.social li a.github:before { font-family: 'icomoon'; content: "\f09b"; }
+.social li a.googleplus:before { font-family: 'icomoon'; content: "\f0d5"; }
+.social li a.instagram:before { font-family: 'icomoon'; content: "\f16d"; }
+.social li a.linkedin:before { font-family: 'icomoon'; content: "\eac9"; }
+.social li a.paypal:before { font-family: 'icomoon'; content: "\ead6"; }
+.social li a.pinterest:before { font-family: 'icomoon'; content: "\ead0"; }
+.social li a.reddit:before { font-family: 'icomoon'; content: "\eac7"; }
+.social li a.skype:before { font-family: 'icomoon'; content: "\eac6"; }
+.social li a.soundcloud:before { font-family: 'icomoon'; content: "\f1be"; }
+.social li a.spotify:before { font-family: 'icomoon'; content: "\f1bc"; }
+.social li a.stumbleupon:before { font-family: 'icomoon'; content: "\f1a4"; }
+.social li a.support:before { font-family: 'icomoon'; content: "\f1cd"; }
+.social li a.tumblr:before { font-family: 'icomoon'; content: "\f173"; }
+.social li a.twitter:before { font-family: 'icomoon'; content: "\f099"; }
+.social li a.yahoo:before { font-family: 'icomoon'; content: "\eabd"; }
+.social li a.youtube:before { font-family: 'icomoon'; content: "\e912"; }
+.social li a.vimeo:before { font-family: 'icomoon'; content: "\f21d"; }
+.social li a.vine:before { font-family: 'icomoon'; content: "\f1ca"; }
+.social li a.vk:before { font-family: 'icomoon'; content: "\f189"; }
+.social li a.mail:before { font-family: 'icomoon'; content: "\f0e0"; }
+.social li a.rss:before { font-family: 'icomoon'; content: "\f09e"; }
+.social li a.xing:before { font-family: 'icomoon'; content: "\f168"; }
+.social li a.yelp:before { font-family: 'icomoon'; content: "\ead9"; }
+
 .footer-sections {
   background-color: $color-primary-text-dark;
   color: $color-primary-text-light;
@@ -18,7 +74,7 @@
       .footer-links-list {
         margin: 0px;
         padding: 0px;
-        
+
         .footer-links-item {
           list-style-type: none;
 

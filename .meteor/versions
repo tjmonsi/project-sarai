@@ -19,7 +19,6 @@ check@1.1.1-beta.11
 chuangbo:cookie@1.1.0
 coffeescript@1.0.12-beta.11
 cosmos:browserify@0.9.3
-dburles:mongo-collection-instances@0.3.4
 ddp@1.2.2
 ddp-client@1.2.2-beta.11
 ddp-common@1.2.2
@@ -34,7 +33,6 @@ email@1.0.9-beta.11
 es5-shim@4.3.2-beta.11
 fourseven:scss@3.4.1
 geojson-utils@1.0.5-beta.11
-gwendall:body-events@0.1.6
 hot-code-push@1.0.1-beta.11
 html-tools@1.0.6-beta.11
 htmljs@1.0.6-beta.11
@@ -44,7 +42,6 @@ jquery@1.11.5-beta.11
 kadira:debug@3.0.1
 kadira:flow-router@2.10.1
 kadira:runtime-dev@0.0.1
-lai:collection-extensions@0.1.4
 less@2.5.2-beta.11
 livedata@1.0.15
 localstorage@1.0.6-beta.11
@@ -61,21 +58,6 @@ meteorhacks:kadira-profiler@1.2.1
 meteorhacks:meteorx@1.4.1
 meteorhacks:picker@1.0.3
 meteorhacks:sikka@1.0.1
-meteortoys:allthings@2.3.1
-meteortoys:authenticate@2.1.0
-meteortoys:autopub@2.1.0
-meteortoys:blueprint@2.1.0
-meteortoys:email@2.1.0
-meteortoys:hotreload@2.1.0
-meteortoys:listen@2.1.0
-meteortoys:method@3.0.2
-meteortoys:pub@3.0.2
-meteortoys:result@2.1.0
-meteortoys:shell@2.1.0
-meteortoys:status@2.1.0
-meteortoys:sub@2.1.0
-meteortoys:throttle@2.1.0
-meteortoys:toykit@2.2.1
 minifier-css@1.1.8-beta.11
 minifier-js@1.1.8-beta.11
 minimongo@1.0.11-beta.11
@@ -84,8 +66,6 @@ modules-runtime@0.5.0-beta.11
 mongo@1.1.4-beta.11
 mongo-id@1.0.1
 mongo-livedata@1.0.9
-msavin:jetsetter@1.5.2
-msavin:mongol@1.6.2
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.40-beta.11
 observe-sequence@1.0.8-beta.11

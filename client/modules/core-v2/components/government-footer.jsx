@@ -11,14 +11,8 @@ class GovernmentFooter extends React.Component {
     return (
       <div className="government-footer">
         <div id="gwt-standard-footer">
-          <iframe
-            id="footer-gwt-frame"
-            scrolling="no"
-            src="https://cdn.i.gov.ph/gwt-footer/footer-source.html"
-            style={style}
-            width="100%"
-          >
-          </iframe>
+
+          
         </div>
       </div>
     );

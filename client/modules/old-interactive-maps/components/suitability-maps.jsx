@@ -136,11 +136,14 @@ class SuitabilityMapComponent extends React.Component {
       };
 
       return (
-        <div className='mdl-cell mdl-cell--12-col'>
+        <div
+          className='mdl-cell mdl-cell--12-col'
+          key = {key}
+        >
           <a
             href={`/suitability-maps/${crop1.name}`}
             style = {style}
-            key = {key}
+
           >
             {this.renderText(crop1.name)}
           </a>
@@ -158,11 +161,14 @@ class SuitabilityMapComponent extends React.Component {
         color: "#33691e"
       };
       return (
-        <div className='mdl-cell mdl-cell--12-col'>
+        <div
+          className='mdl-cell mdl-cell--12-col'
+          key = {key}
+        >
           <a
             href={`/suitability-maps/${crop}/${layer}`}
             style = {style}
-            key = {key}
+
           >
             {this.renderText(null, layer)}
           </a>
