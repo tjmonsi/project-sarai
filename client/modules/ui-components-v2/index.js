@@ -1,6 +1,9 @@
 import _Main from './components/templates/main.jsx';
 export const Main = _Main;
 
+import _Map from './components/templates/map.jsx';
+export const Map = _Map;
+
 import _AppBar from './components/organisms/app-bar.jsx';
 import _AppDrawer from './components/organisms/app-drawer.jsx';
 export const AppBar = _AppBar;
