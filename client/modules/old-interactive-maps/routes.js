@@ -15,7 +15,7 @@ export default (injectDeps, context) => {
     name: 'interactive-maps.root',
     triggersEnter: [triggerAuthenticate],
     action() {
-      mount(MainCtx, Object.assign({}, layout, {
+      mount(MainCtx, Object.assign({}, {
         content: () => (React.createElement(SectionList, {
           displayName: 'SectionList',
           spacing: false,
@@ -33,7 +33,7 @@ export default (injectDeps, context) => {
     name: 'suitability-maps.root',
     triggersEnter: [triggerAuthenticate],
     action() {
-      mount(MainCtx, Object.assign({}, layout, {
+      mount(MainCtx, Object.assign({}, {
         content: () => (React.createElement(SectionList, {
           displayName: 'SectionList',
           spacing: false,
@@ -51,7 +51,7 @@ export default (injectDeps, context) => {
     name: 'suitability-maps.root',
     triggersEnter: [triggerAuthenticate],
     action() {
-      mount(MainCtx, Object.assign({}, layout, {
+      mount(MainCtx, Object.assign({}, {
         content: () => (React.createElement(SectionList, {
           displayName: 'SectionList',
           spacing: false,
@@ -70,7 +70,7 @@ export default (injectDeps, context) => {
     name: 'suitability-maps.root',
     triggersEnter: [triggerAuthenticate],
     action() {
-      mount(MainCtx, Object.assign({}, layout, {
+      mount(MainCtx, Object.assign({}, {
         content: () => (React.createElement(SectionList, {
           displayName: 'SectionList',
           spacing: false,
@@ -90,7 +90,7 @@ export default (injectDeps, context) => {
     name: 'suitability-maps.root',
     triggersEnter: [triggerAuthenticate],
     action() {
-      mount(MainCtx, Object.assign({}, layout, {
+      mount(MainCtx, Object.assign({}, {
         content: () => (React.createElement(SectionList, {
           displayName: 'SectionList',
           spacing: false,
@@ -109,7 +109,7 @@ export default (injectDeps, context) => {
     name: 'vulnerability-maps.root',
     triggersEnter: [triggerAuthenticate],
     action() {
-      mount(MainCtx, Object.assign({}, layout, {
+      mount(MainCtx, Object.assign({}, {
         content: () => (React.createElement(SectionList, {
           displayName: 'SectionList',
           spacing: false,
@@ -127,7 +127,7 @@ export default (injectDeps, context) => {
     name: 'vulnerability-maps.root',
     triggersEnter: [triggerAuthenticate],
     action() {
-      mount(MainCtx, Object.assign({}, layout, {
+      mount(MainCtx, Object.assign({}, {
         content: () => (React.createElement(SectionList, {
           displayName: 'SectionList',
           spacing: false,
