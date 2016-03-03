@@ -16,6 +16,19 @@ class WeatherMap extends React.Component {
       componentHandler.upgradeDom();
     }
 
+    //Modal stuff
+    const dialog = document.querySelector('dialog');
+    const showDialogButton = document.querySelector('#show-dialog');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showDialogButton.addEventListener('click', function() {
+      dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+      dialog.close();
+    });
+
     Session.set('drawerVisibility', 'false');
 
     const {stations} = this.props;
@@ -68,13 +81,13 @@ class WeatherMap extends React.Component {
 
             //Get last timestamp
             $.getJSON(
-              // `http:\/\/localhost:3080/api/${station.name}/last`,
-              `https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/last`,
+              `http:\/\/localhost:3080/api/${station.name}/last`,
+              //`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/last`,
               (data) => {
                 console.log(`Success: Latest from ${station.name} is ${data}`);
 
-                // $.getJSON(`http:\/\/localhost:3080/api/${station.name}/get/${data}`,
-                $.getJSON(`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/get/${data}`,
+                $.getJSON(`http:\/\/localhost:3080/api/${station.name}/get/${data}`,
+                // $.getJSON(`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/get/${data}`,
 
                   (data) => {
                     console.log(data);
@@ -163,6 +176,10 @@ class WeatherMap extends React.Component {
 
     const windSpeedRotation = {
       transform: `rotate(${windDirection}deg)`
+    }
+
+    const dialogStyle = {
+      width: '500px'
     }
 
     return (
@@ -304,6 +321,18 @@ class WeatherMap extends React.Component {
           </div>
           
           <div id="drawer-controls">
+
+            <button id="show-dialog" type="button" className="mdl-button mdl-js-button mdl-button--primary">Rainfall</button>
+            <dialog className="mdl-dialog" style={dialogStyle}>
+              <h4 className="mdl-dialog__title"></h4>
+              <div className="mdl-dialog__content">
+                <img className="rainfall-gif" src="/images/weather-monitoring/rainfall/PHL.SP2015-2016.ANIM.gif" />
+              </div>
+              <div className="mdl-dialog__actions">
+                <button type="button" className="mdl-button close">Close</button>
+              </div>
+            </dialog>
+
             <button id="drawer-close-button" onClick={this.closeDrawer}>x</button>
           </div>
         </div>

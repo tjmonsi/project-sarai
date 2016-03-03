@@ -33,7 +33,7 @@
   "homepage": "https://github.com/tjmonsi/project-sarai",
   "dependencies": {
     "classnames": "^2.2.3",
-    "dialog-polyfill": "^0.4.2",
+    "dialog-polyfill": "^0.4.3",
     "epsg-to-proj": "^1.0.0",
     "gcloud": "^0.27.0",
     "geotiff": "0.0.5",
