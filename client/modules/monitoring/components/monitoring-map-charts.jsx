@@ -4,14 +4,23 @@ import L from 'leaflet';
 import HighChart from './high-chart.jsx';
 
 class MonitoringMapCharts extends React.Component {
+  constructor() {
+    super();
+    this.displayInformation = this.displayInformation.bind(this);
+    this.clearMarkers = this.clearMarkers.bind(this);
+    this.addYieldMarkers = this.addYieldMarkers.bind(this);
+    this.addSoilMarkers = this.addSoilMarkers.bind(this);
+  }
+
   componentDidMount() {
     if (componentHandler) {
       componentHandler.upgradeDom();
-      this.displayInformation = this.displayInformation.bind(this);
+      
     }
 
     Session.set('selected_area', 'none');
     Session.set('selected_marker', 'none');
+    Session.set('current_marker_group', 'yield');
 
     const {areas, labels, soilData} = this.props;
 
@@ -19,7 +28,7 @@ class MonitoringMapCharts extends React.Component {
     const southWest = L.latLng(4.010501, 135.367402);   
     const bounds = L.latLngBounds(southWest, northEast);
 
-    const map = L.map('monitoring-map', {
+    this.map = L.map('monitoring-map', {
       maxBounds: bounds,
       center: [13.624467, 126.456410],
       zoom: 7,
@@ -32,7 +41,7 @@ class MonitoringMapCharts extends React.Component {
       maxZoom: 14,
       id: 'mcarandang.p67769a5',
       accessToken: 'pk.eyJ1IjoibWNhcmFuZGFuZyIsImEiOiJjaWtxaHgzYTkwMDA4ZHZtM3E3aXMyYnlzIn0.x63VGx2C-BP_ttuEsn2fVg'
-    }).addTo(map);
+    }).addTo(this.map);
 
     //???
     //document.getElementById('monitoring-map').style.display = 'block';
@@ -58,7 +67,13 @@ class MonitoringMapCharts extends React.Component {
       popupAnchor: [0, -40]
     });
 
-    //Add yield markers
+    this.yieldGroup = new L.FeatureGroup();
+    this.soilGroup = new L.FeatureGroup();
+    this.weatherGroup = new L.FeatureGroup();
+
+
+
+    //Create group for yield markers
     for (let area of areas) {
       L.marker([area.coordinates[0], area.coordinates[1]], {icon: riceMarker})
         .bindPopup(area.name)
@@ -66,24 +81,26 @@ class MonitoringMapCharts extends React.Component {
           Session.set('selected_marker', 'rice_yield');
           Session.set('selected_area', area.name);
         })
-        .addTo(map);
+        .addTo(this.yieldGroup);
+    }
+    this.map.addLayer(this.yieldGroup);
+
+    //Create group for soil markers
+    for (let sd of soilData) {
+      L.marker([sd.coordinates[0], sd.coordinates[1]], {icon: soilMarker})
+        .bindPopup(sd.location)
+        .on('click', () => {
+          Session.set('selected_marker', 'soil');
+          Session.set('selected_area', sd.identifier);
+        })
+        .addTo(this.soilGroup)
     }
 
-    console.log(areas);
-    console.log(soilData);
 
-    for (let soil of soilData) {
-      L.marker([soil.coordinates[0], soil.coordinates[1]], {icon: soilMarker}).addTo(map);
-        // .bindPopup(sd.location)
-        // .on('click', () => {
-          // console(`Soil: ${sd.location}`);
-        // })
-        
-    }
   }
 
   displayInformation() {
-    const {callback, areas, labels} = this.props;
+    const {callback, areas, labels, soilData} = this.props;
     let id = 'monitoring-drawer'
 
 
@@ -124,8 +141,6 @@ class MonitoringMapCharts extends React.Component {
         series_data.push(entry);
       }
       //Redo this LATER
-
-      console.log(`Highest Yield week is ${highest_yield_week + 1}`);
 
       const chartData = {
         chart: {
@@ -236,7 +251,117 @@ class MonitoringMapCharts extends React.Component {
       );
     }
 
-    else if (Session.get('selected_marker') == 'weather_marker') {
+    else if (Session.get('selected_marker') == 'soil') {
+
+      let selected_area = '';
+
+      for (let s of soilData) {
+        if (s.identifier == Session.get('selected_area')) {
+          selected_area = s;
+
+        }
+      }
+
+      console.log(`Clicked ${Session.get('selected_area')}.`);
+
+      return (
+        <div id={id}>
+          <div className="mdl-grid">
+            <div className="mdl-cell mdl-cell--8-col">
+              <div className="soil-data-header">LOCATION</div>
+              <div className="soil-data-info">
+                {selected_area.location}
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">ELEVATION</div>
+              <div className="soil-data-info">
+                {selected_area.elevation_m} m
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--2-offset mdl-cell--8-col">
+              <hr />
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">TEXTURE</div>
+              <div className="soil-data-info">
+                {selected_area.texture}
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">PERMEABILITY</div>
+              <div className="soil-data-info">
+                {selected_area.permeability} cm/hr
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">POROSITY</div>
+              <div className="soil-data-info">
+                {selected_area.porosity}%
+              </div>
+            </div>
+
+            
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">BULK DENSITY</div>
+              <div className="soil-data-info">
+                {selected_area.bulkDensity}gm/cm<sup>3</sup>
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">FIELD CAPACITY</div>
+              <div className="soil-data-info">
+                {selected_area.fieldCapacity}%<sup> </sup>
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">PERMANENT WILTING POINT</div>
+              <div className="soil-data-info">
+                {selected_area.permanentWilting}%<sup> </sup>
+              </div>
+            </div>
+
+            
+
+            
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">DRY WEIGHT - MOISTURE</div>
+              <div className="soil-data-info">
+                {selected_area.moisture.dryWeight}%
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--4-col">
+              <div className="soil-data-header">VOLUME - MOISTURE</div>
+              <div className="soil-data-info">
+                {selected_area.moisture.volume}%
+              </div>
+            </div>
+
+            <div className="mdl-cell mdl-cell--3-col">
+              <div className="soil-data-header">DEPTH - MOISTURE</div>
+              <div className="soil-data-info">
+                {selected_area.moisture.depth}%
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      );
+    }
+
+    else if (Session.get('selected_marker') == 'weather') {
 
       return (
         <div>
@@ -245,16 +370,48 @@ class MonitoringMapCharts extends React.Component {
       );
     }
   }
-  /*
-  <div id="chart-explanation" className="text-advisory">
-            <h5>{`At a ${selected_area.simulatedYield[0].exceedanceProbability}% for ${selected_area.simulatedYield[0].weeklyYield[highest_yield_week]} kg/ha to be exceeded, the Recommended planting period for this area is week ${highest_yield_week + 1} ${labels.labels[highest_yield_week]}.`}</h5>
-          </div>
-  */
+
+  clearMarkers() {
+    console.log("Removing markers");
+    if (Session.get('current_marker_group') == 'yield') {
+      this.map.removeLayer(this.yieldGroup);
+    }
+
+    else if (Session.get('current_marker_group') == 'soil') {
+      this.map.removeLayer(this.soilGroup);
+    }
+
+    else if (Session.get('current_marker_group') == 'weather') {
+      this.map.removeLayer(this.weatherGroup);
+    }
+  }
+
+  addYieldMarkers() {
+    this.clearMarkers();
+    this.map.addLayer(this.yieldGroup);
+  }
+
+  addSoilMarkers() {
+    this.clearMarkers();
+    this.map.addLayer(this.soilGroup);
+  }
 
   render() {
     return (
       <div id="monitoring-map-container">
         <div id="monitoring-map"></div>
+
+        <div id="layer-selection">
+          
+          <button className="mdl-button mdl-js-button mdl-button--primary" onClick={this.addYieldMarkers}>
+            YIELD
+          </button>
+
+          <button className="mdl-button mdl-js-button mdl-button--primary" onClick={this.addSoilMarkers}>
+            SOIL
+          </button>
+        </div>
+
         {this.displayInformation()}
       </div>        
     );
