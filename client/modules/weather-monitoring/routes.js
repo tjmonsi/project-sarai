@@ -14,8 +14,8 @@ export default (injectDeps, context) => {
 		name: 'real-time-data.root',
 		action() {
 			mount(LandingCtx, {
-				//appBar: React.createElement(CoreAppBar),
-				//appDrawer: React.createElement(CoreAppDrawer),
+				appBar: React.createElement(CoreAppBar),
+				appDrawer: React.createElement(CoreAppDrawer),
 				content: React.createElement(WeatherMonitoringRootContent)
 			});
 		}
