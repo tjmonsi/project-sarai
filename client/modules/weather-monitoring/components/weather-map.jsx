@@ -333,7 +333,7 @@ class WeatherMap extends React.Component {
             </div>
 
             <div className="mdl-cell mdl-cell--6-col simple-weather-header">
-              {Session.get('humidity.outside')}%
+              {this.formatHumidity(Session.get('humidity.outside'))}
             </div>
 
             <div className="mdl-cell mdl-cell--6-col simple-weather-header">
