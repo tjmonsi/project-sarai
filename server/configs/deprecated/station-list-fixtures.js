@@ -1,15 +1,22 @@
 import {StationList} from '/lib/collections';
 
 if (!StationList.findOne({})) {
+  // StationList.insert({
+  //   "name" : "uplbsaraivp1",
+  //   "source" : "Nel Altoveros",
+  //   "contacts" : "+63 9301397288",
+  //   "label" : "SARAI IPB (UPLB)",
+  //   "coords" : [14.156225354635, 121.26219986137],
+  //   "region" : "IV-A"
+  // });
   StationList.insert({
-    "name" : "uplbsaraivp1",
+    "name" : "uplbsaraivc1",
     "source" : "Nel Altoveros",
     "contacts" : "+63 9301397288",
     "label" : "SARAI IPB (UPLB)",
-    "coords" : [14.156225354635, 121.26219986137],
+    "coords" : [14.15627126639, 121.26222556771],
     "region" : "IV-A"
   });
-
   StationList.insert({
     "name" : "uplbsaraivp2",
     "source" : "Nel Altoveros",

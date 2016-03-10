@@ -17,11 +17,12 @@
   height: 700px;
   position: absolute;
   background-color: rgba(51, 51, 51, 0.9);
-  -webkit-transition: ease-in-out .5s right,  ease-in-out .5s width;
-  transition: ease-in-out .5s right,  ease-in-out .5s width;
-  right: 20px;
+  -webkit-transition: ease-in-out .5s all;
+  transition: ease-in-out .5s all;
+  /*right: 20px;*/
   top: 50px;
   border-radius: 3px;
+  width: 350px;
 }
 
 #drawer-close-button {
@@ -50,14 +51,16 @@
 }
 
 .hidden-drawer {
-  width: 0px;
+  /*width: 0px;*/
+  right: -350px;
 }
 
 .visible-drawer {
-  width: 350px;
-  -webkit-box-shadow: 0px 2px 15px 2px rgba(0,0,0,0.75);
+  /*width: 350px;*/
+  right: 20px;
+ /* -webkit-box-shadow: 0px 2px 15px 2px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 2px 15px 2px rgba(0,0,0,0.75);
-  box-shadow: 0px 2px 15px 2px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 15px 2px rgba(0,0,0,0.75);*/
 }
 
 .visible-element {

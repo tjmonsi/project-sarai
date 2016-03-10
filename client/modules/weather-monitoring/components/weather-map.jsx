@@ -48,7 +48,7 @@ class WeatherMap extends React.Component {
 
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWNhcmFuZGFuZyIsImEiOiJjaWtxaHgzYTkwMDA4ZHZtM3E3aXMyYnlzIn0.x63VGx2C-BP_ttuEsn2fVg', {
       // attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-      maxZoom: 14,
+      // maxZoom: 14,
       id: 'mcarandang.p67769a5',
       accessToken: 'pk.eyJ1IjoibWNhcmFuZGFuZyIsImEiOiJjaWtxaHgzYTkwMDA4ZHZtM3E3aXMyYnlzIn0.x63VGx2C-BP_ttuEsn2fVg'
     }).addTo(map);
@@ -82,13 +82,13 @@ class WeatherMap extends React.Component {
 
             //Get last timestamp
             $.getJSON(
-              `http:\/\/localhost:3080/api/${station.name}/last`,
-              // `https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/last`,
+              // `http:\/\/localhost:3080/api/${station.name}/last`,
+              `https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/last`,
               (data) => {
                 console.log(`Success: Latest from ${station.name} is ${data}`);
 
-                $.getJSON(`http:\/\/localhost:3080/api/${station.name}/get/${data}`,
-                // $.getJSON(`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/get/${data}`,
+                // $.getJSON(`http:\/\/localhost:3080/api/${station.name}/get/${data}`,
+                $.getJSON(`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/get/${data}`,
 
                   (data) => {
                     console.log(data);
@@ -168,7 +168,7 @@ class WeatherMap extends React.Component {
     let c = (f_temp - 32) * (0.5556);
     c = Number(Math.round(c+'e1')+'e-1');
 
-    return c;
+    return `${c} °C`;
   }
 
   formatRain(rain) {
@@ -179,6 +179,21 @@ class WeatherMap extends React.Component {
   formatSolar(solar) {
     if (solar == -1) return 'NA';
     else return solar;
+  }
+
+  formatSoilMoisture(sm) {
+    if (sm <= 0 || sm >= 255) return 'NA';
+    else return `${sm} cb`;
+  }
+
+  formatHumidity(humidity) {
+    if (humidity <= 0 || humidity > 100) return 'NA';
+    else return `${humidity}%`;
+  }
+
+  formatPressure(ap) {
+    if (ap < 20 || ap > 40) return 'NA'; //just guessing here
+    else return `${ap} inHG`;
   }
 
   renderDrawerContent() {
@@ -211,11 +226,11 @@ class WeatherMap extends React.Component {
 
             <div className="mdl-cell mdl-cell--6-col">
               <div id="temp-minmax">
-                {this.toCelsius(Session.get('temperature.outside.min'))}&deg; | {this.toCelsius(Session.get('temperature.outside.max'))}&deg;
+                {this.toCelsius(Session.get('temperature.outside.min'))} | {this.toCelsius(Session.get('temperature.outside.max'))}
               </div>
 
               <div id="temp">
-                {this.toCelsius(Session.get('temperature.outside.value'))}&deg; C
+                {this.toCelsius(Session.get('temperature.outside.value'))}
               </div>
             </div>
 
@@ -257,40 +272,40 @@ class WeatherMap extends React.Component {
               1ft&darr;
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {this.toCelsius(Session.get('soil.temperature.0'))}&deg; C
+              {this.toCelsius(Session.get('soil.temperature.0'))}
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-moisture">
-              {Session.get('soil.humidity.0')} cb
+              {this.formatSoilMoisture(Session.get('soil.humidity.0'))}
             </div>
 
             <div className="mdl-cell mdl-cell--4-col soil-depth">
               2ft&darr;
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {this.toCelsius(Session.get('soil.temperature.1'))}&deg; C
+              {this.toCelsius(Session.get('soil.temperature.1'))}
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-moisture">
-              {Session.get('soil.humidity.1')} cb
+              {this.formatSoilMoisture(Session.get('soil.humidity.1'))}
             </div>
 
             <div className="mdl-cell mdl-cell--4-col soil-depth">
               3ft&darr;
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {this.toCelsius(Session.get('soil.temperature.2'))}&deg; C
+              {this.toCelsius(Session.get('soil.temperature.2'))}
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-moisture">
-              {Session.get('soil.humidity.2')} cb
+              {this.formatSoilMoisture(Session.get('soil.humidity.2'))}
             </div>
 
             <div className="mdl-cell mdl-cell--4-col soil-depth">
               4ft&darr;
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {this.toCelsius(Session.get('soil.temperature.3'))}&deg; C
+              {this.toCelsius(Session.get('soil.temperature.3'))}
             </div>
             <div className="mdl-cell mdl-cell--4-col soil-moisture">
-              {Session.get('soil.humidity.3')} cb
+              {this.formatSoilMoisture(Session.get('soil.humidity.3'))}
             </div>
 
             <div className="mdl-cell mdl-cell--2-offset mdl-cell--8-col">
@@ -322,7 +337,7 @@ class WeatherMap extends React.Component {
             </div>
 
             <div className="mdl-cell mdl-cell--6-col simple-weather-header">
-              {Session.get('barometer')} inHG
+              {this.formatPressure(Session.get('barometer'))}
             </div>
           </div>
 
