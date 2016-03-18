@@ -1,12 +1,12 @@
 import React from 'react';
 import L from 'leaflet';
 
+import DrawerContent from './drawer-content.jsx';
+
 class WeatherMap extends React.Component {
   constructor() {
     super()
     this.closeDrawer = this.closeDrawer.bind(this);
-
-    // this.temp = new ReactiveVar();
     this.temp = '';
     // this.getLatestTimestamp = this.getLatestTimestamp(this);
   }
@@ -17,17 +17,17 @@ class WeatherMap extends React.Component {
     }
 
     //Modal stuff
-    const dialog = document.querySelector('#rainfall-dialog');
-    const showDialogButton = document.querySelector('#show-dialog');
-    if (! dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
-    }
-    showDialogButton.addEventListener('click', function() {
-      dialog.showModal();
-    });
-    dialog.querySelector('.close').addEventListener('click', function() {
-      dialog.close();
-    });
+    // const dialog = document.querySelector('#rainfall-dialog');
+    // const showDialogButton = document.querySelector('#show-dialog');
+    // if (! dialog.showModal) {
+    //   dialogPolyfill.registerDialog(dialog);
+    // }
+    // showDialogButton.addEventListener('click', function() {
+    //   dialog.showModal();
+    // });
+    // dialog.querySelector('.close').addEventListener('click', function() {
+    //   dialog.close();
+    // });
 
 
     Session.set('drawerVisibility', 'false');
@@ -78,20 +78,22 @@ class WeatherMap extends React.Component {
             drawerContent.classList.remove('hidden-element');
             drawerContent.classList.add('visible-element');
 
-            Session.set('drawerVisibility', 'true');
+            //What is with this line???
+            //Session.set('drawerVisibility', 'true');
 
             //Get last timestamp
             $.getJSON(
-              // `http:\/\/localhost:3080/api/${station.name}/last`,
-              `https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/last`,
+              `http:\/\/localhost:3080/api/${station.name}/last`,
+              // `https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/last`,
               (data) => {
                 console.log(`Success: Latest from ${station.name} is ${data}`);
 
-                // $.getJSON(`http:\/\/localhost:3080/api/${station.name}/get/${data}`,
-                $.getJSON(`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/get/${data}`,
+                $.getJSON(`http:\/\/localhost:3080/api/${station.name}/get/${data}`,
+                // $.getJSON(`https:\/\/sarai-realtime-tjmonsi1.c9users.io/api/${station.name}/get/${data}`,
 
                   (data) => {
                     console.log(data);
+                    // What is this.temp
                     // this.temp.set(data.temperature.outside.value);
                     this.temp = data.temperature.outside.value;
                     Session.set('temperature.outside.value', data.temperature.outside.value);
@@ -171,6 +173,15 @@ class WeatherMap extends React.Component {
     return `${c} °C`;
   }
 
+  toCelsiusNoUnit(f_temp) {
+    if (f_temp == -1) return 'NA';
+
+    let c = (f_temp - 32) * (0.5556);
+    c = Number(Math.round(c+'e1')+'e-1');
+
+    return `${c}`;
+  }
+
   formatRain(rain) {
     if (rain == -1) return 'NA';
     else return rain + 'mm';
@@ -192,7 +203,7 @@ class WeatherMap extends React.Component {
   }
 
   formatPressure(ap) {
-    if (ap < 20 || ap > 40) return 'NA'; //just guessing here
+    if (ap < 20 || ap > 40) return 'NA';
     else return `${ap} inHG`;
   }
 
@@ -209,155 +220,36 @@ class WeatherMap extends React.Component {
     }
 
     return (
-      <div id="drawer" className="hidden-drawer">
-        <div id="drawer-content" className="hidden-element">
-
-          <div className="mdl-grid">
-
-
-            <div className="mdl-cell mdl-cell--6-col">
-              <div id="station-name">
-                {Session.get('station')}
-              </div>
-              <div id="last-updated">
-                Updated just now
-              </div>
-            </div>
-
-            <div className="mdl-cell mdl-cell--6-col">
-              <div id="temp-minmax">
-                {this.toCelsius(Session.get('temperature.outside.min'))} | {this.toCelsius(Session.get('temperature.outside.max'))}
-              </div>
-
-              <div id="temp">
-                {this.toCelsius(Session.get('temperature.outside.value'))}
-              </div>
-            </div>
-
-            <div className="mdl-cell mdl-cell--6-col first-row">
-              <div className="first-row-title">
-                <img className="label-icon" src="images/weather-monitoring/icons/precip.png" /><span className="icon-title"> PRECIP</span>
-              </div>
-              <div className="first-row-value">
-                {this.formatRain(Session.get('rainfall.value'))}<sup>&nbsp;</sup>
-              </div>
-            </div>
-
-            <div className="mdl-cell mdl-cell--6-col first-row">
-              <div className="first-row-title">
-                <img className="label-icon" src="images/weather-monitoring/icons/solar.png" /> SOLAR
-              </div>
-              <div className="first-row-value">
-                {this.formatSolar(Session.get('solar.radiation.value'))} w/m<sup>2</sup>
-              </div>
-            </div>
-
-            <div className="mdl-cell mdl-cell--2-offset mdl-cell--8-col">
-              <hr />
-            </div>
-
-            <div id="soil-depth-header" className="mdl-cell mdl-cell--4-col">
-              SOIL
-            </div>
-
-            <div id="soil-temp-header" className="mdl-cell mdl-cell--4-col">
-              <img className="label-icon" src="images/weather-monitoring/icons/temp.png" /><span className="icon-title"> TEMP</span>
-            </div>
-
-            <div id="soil-moisture-header" className="mdl-cell mdl-cell--4-col">
-              <img className="label-icon" src="images/weather-monitoring/icons/soil_moisture.png" /><span className="icon-title"> MOISTURE</span>
-            </div>
-
-            <div className="mdl-cell mdl-cell--4-col soil-depth">
-              1ft&darr;
-            </div>
-            <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {this.toCelsius(Session.get('soil.temperature.0'))}
-            </div>
-            <div className="mdl-cell mdl-cell--4-col soil-moisture">
-              {this.formatSoilMoisture(Session.get('soil.humidity.0'))}
-            </div>
-
-            <div className="mdl-cell mdl-cell--4-col soil-depth">
-              2ft&darr;
-            </div>
-            <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {this.toCelsius(Session.get('soil.temperature.1'))}
-            </div>
-            <div className="mdl-cell mdl-cell--4-col soil-moisture">
-              {this.formatSoilMoisture(Session.get('soil.humidity.1'))}
-            </div>
-
-            <div className="mdl-cell mdl-cell--4-col soil-depth">
-              3ft&darr;
-            </div>
-            <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {this.toCelsius(Session.get('soil.temperature.2'))}
-            </div>
-            <div className="mdl-cell mdl-cell--4-col soil-moisture">
-              {this.formatSoilMoisture(Session.get('soil.humidity.2'))}
-            </div>
-
-            <div className="mdl-cell mdl-cell--4-col soil-depth">
-              4ft&darr;
-            </div>
-            <div className="mdl-cell mdl-cell--4-col soil-temp">
-              {this.toCelsius(Session.get('soil.temperature.3'))}
-            </div>
-            <div className="mdl-cell mdl-cell--4-col soil-moisture">
-              {this.formatSoilMoisture(Session.get('soil.humidity.3'))}
-            </div>
-
-            <div className="mdl-cell mdl-cell--2-offset mdl-cell--8-col">
-              <hr />
-            </div>
-
-            <div id="wind-header" className="mdl-cell mdl-cell--12-col simple-weather-header">
-              WIND
-            </div>
-
-            <div id="wind" className="mdl-cell mdl-cell--12-col">
-              <img id="wind-direction-icon" src="images/weather-monitoring/icons/compass.png" style={windSpeedRotation}/> Ave: {Session.get('wind.speed.average')} m/s
-            </div>
-
-            <div className="mdl-cell mdl-cell--2-offset mdl-cell--8-col">
-              <hr />
-            </div>
-
-            <div id="humidity-header" className="mdl-cell mdl-cell--6-col simple-weather-header">
-              HUMIDITY
-            </div>
-
-            <div id="humidity-header" className="mdl-cell mdl-cell--6-col simple-weather-header">
-              PRESSURE
-            </div>
-
-            <div className="mdl-cell mdl-cell--6-col simple-weather-header">
-              {this.formatHumidity(Session.get('humidity.outside'))}
-            </div>
-
-            <div className="mdl-cell mdl-cell--6-col simple-weather-header">
-              {this.formatPressure(Session.get('barometer'))}
-            </div>
-          </div>
-
-          <div id="drawer-controls">
-            <button id="show-dialog" type="button" className="mdl-button mdl-js-button mdl-button--primary">Rainfall</button>
-            <dialog id="rainfall-dialog" className="mdl-dialog" style={dialogStyle}>
-              <h4 className="mdl-dialog__title"></h4>
-              <div className="mdl-dialog__content">
-                <img className="rainfall-gif" src="/images/weather-monitoring/rainfall/PHL.SP2015-2016.ANIM.gif" />
-              </div>
-              <div className="mdl-dialog__actions">
-                <button type="button" className="mdl-button close">Close</button>
-              </div>
-            </dialog>
-
-            <button id="drawer-close-button" onClick={this.closeDrawer}>x</button>
+        <div id="drawer" className="hidden-drawer">
+          <div id="drawer-content" className="hidden-element">
+            <DrawerContent
+              data="sample line"
+              temperatureOutsideValue={this.toCelsius(Session.get('temperature.outside.value'))}
+              temperatureOutsideMin={this.toCelsiusNoUnit(Session.get('temperature.outside.min'))}
+              temperatureOutsideMax={this.toCelsiusNoUnit(Session.get('temperature.outside.max'))}
+              humidityOutside={this.formatHumidity(Session.get('humidity.outside'))}
+              humidityInside={this.formatHumidity(Session.get('humidity.inside'))}
+              solarUVAverage={Session.get('solar.UV.average')}
+              solarUVMax={Session.get('solar.UV.max')}
+              solarRadiationValue={this.formatSolar(Session.get('solar.radiation.value'))}
+              barometer={this.formatPressure(Session.get('barometer'))}
+              station={Session.get('station')}
+              rainfallValue={this.formatRain(Session.get('rainfall.value'))}
+              soilTemperature0={this.toCelsius(Session.get('soil.temperature.0'))}
+              soilTemperature1={this.toCelsius(Session.get('soil.temperature.1'))}
+              soilTemperature2={this.toCelsius(Session.get('soil.temperature.2'))}
+              soilTemperature3={this.toCelsius(Session.get('soil.temperature.3'))}
+              soilHumidity0={this.formatSoilMoisture(Session.get('soil.humidity.0'))}
+              soilHumidity1={this.formatSoilMoisture(Session.get('soil.humidity.1'))}
+              soilHumidity2={this.formatSoilMoisture(Session.get('soil.humidity.2'))}
+              soilHumidity3={this.formatSoilMoisture(Session.get('soil.humidity.3'))}
+              windDirectionPrevailing={Session.get('wind.direction.prevailing')}
+              windSpeedAverage={Session.get('wind.speed.average')}
+            />
           </div>
         </div>
-      </div>
     );
+
   }
 
   render() {
@@ -366,7 +258,6 @@ class WeatherMap extends React.Component {
       <div id="map-container">
         <div id="map"></div>
         {this.renderDrawerContent()}
-
         <dialog id="instruction-dialog" className="mdl-dialog">
           <div className="mdl-dialog__content">
             {'Select a weather station from the map to view its latest reading.'}
