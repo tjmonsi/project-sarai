@@ -6,19 +6,17 @@ import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
 
 const composerLandingPage = ({context}, onData) => {
   const {Meteor, Collections} = context();
-  const {LandingData, StationList} = Collections;
+  const {LandingData, WeatherStations} = Collections;
 
   const sections = [];
   const spacing = false;
 
-  if (Meteor.subscribe('station-list').ready()) {
+  if (Meteor.subscribe('weather-stations').ready()) {
     
-    // const stationList = StationList.findOne();
-    const stations = StationList.find().fetch();
-
+    const stations = WeatherStations.find().fetch();
 
     if(stations) {
-      console.log(`Found ${StationList.find().count()} stations`)
+      console.log(`Found ${WeatherStations.find().count()} stations`)
       sections.push(React.createElement(WeatherMap, {stations}));
     }
   }
