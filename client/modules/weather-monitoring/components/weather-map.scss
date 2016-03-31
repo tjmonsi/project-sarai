@@ -1,14 +1,71 @@
 #map {
   left: 0;
   top: 0;
-  height: 100%;
+  height: 400px;
   width: 100%;
-  position: absolute;
+  /*position: absolute;*/
+  position: relative;
 }
 
 #map-container {
   width: 100%;
   height: 100%;
-  background-color: gray;
-  position: absolute;
+  /*background-color: gray;*/
+  /*position: absolute;*/
+}
+
+.center {
+  text-align: center;
+}
+
+
+/*CURRENT READING*/
+#current-coordinates {
+  color: #514C51;
+}
+
+#current-coordinates > span.number {
+  font-weight: bold;
+}
+
+#current-temperature {
+  color: #FF8833;
+  font-weight: bold;
+  font-size: 2.5em;
+
+}
+
+#current-wind {
+  color: #514C51;
+}
+
+#current-wind > span.value {
+  font-weight: bold;
+  color: #1E2023;
+}
+
+#current-weather-string {
+
+}
+
+#current-heat-index {
+  color: #514C51;
+}
+
+#current-heat-index > span.temp {
+  color: #FF8833;
+  font-weight: bold;
+}
+
+#current-wind-string {
+  color: #514C51;
+}
+
+#current-wind-string > span.value {
+  font-weight: bold;
+  color: #1E2023;
+}
+
+#current-updated {
+  color: #514C51; 
 }
