@@ -96,11 +96,14 @@ class WeatherMap extends React.Component {
 
   getMeteogramData(data) {
     const series = this.getSeries(data.hourly_forecast);
-    const tickPositions = this.getTickPositions(data.forecast.simpleforecast.forecastday)
+    const tickPositions = this.getTickPositions(data.forecast.simpleforecast.forecastday);
+
+    const altTickPositions = this.getAltTickPositions(data.forecast.simpleforecast.forecastday);
 
     const meteogramData = {
       "series": series,
-      "tickPositions": tickPositions
+      "tickPositions": tickPositions,
+      "altTickPositions": altTickPositions
     }
 
     return meteogramData;
@@ -127,6 +130,27 @@ class WeatherMap extends React.Component {
     return tickPositions;
   }
 
+  getAltTickPositions(df) {
+    const altTickPositions = [];
+    let year = 0;
+    let month = 0;
+    let day = 0;
+
+    for (let entry of df) {
+      const date = entry.date;
+      year = date.year;
+      month = date.month - 1;
+      day = date.day;
+
+      altTickPositions.push(Date.UTC(year, month, day, 12))
+    }
+
+    const nextDay = day < 31 ? day + 1 : 1
+    altTickPositions.push(Date.UTC(year, month, nextDay, 12));
+
+    return altTickPositions;
+  }
+
   getSeries(hf) {
     const temperature = [];
     const wind = [];
@@ -141,7 +165,7 @@ class WeatherMap extends React.Component {
 
       pressure.push([utcDate, parseFloat(entry.mslp.metric)]);
 
-      pressure.push([utcDate, parseFloat(entry.pop)]);
+      pop.push([utcDate, parseFloat(entry.pop)]);
 
     }
 
