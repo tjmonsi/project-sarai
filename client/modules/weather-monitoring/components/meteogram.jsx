@@ -5,6 +5,7 @@ class Meteogram extends React.Component {
   constructor() {
     super()
     this.getMeteogramOptions = this.getMeteogramOptions.bind(this);
+    this.drawIcons = this.drawIcons.bind(this);
   }
 
   componentDidMount() {
@@ -14,7 +15,14 @@ class Meteogram extends React.Component {
 
     const meteogramID = `meteogram`;
 
-    $('#meteogram').highcharts('StockChart', this.getMeteogramOptions())
+    $('#meteogram').highcharts(
+      'StockChart',
+      this.getMeteogramOptions(),
+      function (chart) {
+        // meteogram.onChartLoad(chart);
+        console.log("Finished rendering chart...")
+        this.drawIcons();
+      });
   }
 
   componentDidUpdate() {
@@ -99,6 +107,7 @@ class Meteogram extends React.Component {
           //   value: Date.UTC(2016, 4, 3, 9) // Position, you'll have to translate this to the values on your x axis
           // }],
           gridLineWidth: 1,
+          tickPosition: 'inside',
           tickPositions: chartData.tickPositions,
           labels: {
             enabled: false
@@ -174,6 +183,10 @@ class Meteogram extends React.Component {
       },
     }
 
+  }
+
+  drawIcons() {
+    const meteogram = this
   }
 
   render() {
