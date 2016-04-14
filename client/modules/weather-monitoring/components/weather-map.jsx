@@ -1,7 +1,7 @@
 import React from 'react';
 import L from 'leaflet';
 
-import DrawerContent from './drawer-content.jsx';
+import Meteogram from './meteogram.jsx';
 
 class WeatherMap extends React.Component {
   constructor() {
@@ -51,22 +51,41 @@ class WeatherMap extends React.Component {
           {icon: markerIcon})
         .bindPopup(`<h5>${station.label}</h5>`)
         .on('click', () => {
+          //Store key somewhere
+
           $.getJSON(
-            `http:\/\/api.wunderground.com/api/9470644e92f975d3/forecast10day/conditions/q/pws:${station.id}.json`,
+            `http:\/\/api.wunderground.com/api/9470644e92f975d3/forecast10day/conditions/hourly10day/q/pws:${station.id}.json`,
             (data) => {
               this.data = data;
               Session.set('forecast', data.forecast.simpleforecast.forecastday);
               Session.set('conditions', data.current_observation);
+              Session.set('hourlyForecast', data.hourly_forecast);
+
+              Session.set('meteogramData', this.getMeteogramData(data))
               Session.set('weatherFetched', 'true');
             })
+
+          /*********** TEST DATA ***********/
+          // const {getSampleResponse} = this.props;
+
+          // const sampleData = getSampleResponse();
+
+          // Session.set('forecast', sampleData.forecast.simpleforecast.forecastday);
+          // Session.set('conditions', sampleData.current_observation)
+          // Session.set('hourlyForecast', sampleData.hourly_forecast);
+
+          // Session.set('meteogramData', this.getMeteogramData(sampleData));
+
+          // Session.set('weatherFetched', 'true');
+          /*********** TEST DATA ***********/
         })
         .addTo(map);
     }
 
   }
 
-  toMeters(elevation_feet) {
-    let m = parseInt(elevation_feet) * 0.3048;
+  toMeters(elevationFeet) {
+    let m = parseInt(elevationFeet) * 0.3048;
     return Number(Math.round(m));
   }
 
@@ -74,10 +93,93 @@ class WeatherMap extends React.Component {
     return Number(Math.round(c+'e2')+'e-2');
   }
 
-  renderForecast() {
-    // const fc = this.data.forecast.simpleforecast.forecastday
-    // const c = this.data.current_observation
+  getMeteogramData(data) {
+    const series = this.getSeries(data.hourly_forecast);
+    const tickPositions = this.getTickPositions(data.forecast.simpleforecast.forecastday);
 
+    const altTickPositions = this.getAltTickPositions(data.forecast.simpleforecast.forecastday);
+
+    const meteogramData = {
+      "series": series,
+      "tickPositions": tickPositions,
+      "altTickPositions": altTickPositions
+    }
+
+    return meteogramData;
+  }
+
+  getTickPositions(df) {
+    const tickPositions = [];
+    let year = 0;
+    let month = 0;
+    let day = 0;
+
+    for (let entry of df) {
+      const date = entry.date;
+      year = date.year;
+      month = date.month - 1;
+      day = date.day;
+
+      tickPositions.push(Date.UTC(year, month, day, 0))
+    }
+
+    const nextDay = day < 31 ? day + 1 : 1
+    tickPositions.push(Date.UTC(year, month, nextDay, 0));
+
+    return tickPositions;
+  }
+
+  getAltTickPositions(df) {
+    const altTickPositions = [];
+    let year = 0;
+    let month = 0;
+    let day = 0;
+
+    for (let entry of df) {
+      const date = entry.date;
+      year = date.year;
+      month = date.month - 1;
+      day = date.day;
+
+      altTickPositions.push(Date.UTC(year, month, day, 12))
+    }
+
+    const nextDay = day < 31 ? day + 1 : 1
+    altTickPositions.push(Date.UTC(year, month, nextDay, 12));
+
+    return altTickPositions;
+  }
+
+  getSeries(hf) {
+    const temperature = [];
+    const wind = [];
+    const pressure = [];
+    const pop = []
+
+    for (let entry of hf) {
+      const ftc = entry.FCTTIME;
+      const utcDate = Date.UTC(ftc.year, ftc.mon-1, ftc.mday, ftc.hour);
+
+      temperature.push([utcDate, parseFloat(entry.temp.metric)]);
+
+      pressure.push([utcDate, parseFloat(entry.mslp.metric)]);
+
+      pop.push([utcDate, parseFloat(entry.pop)]);
+
+    }
+
+    const hourlyData = {
+      "temperature": temperature,
+      "wind": wind,
+      "pressure": pressure,
+      "pop": pop
+    }
+
+    return hourlyData;
+  }
+
+
+  renderForecast() {
     if (Session.get('weatherFetched') == 'true') return (
       <div id="forecast-grid">
 
@@ -315,6 +417,30 @@ class WeatherMap extends React.Component {
     )
   }
 
+  renderMeteogram() {
+    // if (navigator.geolocation) {
+    //     navigator.geolocation.getCurrentPosition((position) => {
+    //       console.log(`Lat: ${position.coords.latitude} Lon: ${position.coords.longitude}`);
+    //     });
+    // } else {
+    //     console.log('Geolocation is not supported by this browser.');
+    // }
+
+    if (Session.get('weatherFetched') == 'true') {
+      return (
+        <div className="mdl-grid">
+          <div className="mdl-cell mdl-cell--1-offset-desktop mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+            <Meteogram
+              chartData={Session.get('meteogramData')}
+            />
+          </div>
+        </div>
+
+        
+      )  
+    }
+  }
+
   render() {
     return (
       <div>
@@ -322,6 +448,7 @@ class WeatherMap extends React.Component {
           <div id="map"></div>
         </div>
         {this.renderForecast()}
+        {this.renderMeteogram()}
       </div>
     );
   }

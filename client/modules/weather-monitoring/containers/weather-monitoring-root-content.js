@@ -1,8 +1,11 @@
 import React from 'react';
-import WeatherMap from './../components/weather-map.jsx';
+import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
+
 import {SectionList} from '/client/modules/ui-components';
 import {CoreRootTriSection} from '/client/modules/core';
-import {useDeps, composeAll, composeWithTracker} from 'mantra-core';
+
+import WeatherMap from './weather-monitoring';
+
 
 const composerLandingPage = ({context}, onData) => {
   const {Meteor, Collections} = context();
@@ -16,7 +19,7 @@ const composerLandingPage = ({context}, onData) => {
     const stations = WeatherStations.find().fetch();
 
     if(stations) {
-      console.log(`Found ${WeatherStations.find().count()} stations`)
+      // console.log(`Found ${WeatherStations.find().count()} stations`)
       sections.push(React.createElement(WeatherMap, {stations}));
     }
   }
