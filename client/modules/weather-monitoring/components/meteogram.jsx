@@ -21,7 +21,7 @@ class Meteogram extends React.Component {
       function (chart) {
         // meteogram.onChartLoad(chart);
         console.log("Finished rendering chart...")
-        this.drawIcons();
+        // this.drawIcons();
       });
   }
 
@@ -37,7 +37,10 @@ class Meteogram extends React.Component {
     return {
       title: {
         text: '10 Day Forecast',
-        align: 'left'
+        align: 'left',
+        style: {
+          fontWeight: 'bold'
+        }
       },
 
       rangeSelector: {
@@ -53,13 +56,15 @@ class Meteogram extends React.Component {
           labels: {
             format: '{value}°C',
             style: {
-                color: highcharts.getOptions().colors[0]
+                color: '#ff1a1a',
+                fontWeight: 'bold'
             }
           },
           title: {
             text: 'Temperature',
             style: {
-                color: highcharts.getOptions().colors[0]
+                color: '#ff1a1a',
+                fontWeight: 'bold'
             }
           },
           opposite: false,
@@ -69,13 +74,15 @@ class Meteogram extends React.Component {
           labels: {
             format: '{value} mb',
             style: {
-                color: highcharts.getOptions().colors[1]
+                color: highcharts.getOptions().colors[1],
+                fontWeight: 'bold'
             }
           },
           title: {
             text: 'Pressure',
             style: {
-                color: highcharts.getOptions().colors[1]
+                color: highcharts.getOptions().colors[1],
+                fontWeight: 'bold'
             }
           },
           opposite: true,
@@ -85,13 +92,15 @@ class Meteogram extends React.Component {
           labels: {
             format: '{value} %',
             style: {
-                color: highcharts.getOptions().colors[2]
+                color: '#0066cc',
+                fontWeight: 'bold'
             }
           },
           title: {
             text: 'Chance of Rain',
             style: {
-                color: highcharts.getOptions().colors[2]
+                color: '#0066cc',
+                fontWeight: 'bold'
             }
           },
           opposite: true,
@@ -145,7 +154,8 @@ class Meteogram extends React.Component {
           type: 'spline',
           tooltip: {
             valueDecimals: 1
-          }
+          },
+          color: '#ff1a1a'
         },
         {
           name: 'Pressure',
@@ -153,18 +163,21 @@ class Meteogram extends React.Component {
           data: chartData.series.pressure,
           type: 'spline',
           yAxis: 1,
-          xAxis: 1
+          xAxis: 1,
+          color: highcharts.getOptions().colors[1]
         },
         {
           name: 'Chance of Rain',
           id: 'pop',
           data: chartData.series.pop,
           type: 'spline',
-          yAxis: 2
+          yAxis: 2,
+          color: '#0066cc'
         }
       ],
 
       tooltip: {
+        borderColor: '#cccccc',
         formatter: function () {
           var s = '<b>' + highcharts.dateFormat('%e %b - %H:00', new Date(this.x)) + '</b>';
 

@@ -53,31 +53,30 @@ class WeatherMap extends React.Component {
         .on('click', () => {
           //Store key somewhere
 
-          // $.getJSON(
-          //   `http:\/\/api.wunderground.com/api/9470644e92f975d3/forecast10day/conditions/hourly10day/q/pws:${station.id}.json`,
-          //   (data) => {
-          //     this.data = data;
-          //     Session.set('forecast', data.forecast.simpleforecast.forecastday);
-          //     Session.set('conditions', data.current_observation);
-          //     Session.set('hourlyForecast', data.hourly_forecast);
+          $.getJSON(
+            `http:\/\/api.wunderground.com/api/9470644e92f975d3/forecast10day/conditions/hourly10day/q/pws:${station.id}.json`,
+            (data) => {
+              this.data = data;
+              Session.set('forecast', data.forecast.simpleforecast.forecastday);
+              Session.set('conditions', data.current_observation);
+              Session.set('hourlyForecast', data.hourly_forecast);
 
-          //     this.extractData(data.hourly_forecast)
-
-          //     Session.set('weatherFetched', 'true');
-          //   })
+              Session.set('meteogramData', this.getMeteogramData(data))
+              Session.set('weatherFetched', 'true');
+            })
 
           /*********** TEST DATA ***********/
-          const {getSampleResponse} = this.props;
+          // const {getSampleResponse} = this.props;
 
-          const sampleData = getSampleResponse();
+          // const sampleData = getSampleResponse();
 
-          Session.set('forecast', sampleData.forecast.simpleforecast.forecastday);
-          Session.set('conditions', sampleData.current_observation)
-          Session.set('hourlyForecast', sampleData.hourly_forecast);
+          // Session.set('forecast', sampleData.forecast.simpleforecast.forecastday);
+          // Session.set('conditions', sampleData.current_observation)
+          // Session.set('hourlyForecast', sampleData.hourly_forecast);
 
-          Session.set('meteogramData', this.getMeteogramData(sampleData));
+          // Session.set('meteogramData', this.getMeteogramData(sampleData));
 
-          Session.set('weatherFetched', 'true');
+          // Session.set('weatherFetched', 'true');
           /*********** TEST DATA ***********/
         })
         .addTo(map);
@@ -429,9 +428,15 @@ class WeatherMap extends React.Component {
 
     if (Session.get('weatherFetched') == 'true') {
       return (
-        <Meteogram
-          chartData={Session.get('meteogramData')}
-        />
+        <div className="mdl-grid">
+          <div className="mdl-cell mdl-cell--1-offset-desktop mdl-cell--10-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+            <Meteogram
+              chartData={Session.get('meteogramData')}
+            />
+          </div>
+        </div>
+
+        
       )  
     }
   }
@@ -442,9 +447,8 @@ class WeatherMap extends React.Component {
         <div id="map-container">
           <div id="map"></div>
         </div>
-        {this.renderMeteogram()}
         {this.renderForecast()}
-        
+        {this.renderMeteogram()}
       </div>
     );
   }
