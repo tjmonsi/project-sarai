@@ -82,6 +82,30 @@ class WeatherMap extends React.Component {
         .addTo(map);
     }
 
+    //Display default station (LB)
+    $.getJSON(
+      `http:\/\/api.wunderground.com/api/9470644e92f975d3/forecast10day/conditions/hourly10day/q/pws:ICALABAR6.json`,
+      (data) => {
+        this.data = data;
+        Session.set('forecast', data.forecast.simpleforecast.forecastday);
+        Session.set('conditions', data.current_observation);
+        Session.set('hourlyForecast', data.hourly_forecast);
+
+        Session.set('meteogramData', this.getMeteogramData(data))
+        Session.set('weatherFetched', 'true');
+      })
+
+
+    //Instruction modal
+    const instructionDialog = document.querySelector('#instruction-dialog');
+    if (! instructionDialog.showModal) {
+      dialogPolyfill.registerDialog(instructionDialog);
+    }
+    instructionDialog.querySelector('.close').addEventListener('click', function() {
+      instructionDialog.close();
+    });
+    instructionDialog.showModal();
+
   }
 
   toMeters(elevationFeet) {
@@ -449,6 +473,14 @@ class WeatherMap extends React.Component {
         </div>
         {this.renderForecast()}
         {this.renderMeteogram()}
+        <dialog id="instruction-dialog" className="mdl-dialog">
+          <div className="mdl-dialog__content">
+            {'Select a weather station from the map to view its latest readings and a 10-day forecast.'}
+          </div>
+          <div className="mdl-dialog__actions">
+            <button type="button" className="mdl-button close">OK</button>
+          </div>
+        </dialog>
       </div>
     );
   }
