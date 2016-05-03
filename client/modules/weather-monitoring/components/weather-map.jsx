@@ -256,13 +256,13 @@ class WeatherMap extends React.Component {
                     </div>
                   </div>
                 </div>
-                
+
               </div>
 
               <div className="mdl-cell mdl-cell--9-col mdl-cell--4-col-phone">
                 <div className="mdl-grid">
                   <div className="mdl-cell mdl-cell--12-col">
-                    <h5>Forecast</h5>
+                    <h5>10-Day Forecast</h5>
                   </div>
                   <div className="mdl-cell mdl-cell--12-col">
                     <div className="mdl-grid">
@@ -430,13 +430,13 @@ class WeatherMap extends React.Component {
                 </div>
               </div>
 
-              
+
 
             </div>
           </div>
         </div>
 
-        
+
       </div>
     )
   }
@@ -460,8 +460,8 @@ class WeatherMap extends React.Component {
           </div>
         </div>
 
-        
-      )  
+
+      )
     }
   }
 

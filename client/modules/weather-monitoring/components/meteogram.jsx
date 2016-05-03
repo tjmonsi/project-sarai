@@ -36,7 +36,7 @@ class Meteogram extends React.Component {
 
     return {
       title: {
-        text: '10 Day Forecast',
+        text: 'Detailed 10-Day Forecast',
         align: 'left',
         style: {
           fontWeight: 'bold'
@@ -86,7 +86,7 @@ class Meteogram extends React.Component {
             }
           },
           opposite: true,
-          gridLineWidth: 0       
+          gridLineWidth: 0
         },
         {
           labels: {
@@ -104,7 +104,7 @@ class Meteogram extends React.Component {
             }
           },
           opposite: true,
-          gridLineWidth: 0       
+          gridLineWidth: 0
         }
       ],
 
@@ -132,16 +132,18 @@ class Meteogram extends React.Component {
 
               return s;
             }
-          }
+          },
+          linkedTo: 0
         }
       ],
 
       legend: {
-        layout: 'vertical',
+        enabled: true,
+        layout: 'horizontal',
         align: 'left',
-        x: 80,
+        x: 100,
         verticalAlign: 'top',
-        y: 55,
+        y: 70,
         floating: true,
         backgroundColor: (highcharts.theme && highcharts.theme.legendBackgroundColor) || '#FFFFFF'
       },
@@ -152,6 +154,7 @@ class Meteogram extends React.Component {
           id: 'temperature',
           data: chartData.series.temperature,
           type: 'spline',
+          xAxis: 0,
           tooltip: {
             valueDecimals: 1
           },
@@ -163,8 +166,9 @@ class Meteogram extends React.Component {
           data: chartData.series.pressure,
           type: 'spline',
           yAxis: 1,
-          xAxis: 1,
-          color: highcharts.getOptions().colors[1]
+          xAxis: 0,
+          color: highcharts.getOptions().colors[1],
+          visible: false
         },
         {
           name: 'Chance of Rain',
@@ -172,6 +176,7 @@ class Meteogram extends React.Component {
           data: chartData.series.pop,
           type: 'spline',
           yAxis: 2,
+          xAxis: 0,
           color: '#0066cc'
         }
       ],
